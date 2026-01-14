@@ -1,0 +1,117 @@
+{
+  "water": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/7/75/%E6%B0%B4%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%B0%B4%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "水",
+    "nameEn": "Water",
+    "battleMultiplier": {
+      "offense": {  // 进攻的对战倍率 0.5 表示效果不佳（被克制），2.0 表示效果绝佳（克制）
+        "0.5": ["grass", "dragon", "divineGrass"],
+        "2.0": ["fire", "earth", "rock"]
+      },
+      "defense": {  // 防守方的对战倍率 0.5 表示效果不佳（被克制），2.0 表示效果绝佳（克制）
+        "0.5": ["fire", "ice", "mechanical"],
+        "2.0": ["electric", "grass", "divineFire", "divineGrass", "divineWater"]
+      }
+    }
+  },
+  "fire": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/2/2d/%E7%81%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%81%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "火",
+    "nameEn": "Fire"
+  },
+  "ice": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/a/a4/%E5%86%B0%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E5%86%B0%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "冰",
+    "nameEn": "Ice"
+  },
+  "mechanical": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/2/2e/%E6%9C%BA%E6%A2%B0%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%9C%BA%E6%A2%B0%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "机械",
+    "nameEn": "Mechanical"
+  },
+  "normal": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/1/1f/%E6%99%AE%E9%80%9A%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%99%AE%E9%80%9A%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "普通",
+    "nameEn": "Normal"
+  },
+  "fighting": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/d/d1/%E6%AD%A6%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%AD%A6%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "武",
+    "nameEn": "Fighting"
+  },
+  "poison": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/8/8d/%E6%AF%92%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%AF%92%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "毒",
+    "nameEn": "Poison"
+  },
+  "earth": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/0/03/%E5%9C%9F%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E5%9C%9F%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "土",
+    "nameEn": "Earth"
+  },
+  "wing": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/6/6f/%E7%BF%BC%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%BF%BC%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "翼",
+    "nameEn": "Wing"
+  },
+  "cute": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/2/2c/%E8%90%8C%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E8%90%8C%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "萌",
+    "nameEn": "Cute"
+  },
+  "bug": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/9/9a/%E8%99%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E8%99%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "虫",
+    "nameEn": "Bug"
+  },
+  "rock": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/6/64/%E7%9F%B3%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%9F%B3%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "石",
+    "nameEn": "Rock"
+  },
+  "ghost": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/4/4c/%E5%B9%BD%E7%81%B5%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E5%B9%BD%E7%81%B5%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "幽灵",
+    "nameEn": "Ghost"
+  },
+  "dragon": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/5/5a/%E9%BE%99%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E9%BE%99%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "龙",
+    "nameEn": "Dragon"
+  },
+  "demon": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/b/be/%E6%81%B6%E9%AD%94%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%81%B6%E9%AD%94%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "恶魔",
+    "nameEn": "Demon"
+  },
+  "light": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/6/60/%E5%85%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E5%85%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "光",
+    "nameEn": "Light"
+  },
+  "electric": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/a/a7/%E7%94%B5%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%94%B5%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "电",
+    "nameEn": "Electric"
+  },
+  "grass": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/e/e1/%E8%8D%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E8%8D%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "草",
+    "nameEn": "Grass"
+  },
+  "divineFire": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/e/e6/%E7%A5%9E%E7%81%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%A5%9E%E7%81%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "神火",
+    "nameEn": "Divine Fire"
+  },
+  "divineGrass": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/5/5e/%E7%A5%9E%E8%8D%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%A5%9E%E8%8D%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "神草",
+    "nameEn": "Divine Grass"
+  },
+  "divineWater": {
+    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/7/79/%E7%A5%9E%E6%B0%B4%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%A5%9E%E6%B0%B4%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "nameCn": "神水",
+    "nameEn": "Divine Water"
+  }
+}
