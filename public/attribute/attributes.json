@@ -1,117 +1,293 @@
 {
   "water": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/7/75/%E6%B0%B4%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%B0%B4%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-2.png",
     "nameCn": "水",
     "nameEn": "Water",
     "battleMultiplier": {
-      "offense": {  // 进攻的对战倍率 0.5 表示效果不佳（被克制），2.0 表示效果绝佳（克制）
-        "0.5": ["grass", "dragon", "divineGrass"],
-        "2.0": ["fire", "earth", "rock"]
+      "offense": {
+        // 进攻的对战倍率 0.5 表示效果不佳（被克制），2.0 表示效果绝佳（克制）
+        "0.5": ["grass", "ice", "dragon"],
+        "2.0": ["fire", "ground", "mechanical"]
       },
-      "defense": {  // 防守方的对战倍率 0.5 表示效果不佳（被克制），2.0 表示效果绝佳（克制）
-        "0.5": ["fire", "ice", "mechanical"],
-        "2.0": ["electric", "grass", "divineFire", "divineGrass", "divineWater"]
+      "defense": {
+        // 防守方的对战倍率 0.5 表示效果不佳（被克制），2.0 表示效果绝佳（克制）
+        "0.5": ["fire", "mechanical"],
+        "2.0": ["grass", "electric"]
       }
     }
   },
   "fire": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/2/2d/%E7%81%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%81%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-3.png",
     "nameCn": "火",
-    "nameEn": "Fire"
+    "nameEn": "Fire",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["water", "ground", "dragon"],
+        "2.0": ["grass", "ice", "bug", "mechanical"]
+      },
+      "defense": {
+        "0.5": ["grass", "ice", "bug", "mechanical", "cute"],
+        "2.0": ["water", "ground"]
+      }
+    }
   },
   "ice": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/a/a4/%E5%86%B0%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E5%86%B0%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-7.png",
     "nameCn": "冰",
-    "nameEn": "Ice"
+    "nameEn": "Ice",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["fire", "ice", "mechanical"],
+        "2.0": ["grass", "ground", "dragon", "wing"]
+      },
+      "defense": {
+        "0.5": ["water", "light", "ice"],
+        "2.0": ["fire", "ground", "fighting", "mechanical"]
+      }
+    }
   },
   "mechanical": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/2/2e/%E6%9C%BA%E6%A2%B0%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%9C%BA%E6%A2%B0%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-12.png",
     "nameCn": "机械",
-    "nameEn": "Mechanical"
+    "nameEn": "Mechanical",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["fire", "water", "electric", "mechanical"],
+        "2.0": ["ground", "ice", "cute"]
+      },
+      "defense": {
+        "0.5": [
+          "normal",
+          "poison",
+          "ice",
+          "wing",
+          "bug",
+          "cute",
+          "grass",
+          "mechanical",
+          "dragon",
+          "fantasy"
+        ],
+        "2.0": ["fire", "water", "fighting"]
+      }
+    }
   },
   "normal": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/1/1f/%E6%99%AE%E9%80%9A%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%99%AE%E9%80%9A%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-16.png",
     "nameCn": "普通",
-    "nameEn": "Normal"
+    "nameEn": "Normal",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["ground", "ghost", "mechanical"],
+        "2.0": []
+      },
+      "defense": {
+        "0.5": ["ghost"],
+        "2.0": ["fighting"]
+      }
+    }
   },
   "fighting": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/d/d1/%E6%AD%A6%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%AD%A6%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-8.png",
     "nameCn": "武",
-    "nameEn": "Fighting"
+    "nameEn": "Fighting",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["poison", "bug", "wing", "cute", "ghost", "fantasy"],
+        "2.0": ["normal", "ground", "ice", "demon", "mechanical"]
+      },
+      "defense": {
+        "0.5": ["ground", "bug", "demon"],
+        "2.0": ["cute", "wing", "fantasy"]
+      }
+    }
   },
   "poison": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/8/8d/%E6%AF%92%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%AF%92%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-5.png",
     "nameCn": "毒",
-    "nameEn": "Poison"
-  },
-  "earth": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/0/03/%E5%9C%9F%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E5%9C%9F%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
-    "nameCn": "土",
-    "nameEn": "Earth"
+    "nameEn": "Poison",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["ground", "poison", "ghost", "mechanical"],
+        "2.0": ["grass", "cute"]
+      },
+      "defense": {
+        "0.5": ["grass", "poison", "bug", "fighting", "cute"],
+        "2.0": ["ground", "fantasy", "demon"]
+      }
+    }
   },
   "wing": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/6/6f/%E7%BF%BC%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%BF%BC%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-17.png",
     "nameCn": "翼",
-    "nameEn": "Wing"
+    "nameEn": "Wing",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["ground", "dragon", "electric", "mechanical"],
+        "2.0": ["grass", "bug", "fighting"]
+      },
+      "defense": {
+        "0.5": ["grass", "bug", "fighting"],
+        "2.0": ["electric", "ice"]
+      }
+    }
   },
   "cute": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/2/2c/%E8%90%8C%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E8%90%8C%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-9.png",
     "nameCn": "萌",
-    "nameEn": "Cute"
+    "nameEn": "Cute",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["fire", "poison", "mechanical"],
+        "2.0": ["dragon", "fighting", "demon"]
+      },
+      "defense": {
+        "0.5": ["bug", "fighting"],
+        "2.0": ["demon", "poison", "mechanical"]
+      }
+    }
   },
   "bug": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/9/9a/%E8%99%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E8%99%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-15.png",
     "nameCn": "虫",
-    "nameEn": "Bug"
+    "nameEn": "Bug",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": [
+          "fire",
+          "poison",
+          "fighting",
+          "wing",
+          "cute",
+          "ghost",
+          "mechanical"
+        ],
+        "2.0": ["grass", "fantasy", "demon"]
+      },
+      "defense": {
+        "0.5": ["grass", "ice", "cute", "bug", "mechanical"],
+        "2.0": ["fire", "wing", "water", "ground"]
+      }
+    }
   },
-  "rock": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/6/64/%E7%9F%B3%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%9F%B3%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
-    "nameCn": "石",
-    "nameEn": "Rock"
+  "ground": {
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-18.png",
+    "nameCn": "地面",
+    "nameEn": "Ground",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["grass", "fighting"],
+        "2.0": ["fire", "ice", "electric", "poison"]
+      },
+      "defense": {
+        "0.5": ["normal", "fire", "electric", "poison", "wing"],
+        "2.0": ["grass", "water", "ice", "fighting", "mechanical"]
+      }
+    }
   },
   "ghost": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/4/4c/%E5%B9%BD%E7%81%B5%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E5%B9%BD%E7%81%B5%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-13.png",
     "nameCn": "幽灵",
-    "nameEn": "Ghost"
+    "nameEn": "Ghost",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["normal", "demon"],
+        "2.0": ["light", "ghost", "fantasy"]
+      },
+      "defense": {
+        "0.5": ["normal", "poison", "bug", "fighting"],
+        "2.0": ["light", "ghost", "demon"]
+      }
+    }
   },
   "dragon": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/5/5a/%E9%BE%99%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E9%BE%99%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-11.png",
     "nameCn": "龙",
-    "nameEn": "Dragon"
+    "nameEn": "Dragon",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["mechanical"],
+        "2.0": ["dragon"]
+      },
+      "defense": {
+        "0.5": ["grass", "fire", "water", "electric", "wing"],
+        "2.0": ["ice", "dragon", "cute"]
+      }
+    }
   },
   "demon": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/b/be/%E6%81%B6%E9%AD%94%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E6%81%B6%E9%AD%94%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-14.png",
     "nameCn": "恶魔",
-    "nameEn": "Demon"
+    "nameEn": "Demon",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["light", "fighting", "demon"],
+        "2.0": ["poison", "ghost", "cute"]
+      },
+      "defense": {
+        "0.5": ["ghost", "demon"],
+        "2.0": ["light", "fighting", "bug", "cute"]
+      }
+    }
   },
   "light": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/6/60/%E5%85%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E5%85%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-10.png",
     "nameCn": "光",
-    "nameEn": "Light"
+    "nameEn": "Light",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["grass", "ice"],
+        "2.0": ["ghost", "demon"]
+      },
+      "defense": {
+        "0.5": ["fantasy", "demon"],
+        "2.0": ["grass", "ghost"]
+      }
+    }
   },
   "electric": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/a/a7/%E7%94%B5%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%94%B5%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-4.png",
     "nameCn": "电",
-    "nameEn": "Electric"
+    "nameEn": "Electric",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["grass", "ground", "dragon", "electric"],
+        "2.0": ["water", "wing"]
+      },
+      "defense": {
+        "0.5": ["electric", "wing", "mechanical"],
+        "2.0": ["ground"]
+      }
+    }
   },
   "grass": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/e/e1/%E8%8D%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E8%8D%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-1.png",
     "nameCn": "草",
-    "nameEn": "Grass"
+    "nameEn": "Grass",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["fire", "dragon", "poison", "bug", "wing", "mechanical"],
+        "2.0": ["water", "ground"]
+      },
+      "defense": {
+        "0.5": ["water", "light", "ground", "electric"],
+        "2.0": ["fire", "ice", "poison", "bug", "wing"]
+      }
+    }
   },
-  "divineFire": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/e/e6/%E7%A5%9E%E7%81%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%A5%9E%E7%81%AB%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
-    "nameCn": "神火",
-    "nameEn": "Divine Fire"
-  },
-  "divineGrass": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/5/5e/%E7%A5%9E%E8%8D%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%A5%9E%E8%8D%89%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
-    "nameCn": "神草",
-    "nameEn": "Divine Grass"
-  },
-  "divineWater": {
-    "logoUrl": "https://huiji-thumb.huijistatic.com/rocokingdom/uploads/thumb/7/79/%E7%A5%9E%E6%B0%B4%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png/50px-%E7%A5%9E%E6%B0%B4%E5%B1%9E%E6%80%A7%E5%9B%BE%E6%A0%87.png",
-    "nameCn": "神水",
-    "nameEn": "Divine Water"
+  "fantasy": {
+    "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-6.png",
+    "nameCn": "幻",
+    "nameEn": "Fantasy",
+    "battleMultiplier": {
+      "offense": {
+        "0.5": ["light", "fantasy", "mechanical"],
+        "2.0": ["poison", "fighting"]
+      },
+      "defense": {
+        "0.5": ["fighting", "fantasy"],
+        "2.0": ["ghost", "bug"]
+      }
+    }
   }
 }
