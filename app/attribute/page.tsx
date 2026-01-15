@@ -11,12 +11,38 @@ async function getAttributes() {
     "attributes.json"
   );
   const raw = await fs.readFile(filePath, "utf8");
-  return JSON.parse(raw) as Record<string, AttributeItem>;
+  const sanitized = raw.replace(/\/\/.*$/gm, (match, offset) => {
+    const before = raw.slice(0, offset);
+    const inString = (() => {
+      let isString = false;
+      let isEscape = false;
+      for (let i = 0; i < before.length; i += 1) {
+        const char = before[i];
+        if (isEscape) {
+          isEscape = false;
+          continue;
+        }
+        if (char === "\\") {
+          isEscape = true;
+          continue;
+        }
+        if (char === "\"") {
+          isString = !isString;
+        }
+      }
+      return isString;
+    })();
+    return inString ? match : "";
+  });
+  return JSON.parse(sanitized) as Record<string, AttributeItem>;
 }
 
 export default async function AttributePage() {
   const attributes = await getAttributes();
-  const attributeEntries = Object.values(attributes);
+  const attributeEntries = Object.entries(attributes).map(([key, value]) => ({
+    key,
+    ...value,
+  }));
   return (
     <div className="relative min-h-screen overflow-hidden bg-transparent text-[#101828]">
       <main className="relative mx-auto flex min-h-[calc(100vh-56px)] max-w-7xl items-center justify-center px-6 pb-0 pt-14">
