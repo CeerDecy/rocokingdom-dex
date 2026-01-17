@@ -274,7 +274,11 @@ export default function DexClient({ pets, attributes }: DexClientProps) {
                     <button
                       type="button"
                       onClick={() => handlePetSwitch(creature.evolutionPrevKey)}
-                      className="group relative h-84 w-84 opacity-50 transition duration-300 hover:opacity-100 sm:h-84 sm:w-84 cursor-pointer"
+                      className={`group relative h-84 w-84 cursor-pointer transition duration-300 hover:opacity-100 sm:h-84 sm:w-84 ${
+                        isSwitching
+                          ? "opacity-0 translate-y-2"
+                          : "opacity-50 translate-y-0"
+                      }`}
                       aria-label={`查看${creature.evolutionPrevName || "进化前精灵"}`}
                     >
                       <Image
@@ -290,7 +294,11 @@ export default function DexClient({ pets, attributes }: DexClientProps) {
                     <button
                       type="button"
                       onClick={() => handlePetSwitch(creature.evolutionNextKey)}
-                      className="group relative h-84 w-84 opacity-50 transition duration-300 hover:opacity-100 sm:h-84 sm:w-84 cursor-pointer"
+                      className={`group relative h-84 w-84 cursor-pointer transition duration-300 hover:opacity-100 sm:h-84 sm:w-84 ${
+                        isSwitching
+                          ? "opacity-0 translate-y-2"
+                          : "opacity-50 translate-y-0"
+                      }`}
                       aria-label={`查看${creature.evolutionNextName || "进化后精灵"}`}
                     >
                       <Image

@@ -1,4 +1,18 @@
 {
+  "dimor": {
+    "name": {
+      "zh": "迪莫",
+      "en": "Dimor"
+    },
+    "image": "001.png",
+    "attributes": ["light"],
+    "introduction": {
+      "zh": "这是关于勇气的故事，宣很脆弱 却也不曾退维。这是关于梦想的 故事。梦很简单却也执着。这就是我。迪莫",
+      "en": "dd attribute filter bar and interactive dex selection UI."
+    },
+    "evolution": null,
+    "distribution": null
+  },
   "spark": {
     "name": {
       "zh": "火花",
@@ -53,5 +67,115 @@
       "prev": "flame"
     },
     "distribution": null
+  },
+  "waterSpirit": {
+    "name": {
+      "zh": "水灵",
+      "en": "Water Spirit"
+    },
+    "image": "010.png",
+    "attributes": ["water"],
+    "introduction": {
+      "zh": "随时带着刚刚长大的孩子，擅长吸收水分，形成强大的冲击力",
+      "en": "It guards its newly grown young while using absorbed water to unleash powerful impacts."
+    },
+    "evolution": {
+      "prev": "boBoLa"
+    },
+    "distribution": null
+  },
+  "boBoLa": {
+    "name": {
+      "zh": "波波拉",
+      "en": "BoBOLa"
+    },
+    "image": "009.png",
+    "attributes": ["water"],
+    "introduction": {
+      "zh": "头上的触角可以感受，水中细微的变化，体型变大了长满了小触角",
+      "en": "Its head antennae detect faint water movements. Having grown in size, its body is now covered with small tentacles."
+    },
+    "evolution": {
+      "level": 36,
+      "next": "waterSpirit",
+      "prev": "shuiLanLan"
+    },
+    "distribution": null
+  },
+  "shuiLanLan": {
+    "name": {
+      "zh": "水蓝蓝",
+      "en": "ShuiLanLan"
+    },
+    "image": "008.png",
+    "attributes": ["water"],
+    "introduction": {
+      "zh": "喜欢漂浮在水中，没事吐个泡泡，头顶有个漂亮的蝴蝶结",
+      "en": "It likes to float in the water, idly blowing bubbles, with a pretty bow tied on its head."
+    },
+    "evolution": {
+      "level": 16,
+      "next": "boBoLa",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "杰诺斯浅海、弹弹机几率获得",
+      "en": "Can be obtained from the Bounce Machine in Genos Shallows with a certain probability."
+    }
+  },
+  "magicalCat": {
+    "name": {
+      "zh": "魔力猫",
+      "en": "Magical Cat"
+    },
+    "image": "004.png",
+    "attributes": ["grass"],
+    "introduction": {
+      "zh": "长了三条锋利的尾巴,胖胖的身体，经常会有身体冲撞碾压对手",
+      "en": "It grows three sharp tails. With its chubby body, it often charges and crushes its opponents."
+    },
+    "evolution": {
+      "prev": "miaoWu"
+    },
+    "distribution": null
+  },
+  "miaoWu": {
+    "name": {
+      "zh": "喵呜",
+      "en": "MiaoWu"
+    },
+    "image": "003.png",
+    "attributes": ["grass"],
+    "introduction": {
+      "zh": "长出两条锋利的尾巴 经常吐出舌头挑衅对方瘦弱的身体撞击强而有力",
+      "en": "This Pokémon grows two sharp tails and often sticks out its tongue to provoke its foes. Despite its skinny build, its tackles are surprisingly powerful."
+    },
+    "evolution": {
+      "level": 32,
+      "next": "magicalCat",
+      "prev": "miaoMiao"
+    },
+    "distribution": null
+  },
+  "miaoMiao": {
+    "name": {
+      "zh": "喵喵",
+      "en": "MiaoMiao"
+    },
+    "image": "002.png",
+    "attributes": ["grass"],
+    "introduction": {
+      "zh": "不停摇晃的尾巴容易受到惊吓平时很乖巧",
+      "en": "With a constantly wagging tail, it is easily startled but usually well-behaved."
+    },
+    "evolution": {
+      "level": 16,
+      "next": "miaoWu",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "轻风山、弹弹机、宠物园",
+      "en": "Breeze Hill、Bounce Machine、Pet Garden"
+    }
   }
 }
