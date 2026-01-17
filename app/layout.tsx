@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import HeaderBar from "../components/HeaderBar";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -48,7 +47,6 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${bebasNeue.variable} antialiased`}
       >
-        <HeaderBar />
         {children}
       </body>
     </html>

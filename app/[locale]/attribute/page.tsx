@@ -6,6 +6,12 @@ import type { Metadata } from "next";
 import AttributePageHeader from "@/components/AttributePageHeader";
 import AttributeRing, { type AttributeItem } from "@/components/AttributeRing";
 
+type AttributePageProps = {
+  params: Promise<{
+    locale: string;
+  }>;
+};
+
 async function getAttributes() {
   const filePath = path.join(
     process.cwd(),
@@ -40,13 +46,27 @@ async function getAttributes() {
   return JSON.parse(sanitized) as Record<string, AttributeItem>;
 }
 
-export const metadata: Metadata = {
-  title: "洛克王国：世界 属性克制关系",
-  description:
-    "查看洛克王国属性克制关系，可在进攻与防守视角间切换并了解克制与弱势。",
-};
+export async function generateMetadata({
+  params,
+}: AttributePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  if (locale === "en") {
+    return {
+      title: "Rocokindom World: Attribute Matchups",
+      description:
+        "View attribute matchups in Rocokindom World and switch between offense and defense perspectives.",
+    };
+  }
 
-export default async function AttributePage() {
+  return {
+    title: "洛克王国：世界 属性克制关系",
+    description:
+      "查看洛克王国属性克制关系，可在进攻与防守视角间切换并了解克制与弱势。",
+  };
+}
+
+export default async function AttributePage({ params }: AttributePageProps) {
+  const { locale } = await params;
   const attributes = await getAttributes();
   const attributeEntries = Object.entries(attributes).map(([key, value]) => ({
     key,
@@ -57,7 +77,7 @@ export default async function AttributePage() {
     <div className="relative min-h-screen overflow-hidden bg-transparent text-[#101828]">
       <main className="relative mx-auto flex min-h-[calc(100vh-56px)] max-w-7xl flex-col items-center justify-center gap-6 px-6 pt-14">
         <AttributePageHeader />
-        <AttributeRing attributes={attributeEntries} />
+        <AttributeRing attributes={attributeEntries} key={locale} />
       </main>
     </div>
   );

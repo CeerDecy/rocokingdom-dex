@@ -1,0 +1,13 @@
+{
+  "header.navDex": "Dex",
+  "header.navAttribute": "Attributes",
+  "attribute.pageTitle": "Rocokindom World: Attribute Matchups",
+  "attribute.pageSubtitle": "Hover or click an attribute to view matchups and notes. Toggle offense/defense perspectives.",
+  "attribute.modeOffense": "Offense",
+  "attribute.modeDefense": "Defense",
+  "attribute.panelTitle": "Attribute Profile",
+  "attribute.selectPrompt": "Select an attribute",
+  "attribute.fallbackLabel": "Attribute",
+  "attribute.noDescription": "No description yet.",
+  "attribute.helperText": "Hover or click any attribute icon on the ring to view matchups and notes."
+}

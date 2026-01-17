@@ -6,6 +6,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { useLanguage } from "@/components/i18n/language-context";
 
 export type AttributeItem = {
   key: string;
@@ -31,6 +32,9 @@ export default function AttributeRing({
   attributes,
   initialSelectedKey = null,
 }: AttributeRingProps) {
+  const { locale, currentMessages } = useLanguage();
+  const t = (key: string, fallback: string) =>
+    (currentMessages?.[key] as string) ?? fallback;
   const initialAttribute = useMemo(() => {
     if (!initialSelectedKey) return null;
     return attributes.find((item) => item.key === initialSelectedKey) ?? null;
@@ -70,8 +74,15 @@ export default function AttributeRing({
   const offenseWeak = offenseMultipliers["0.5"] ?? [];
   const defenseStrong = defenseMultipliers["2.0"] ?? [];
   const defenseWeak = defenseMultipliers["0.5"] ?? [];
-  const description = displayAttribute?.description;
-  const hasDescription = Boolean(description?.zh || description?.en);
+  const description =
+    displayAttribute?.description?.[locale] ??
+    displayAttribute?.description?.zh ??
+    displayAttribute?.description?.en ??
+    "";
+  const hasDescription = Boolean(description);
+  const labelFor = (item: AttributeItem) =>
+    locale === "en" ? item.nameEn : item.nameCn;
+  const attributeSuffix = locale === "en" ? "attribute" : "属性";
 
   useEffect(() => {
     if (!initialSelectedKey || !initialAttribute) {
@@ -124,7 +135,7 @@ export default function AttributeRing({
             }`}
             aria-pressed={mode === "offense"}
           >
-            进攻方
+            {t("attribute.modeOffense", "进攻方")}
           </button>
           <button
             type="button"
@@ -136,7 +147,7 @@ export default function AttributeRing({
             }`}
             aria-pressed={mode === "defense"}
           >
-            防守方
+            {t("attribute.modeDefense", "防守方")}
           </button>
         </div>
         <div className="mt-6 flex items-start justify-between gap-4">
@@ -145,7 +156,11 @@ export default function AttributeRing({
               <div className="flex h-14 w-14 items-center justify-center rounded-full border border-black/10 bg-white/90">
                 <img
                   src={displayAttribute.logoUrl}
-                  alt={`${displayAttribute.nameCn}属性`}
+                  alt={`${
+                    locale === "en"
+                      ? displayAttribute.nameEn
+                      : displayAttribute.nameCn
+                  } ${attributeSuffix}`}
                   className="h-8 w-8"
                   loading="lazy"
                 />
@@ -153,13 +168,21 @@ export default function AttributeRing({
             ) : null}
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-black/40">
-                属性档案
+                {t("attribute.panelTitle", "属性档案")}
               </p>
               <h2 className="mt-2 text-2xl font-semibold text-black">
-                {displayAttribute ? displayAttribute.nameCn : "请选择属性"}
+                {displayAttribute
+                  ? locale === "en"
+                    ? displayAttribute.nameEn
+                    : displayAttribute.nameCn
+                  : t("attribute.selectPrompt", "请选择属性")}
               </h2>
               <p className="text-xs uppercase tracking-[0.2em] text-black/45">
-                {displayAttribute ? displayAttribute.nameEn : "Attribute"}
+                {displayAttribute
+                  ? locale === "en"
+                    ? displayAttribute.nameCn
+                    : displayAttribute.nameEn
+                  : t("attribute.fallbackLabel", "Attribute")}
               </p>
             </div>
           </div>
@@ -167,17 +190,20 @@ export default function AttributeRing({
         <div className="mt-4 space-y-3 text-sm text-black/70">
           {displayAttribute ? (
             hasDescription ? (
-              description?.zh ? (
-                <p className="whitespace-pre-line text-base text-black/85">
-                  {description.zh}
-                </p>
-              ) : null
+              <p className="whitespace-pre-line text-base text-black/85">
+                {description}
+              </p>
             ) : (
-              <p className="text-black/60">暂未添加说明。</p>
+              <p className="text-black/60">
+                {t("attribute.noDescription", "暂未添加说明。")}
+              </p>
             )
           ) : (
             <p className="text-black/55">
-              悬停或点击环形上的任意属性图标，即可查看说明与克制关系。
+              {t(
+                "attribute.helperText",
+                "悬停或点击环形上的任意属性图标，即可查看说明与克制关系。",
+              )}
             </p>
           )}
         </div>
@@ -275,7 +301,7 @@ export default function AttributeRing({
                       <button
                         type="button"
                         className="flex h-12 w-12 cursor-pointer items-center justify-center transition-transform duration-300 hover:scale-128 sm:h-14 sm:w-14"
-                        aria-label={`${item.nameCn}属性`}
+                        aria-label={`${labelFor(item)} ${attributeSuffix}`}
                         aria-pressed={lockedAttribute?.key === item.key}
                         onClick={() => {
                           setLockedAttribute((prev) =>
@@ -301,7 +327,7 @@ export default function AttributeRing({
                       >
                         <img
                           src={item.logoUrl}
-                          alt={`${item.nameCn}属性`}
+                          alt={`${labelFor(item)} ${attributeSuffix}`}
                           className="animate-ring-logo h-12 w-12 drop-shadow-[0_8px_18px_rgba(15,23,42,0.16)] sm:h-14 sm:w-14"
                           style={{ animationDelay: `${index * 60}ms` }}
                           loading="lazy"
@@ -309,7 +335,7 @@ export default function AttributeRing({
                       </button>
                     </HoverCardTrigger>
                     <HoverCardContent className="w-28 border-black/10 bg-white/95 px-3 py-2 text-center text-sm text-black">
-                      <div className="font-semibold">{item.nameCn}</div>
+                      <div className="font-semibold">{labelFor(item)}</div>
                       <div className="text-[10px] uppercase tracking-[0.2em] text-black/50">
                         {item.nameEn}
                       </div>
@@ -324,7 +350,11 @@ export default function AttributeRing({
           {displayAttribute ? (
             <img
               src={displayAttribute.logoUrl}
-              alt={`${displayAttribute.nameCn}属性`}
+              alt={`${
+                locale === "en"
+                  ? displayAttribute.nameEn
+                  : displayAttribute.nameCn
+              } ${attributeSuffix}`}
               className={`h-12 w-12 transition-opacity duration-200 sm:h-14 sm:w-14 ${
                 isCenterVisible ? "opacity-100" : "opacity-0"
               }`}

@@ -1,0 +1,13 @@
+{
+  "header.navDex": "图鉴",
+  "header.navAttribute": "属性克制",
+  "attribute.pageTitle": "洛克王国：世界 属性克制关系",
+  "attribute.pageSubtitle": "点击或悬停属性，查看克制关系与说明。支持进攻/防守视角切换。",
+  "attribute.modeOffense": "进攻方",
+  "attribute.modeDefense": "防守方",
+  "attribute.panelTitle": "属性档案",
+  "attribute.selectPrompt": "请选择属性",
+  "attribute.fallbackLabel": "Attribute",
+  "attribute.noDescription": "暂未添加说明。",
+  "attribute.helperText": "悬停或点击环形上的任意属性图标，即可查看说明与克制关系。"
+}
