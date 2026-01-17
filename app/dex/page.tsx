@@ -1,6 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import type { Metadata } from "next";
+
 import DexClient from "@/components/DexClient";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
 
@@ -44,9 +46,77 @@ async function getAttributes() {
   return JSON.parse(sanitized) as Record<string, AttributeData>;
 }
 
-export default async function DexPage() {
+type DexPageProps = {
+  searchParams?: Promise<{
+    attr?: string | string[];
+  }>;
+};
+
+const resolveFilter = (
+  attr: string | string[] | undefined,
+  attributes: Record<string, AttributeData>,
+) => {
+  if (!attr) return null;
+  const value = Array.isArray(attr) ? attr[0] : attr;
+  return attributes[value] ? value : null;
+};
+
+export async function generateMetadata({
+  searchParams,
+}: DexPageProps): Promise<Metadata> {
+  const baseMetadata: Metadata = {
+    title: "洛克王国图鉴档案",
+    description: "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+    alternates: {
+      canonical: "/dex",
+    },
+    openGraph: {
+      title: "洛克王国图鉴档案",
+      description: "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+      url: "/dex",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "洛克王国图鉴档案",
+      description: "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+    },
+  };
+  const attributes = await getAttributes();
+  const resolvedSearchParams = await searchParams;
+  const activeFilter = resolveFilter(resolvedSearchParams?.attr, attributes);
+  if (!activeFilter) return baseMetadata;
+
+  const attributeName = attributes[activeFilter]?.nameCn ?? activeFilter;
+  const title = `${attributeName}属性 · 洛克王国图鉴档案`;
+  const description = `查看${attributeName}属性精灵，筛选洛可王国图鉴中的生态、进化与技能。`;
+  const canonical = `/dex?attr=${encodeURIComponent(activeFilter)}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
+
+export default async function DexPage({ searchParams }: DexPageProps) {
   const pets = await getPets();
   const attributes = await getAttributes();
+  const resolvedSearchParams = await searchParams;
+  const activeFilter = resolveFilter(resolvedSearchParams?.attr, attributes);
   const petEntries = Object.entries(pets)
     .map(([key, value]) => ({
       key,
@@ -58,5 +128,17 @@ export default async function DexPage() {
       return aId - bId;
     });
 
-  return <DexClient pets={petEntries} attributes={attributes} />;
+  const filteredPets = activeFilter
+    ? petEntries.filter((pet) => pet.attributes?.includes(activeFilter))
+    : petEntries;
+  const activeKey = filteredPets[0]?.key ?? petEntries[0]?.key ?? "unknown";
+  return (
+    <DexClient
+      pets={petEntries}
+      attributes={attributes}
+      activeKey={activeKey}
+      activeFilter={activeFilter}
+      basePath="/dex"
+    />
+  );
 }

@@ -1,6 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import type { Metadata } from "next";
+
 import AttributeRing, { type AttributeItem } from "@/components/AttributeRing";
 
 async function getAttributes() {
@@ -8,7 +10,7 @@ async function getAttributes() {
     process.cwd(),
     "public",
     "attribute",
-    "attributes.json"
+    "attributes.json",
   );
   const raw = await fs.readFile(filePath, "utf8");
   const sanitized = raw.replace(/\/\/.*$/gm, (match, offset) => {
@@ -26,7 +28,7 @@ async function getAttributes() {
           isEscape = true;
           continue;
         }
-        if (char === "\"") {
+        if (char === '"') {
           isString = !isString;
         }
       }
@@ -36,6 +38,12 @@ async function getAttributes() {
   });
   return JSON.parse(sanitized) as Record<string, AttributeItem>;
 }
+
+export const metadata: Metadata = {
+  title: "洛克王国：世界 属性克制关系",
+  description:
+    "查看洛克王国属性克制关系，可在进攻与防守视角间切换并了解克制与弱势。",
+};
 
 export default async function AttributePage() {
   const attributes = await getAttributes();

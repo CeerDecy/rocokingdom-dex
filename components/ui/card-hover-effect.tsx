@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
   HoverCard,
@@ -159,38 +160,74 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           {isFilter ? (
-            <button
-              type="button"
-              onClick={item.onClick}
-              className="w-auto text-left"
-            >
-              <Card
-                size="compact"
-                className={cn(
-                  "w-auto bg-white/80",
-                  item.active
-                    ? "border-neutral-300/[0.6]"
-                    : "border-neutral-200/[0.5]",
-                )}
+            item.link ? (
+              <Link
+                href={item.link}
+                className="w-auto text-left"
+                aria-current={item.active ? "page" : undefined}
               >
-                <div className="flex flex-col items-center justify-center gap-2 text-center">
-                  <HoverCard>
-                    <HoverCardTrigger asChild>
-                      <CardIcon className="mb-0 size-9 bg-transparent">
-                        {item.icon}
-                      </CardIcon>
-                    </HoverCardTrigger>
-                    <HoverCardContent
-                      className="w-auto rounded-full border border-black/10 bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/60"
-                      side="top"
-                    >
-                      {item.title}
-                    </HoverCardContent>
-                  </HoverCard>
-                  <span className="sr-only">{item.title}</span>
-                </div>
-              </Card>
-            </button>
+                <Card
+                  size="compact"
+                  className={cn(
+                    "w-auto bg-white/80",
+                    item.active
+                      ? "border-neutral-300/[0.6]"
+                      : "border-neutral-200/[0.5]",
+                  )}
+                >
+                  <div className="flex flex-col items-center justify-center gap-2 text-center">
+                    <HoverCard>
+                      <HoverCardTrigger asChild>
+                        <CardIcon className="mb-0 size-9 bg-transparent">
+                          {item.icon}
+                        </CardIcon>
+                      </HoverCardTrigger>
+                      <HoverCardContent
+                        className="w-auto rounded-full border border-black/10 bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/60"
+                        side="top"
+                      >
+                        {item.title}
+                      </HoverCardContent>
+                    </HoverCard>
+                    <span className="sr-only">{item.title}</span>
+                  </div>
+                </Card>
+              </Link>
+            ) : (
+              <button
+                type="button"
+                onClick={item.onClick}
+                className="w-auto text-left"
+                aria-pressed={item.active}
+              >
+                <Card
+                  size="compact"
+                  className={cn(
+                    "w-auto bg-white/80",
+                    item.active
+                      ? "border-neutral-300/[0.6]"
+                      : "border-neutral-200/[0.5]",
+                  )}
+                >
+                  <div className="flex flex-col items-center justify-center gap-2 text-center">
+                    <HoverCard>
+                      <HoverCardTrigger asChild>
+                        <CardIcon className="mb-0 size-9 bg-transparent">
+                          {item.icon}
+                        </CardIcon>
+                      </HoverCardTrigger>
+                      <HoverCardContent
+                        className="w-auto rounded-full border border-black/10 bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/60"
+                        side="top"
+                      >
+                        {item.title}
+                      </HoverCardContent>
+                    </HoverCard>
+                    <span className="sr-only">{item.title}</span>
+                  </div>
+                </Card>
+              </button>
+            )
           ) : (
             <Card>
               <CardIcon>{item.icon}</CardIcon>
