@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 
 import DexClient from "@/components/DexClient";
+import { LanguageProvider } from "@/components/i18n/language-context";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
 
 type DexPageProps = {
@@ -188,13 +189,15 @@ export default async function DexDetailPage({
           __html: JSON.stringify(structuredData),
         }}
       />
-      <DexClient
-        pets={petEntries}
-        attributes={attributes}
-        activeKey={activePet?.key ?? petEntries[0]?.key ?? "unknown"}
-        activeFilter={activeFilter}
-        basePath={`/dex/${activePet?.key ?? "unknown"}`}
-      />
+      <LanguageProvider initialLocale="zh">
+        <DexClient
+          pets={petEntries}
+          attributes={attributes}
+          activeKey={activePet?.key ?? petEntries[0]?.key ?? "unknown"}
+          activeFilter={activeFilter}
+          basePath={`/dex/${activePet?.key ?? "unknown"}`}
+        />
+      </LanguageProvider>
     </>
   );
 }

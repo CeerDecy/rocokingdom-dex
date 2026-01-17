@@ -4,6 +4,7 @@ import path from "node:path";
 import type { Metadata } from "next";
 
 import DexClient from "@/components/DexClient";
+import { LanguageProvider } from "@/components/i18n/language-context";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
 
 async function getPets() {
@@ -133,12 +134,14 @@ export default async function DexPage({ searchParams }: DexPageProps) {
     : petEntries;
   const activeKey = filteredPets[0]?.key ?? petEntries[0]?.key ?? "unknown";
   return (
-    <DexClient
-      pets={petEntries}
-      attributes={attributes}
-      activeKey={activeKey}
-      activeFilter={activeFilter}
-      basePath="/dex"
-    />
+    <LanguageProvider initialLocale="zh">
+      <DexClient
+        pets={petEntries}
+        attributes={attributes}
+        activeKey={activeKey}
+        activeFilter={activeFilter}
+        basePath="/dex"
+      />
+    </LanguageProvider>
   );
 }

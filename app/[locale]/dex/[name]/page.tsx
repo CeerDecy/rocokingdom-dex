@@ -6,6 +6,7 @@ import { notFound, redirect } from "next/navigation";
 
 import DexClient from "@/components/DexClient";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
+import { getMessage, loadMessages } from "@/lib/i18n-messages";
 
 type DexPageProps = {
   params: Promise<{
@@ -95,6 +96,7 @@ export async function generateMetadata({
   params,
 }: DexPageProps): Promise<Metadata> {
   const resolvedParams = await params;
+  const messages = await loadMessages(resolvedParams.locale);
   const pets = await getPets();
   const normalizedName = normalizeKey(String(resolvedParams?.name ?? ""));
   const petEntry = Object.entries(pets).find(
@@ -102,7 +104,7 @@ export async function generateMetadata({
   );
   if (!petEntry) {
     return {
-      title: "精灵未找到",
+      title: getMessage(messages, "dex.metaNotFoundTitle", "精灵未找到"),
       robots: {
         index: false,
         follow: false,
@@ -111,9 +113,29 @@ export async function generateMetadata({
   }
 
   const [key, pet] = petEntry;
-  const title = `${pet.name?.zh ?? "精灵"} · 洛克王国图鉴档案`;
+  const locale = resolvedParams.locale;
+  const petName =
+    locale === "en"
+      ? (pet.name?.en ?? pet.name?.zh ?? "Unknown")
+      : (pet.name?.zh ?? pet.name?.en ?? "精灵");
+  const titleSuffix = getMessage(messages, "dex.metaTitle", "洛克王国图鉴档案");
+  const title = `${petName} · ${titleSuffix}`;
   const description =
-    pet.introduction?.zh ?? "查看该精灵的属性、生态分布与进化路径。";
+    locale === "en"
+      ? (pet.introduction?.en ??
+        pet.introduction?.zh ??
+        getMessage(
+          messages,
+          "dex.metaDetailFallback",
+          "查看该精灵的属性、生态分布与进化路径。",
+        ))
+      : (pet.introduction?.zh ??
+        pet.introduction?.en ??
+        getMessage(
+          messages,
+          "dex.metaDetailFallback",
+          "查看该精灵的属性、生态分布与进化路径。",
+        ));
   const imagePath = pet.image ? `/pets/${pet.image}` : "/pets/001.png";
   const canonical = `/${resolvedParams.locale}/dex/${key}`;
 
@@ -148,6 +170,7 @@ export default async function DexDetailPage({
   searchParams,
 }: DexPageProps) {
   const resolvedParams = await params;
+  const messages = await loadMessages(resolvedParams.locale);
   const resolvedSearchParams = await searchParams;
   const pets = await getPets();
   const attributes = await getAttributes();
@@ -168,13 +191,27 @@ export default async function DexDetailPage({
   const imagePath = activePet?.image
     ? `/pets/${activePet.image}`
     : "/pets/001.png";
+  const fallbackDescription = getMessage(
+    messages,
+    "dex.metaDetailFallback",
+    "查看该精灵的属性、生态分布与进化路径。",
+  );
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    name: activePet?.name?.zh ?? "精灵",
+    name:
+      resolvedParams.locale === "en"
+        ? (activePet?.name?.en ?? activePet?.name?.zh ?? "Unknown")
+        : (activePet?.name?.zh ?? activePet?.name?.en ?? "精灵"),
     alternateName: activePet?.name?.en ?? undefined,
     description:
-      activePet?.introduction?.zh ?? "查看该精灵的属性、生态分布与进化路径。",
+      resolvedParams.locale === "en"
+        ? (activePet?.introduction?.en ??
+          activePet?.introduction?.zh ??
+          fallbackDescription)
+        : (activePet?.introduction?.zh ??
+          activePet?.introduction?.en ??
+          fallbackDescription),
     image: new URL(imagePath, siteUrl).toString(),
     inLanguage: resolvedParams.locale === "en" ? "en-US" : "zh-CN",
     url: new URL(
@@ -183,7 +220,7 @@ export default async function DexDetailPage({
     ).toString(),
     isPartOf: {
       "@type": "WebSite",
-      name: "Rocokindom Dex",
+      name: getMessage(messages, "dex.metaSiteName", "Rocokindom Dex"),
       url: siteUrl,
     },
   };

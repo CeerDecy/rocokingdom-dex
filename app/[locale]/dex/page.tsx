@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 
 import DexClient from "@/components/DexClient";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
+import { getMessage, loadMessages } from "@/lib/i18n-messages";
 
 type DexPageProps = {
   params: Promise<{
@@ -69,22 +70,35 @@ export async function generateMetadata({
   searchParams,
 }: DexPageProps): Promise<Metadata> {
   const { locale } = await params;
+  const messages = await loadMessages(locale);
   const baseMetadata: Metadata = {
-    title: "洛克王国图鉴档案",
-    description: "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+    title: getMessage(messages, "dex.metaTitle", "洛克王国图鉴档案"),
+    description: getMessage(
+      messages,
+      "dex.metaDescription",
+      "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+    ),
     alternates: {
       canonical: `/${locale}/dex`,
     },
     openGraph: {
-      title: "洛克王国图鉴档案",
-      description: "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+      title: getMessage(messages, "dex.metaTitle", "洛克王国图鉴档案"),
+      description: getMessage(
+        messages,
+        "dex.metaDescription",
+        "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+      ),
       url: `/${locale}/dex`,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "洛克王国图鉴档案",
-      description: "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+      title: getMessage(messages, "dex.metaTitle", "洛克王国图鉴档案"),
+      description: getMessage(
+        messages,
+        "dex.metaDescription",
+        "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+      ),
     },
   };
   const attributes = await getAttributes();
@@ -92,9 +106,24 @@ export async function generateMetadata({
   const activeFilter = resolveFilter(resolvedSearchParams?.attr, attributes);
   if (!activeFilter) return baseMetadata;
 
-  const attributeName = attributes[activeFilter]?.nameCn ?? activeFilter;
-  const title = `${attributeName}属性 · 洛克王国图鉴档案`;
-  const description = `查看${attributeName}属性精灵，筛选洛可王国图鉴中的生态、进化与技能。`;
+  const attributeName =
+    locale === "en"
+      ? (attributes[activeFilter]?.nameEn ??
+        attributes[activeFilter]?.nameCn ??
+        activeFilter)
+      : (attributes[activeFilter]?.nameCn ??
+        attributes[activeFilter]?.nameEn ??
+        activeFilter);
+  const title = getMessage(
+    messages,
+    "dex.metaFilterTitle",
+    "{attribute}属性 · 洛克王国图鉴档案",
+  ).replace("{attribute}", attributeName);
+  const description = getMessage(
+    messages,
+    "dex.metaFilterDescription",
+    "查看{attribute}属性精灵，筛选洛可王国图鉴中的生态、进化与技能。",
+  ).replace("{attribute}", attributeName);
   const canonical = `/${locale}/dex?attr=${encodeURIComponent(activeFilter)}`;
 
   return {

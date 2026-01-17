@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 import DexCornerCards from "@/components/DexCornerCards";
+import { useLanguage } from "@/components/i18n/language-context";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
@@ -82,6 +83,8 @@ const buildCreatureSummary = (
   pet: PetEntry,
   pets: PetEntry[],
   attributes: Record<string, AttributeData>,
+  locale: string,
+  t: (key: string, fallback: string) => string,
 ): CreatureSummary => {
   const activeId = pet?.image?.split(".")[0] ?? "000";
   const attributeBadges: AttributeBadge[] =
@@ -89,7 +92,10 @@ const buildCreatureSummary = (
       const attribute = attributes[attributeKey];
       return {
         key: attributeKey,
-        name: attribute?.nameCn ?? attributeKey,
+        name:
+          locale === "en"
+            ? (attribute?.nameEn ?? attribute?.nameCn ?? attributeKey)
+            : (attribute?.nameCn ?? attribute?.nameEn ?? attributeKey),
         logoUrl: attribute?.logoUrl ?? "",
       };
     }) ?? [];
@@ -103,23 +109,60 @@ const buildCreatureSummary = (
     ? pets.find((entry) => entry.key === activeEvolution.next)
     : null;
 
+  const name =
+    locale === "en"
+      ? (pet?.name?.en ?? pet?.name?.zh ?? t("dex.fallbackName", "Unknown"))
+      : (pet?.name?.zh ?? pet?.name?.en ?? t("dex.fallbackName", "未知精灵"));
+  const title =
+    locale === "en"
+      ? (pet?.name?.zh ?? pet?.name?.en ?? "")
+      : (pet?.name?.en ?? pet?.name?.zh ?? "");
+  const habitat =
+    locale === "en"
+      ? (activeDistribution?.en ??
+        activeDistribution?.zh ??
+        t("dex.unknownHabitat", "Habitat unknown"))
+      : (activeDistribution?.zh ??
+        activeDistribution?.en ??
+        t("dex.unknownHabitat", "分布未知"));
+  const temperament = activeEvolution?.level
+    ? t("dex.evolutionLevel", "Lv.{level} 进化").replace(
+        "{level}",
+        String(activeEvolution.level),
+      )
+    : t("dex.evolutionEnd", "进化终点");
+  const summary =
+    locale === "en"
+      ? (pet?.introduction?.en ??
+        pet?.introduction?.zh ??
+        t("dex.noSummary", "No profile summary yet."))
+      : (pet?.introduction?.zh ??
+        pet?.introduction?.en ??
+        t("dex.noSummary", "暂无精灵档案说明。"));
+
   return {
     id: activeId,
-    name: pet?.name?.zh ?? "未知精灵",
-    title: pet?.name?.en ?? "Unknown",
-    rarity: activeEvolution?.next ? "可进化" : "终阶",
-    habitat: activeDistribution?.zh ?? "分布未知",
+    name,
+    title,
+    rarity: activeEvolution?.next
+      ? t("dex.evolvable", "可进化")
+      : t("dex.finalStage", "终阶"),
+    habitat,
     attributes: attributeBadges,
-    temperament: activeEvolution?.level
-      ? `Lv.${activeEvolution.level} 进化`
-      : "进化终点",
-    summary: pet?.introduction?.zh ?? "暂无精灵档案说明。",
+    temperament,
+    summary,
     image: pet?.image ? `/pets/${pet.image}` : "/pets/001.png",
     evolutionPrev: prevPet?.image ? `/pets/${prevPet.image}` : null,
-    evolutionPrevName: prevPet?.name?.zh ?? "",
+    evolutionPrevName:
+      locale === "en"
+        ? (prevPet?.name?.en ?? prevPet?.name?.zh ?? "")
+        : (prevPet?.name?.zh ?? prevPet?.name?.en ?? ""),
     evolutionPrevKey: prevPet?.key ?? "",
     evolutionNext: nextPet?.image ? `/pets/${nextPet.image}` : null,
-    evolutionNextName: nextPet?.name?.zh ?? "",
+    evolutionNextName:
+      locale === "en"
+        ? (nextPet?.name?.en ?? nextPet?.name?.zh ?? "")
+        : (nextPet?.name?.zh ?? nextPet?.name?.en ?? ""),
     evolutionNextKey: nextPet?.key ?? "",
     skills: [],
   };
@@ -132,12 +175,15 @@ export default function DexClientClient({
   activeFilter,
   basePath,
 }: DexClientProps) {
+  const { locale, currentMessages } = useLanguage();
+  const t = (key: string, fallback: string) =>
+    (currentMessages?.[key] as string) ?? fallback;
   const fallbackPet: PetEntry = {
     key: "unknown",
-    name: { zh: "未知精灵", en: "Unknown" },
+    name: { zh: t("dex.fallbackName", "未知精灵"), en: "Unknown" },
     image: "001.png",
     attributes: [],
-    introduction: { zh: "暂无精灵档案说明。" },
+    introduction: { zh: t("dex.noSummary", "暂无精灵档案说明。") },
     evolution: null,
     distribution: null,
   };
@@ -171,9 +217,32 @@ export default function DexClientClient({
     filteredPets[0] ??
     pets[0] ??
     fallbackPet;
+  const labelForPetName = (pet: PetEntry) =>
+    locale === "en"
+      ? (pet.name?.en ?? pet.name?.zh ?? t("dex.fallbackName", "Unknown"))
+      : (pet.name?.zh ?? pet.name?.en ?? t("dex.fallbackName", "未知精灵"));
+  const labelForPetSubtitle = (pet: PetEntry) =>
+    locale === "en"
+      ? (pet.name?.zh ?? pet.name?.en ?? "")
+      : (pet.name?.en ?? "");
+  const labelForAttribute = (
+    attribute: AttributeData | undefined,
+    key: string,
+  ) =>
+    locale === "en"
+      ? (attribute?.nameEn ?? attribute?.nameCn ?? key)
+      : (attribute?.nameCn ?? attribute?.nameEn ?? key);
+  const formatMessage = (
+    template: string,
+    values: Record<string, string | number>,
+  ) =>
+    Object.entries(values).reduce(
+      (acc, [key, value]) => acc.replace(`{${key}}`, String(value)),
+      template,
+    );
   const creature = useMemo(
-    () => buildCreatureSummary(activePet, pets, attributes),
-    [activePet, attributes, pets],
+    () => buildCreatureSummary(activePet, pets, attributes, locale, t),
+    [activePet, attributes, locale, pets, t],
   );
   const attributeSummary = useMemo(
     () => getAttributeSummary(activePet, attributes),
@@ -183,25 +252,24 @@ export default function DexClientClient({
     () =>
       Object.entries(attributes).map(([key, attribute]) => {
         const nextFilter = activeFilter === key ? null : key;
+        const title = labelForAttribute(attribute, key);
+        const description =
+          locale === "en"
+            ? (attribute.nameCn ?? attribute.nameEn ?? "")
+            : (attribute.nameEn ?? attribute.nameCn ?? "");
         return {
-          title: attribute.nameCn ?? key,
-          description: attribute.nameEn ?? "",
+          title,
+          description,
           icon: attribute.logoUrl ? (
-            <img
-              src={attribute.logoUrl}
-              alt={attribute.nameCn ?? key}
-              className="h-6 w-6"
-            />
+            <img src={attribute.logoUrl} alt={title} className="h-6 w-6" />
           ) : (
-            <span className="text-xs text-zinc-500">
-              {attribute.nameCn ?? key}
-            </span>
+            <span className="text-xs text-zinc-500">{title}</span>
           ),
           active: activeFilter === key,
           link: buildHref(basePath, nextFilter),
         };
       }),
-    [attributes, activeFilter, basePath],
+    [activeFilter, attributes, basePath, locale],
   );
   const handlePetSwitch = (nextKey: string) => {
     if (nextKey === activeKeyState) return;
@@ -229,7 +297,7 @@ export default function DexClientClient({
           >
             <div className="inline-flex items-center gap-3 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-black/50">
               <span className="h-2 w-2 rounded-full bg-black/60" />
-              Dex Archive
+              {t("dex.heroBadge", "Dex Archive")}
             </div>
             <div className="space-y-4">
               <div className="flex items-baseline justify-between">
@@ -296,11 +364,25 @@ export default function DexClientClient({
                           ? "opacity-0 translate-y-2"
                           : "opacity-50 translate-y-0"
                       }`}
-                      aria-label={`查看${creature.evolutionPrevName || "进化前精灵"}`}
+                      aria-label={formatMessage(
+                        t("dex.viewEvolutionPrev", "查看{pet}"),
+                        {
+                          pet:
+                            creature.evolutionPrevName ||
+                            t("dex.evolutionPrevFallback", "进化前精灵"),
+                        },
+                      )}
                     >
                       <Image
                         src={creature.evolutionPrev}
-                        alt={`${creature.evolutionPrevName || "进化前精灵"} 进化前`}
+                        alt={formatMessage(
+                          t("dex.evolutionPrevAlt", "{pet} 进化前"),
+                          {
+                            pet:
+                              creature.evolutionPrevName ||
+                              t("dex.evolutionPrevFallback", "进化前精灵"),
+                          },
+                        )}
                         fill
                         className="object-contain drop-shadow-[0_12px_22px_rgba(15,23,42,0.2)] transition duration-300 group-hover:scale-110"
                         sizes="144px"
@@ -316,11 +398,25 @@ export default function DexClientClient({
                           ? "opacity-0 translate-y-2"
                           : "opacity-50 translate-y-0"
                       }`}
-                      aria-label={`查看${creature.evolutionNextName || "进化后精灵"}`}
+                      aria-label={formatMessage(
+                        t("dex.viewEvolutionNext", "查看{pet}"),
+                        {
+                          pet:
+                            creature.evolutionNextName ||
+                            t("dex.evolutionNextFallback", "进化后精灵"),
+                        },
+                      )}
                     >
                       <Image
                         src={creature.evolutionNext}
-                        alt={`${creature.evolutionNextName || "进化后精灵"} 进化后`}
+                        alt={formatMessage(
+                          t("dex.evolutionNextAlt", "{pet} 进化后"),
+                          {
+                            pet:
+                              creature.evolutionNextName ||
+                              t("dex.evolutionNextFallback", "进化后精灵"),
+                          },
+                        )}
                         fill
                         className="object-contain drop-shadow-[0_12px_22px_rgba(15,23,42,0.2)] transition duration-300 group-hover:scale-110"
                         sizes="144px"
@@ -343,7 +439,7 @@ export default function DexClientClient({
                 >
                   <div className="flex items-center justify-between">
                     <div className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-black/50">
-                      Dex #{creature.id}
+                      {t("dex.dexLabel", "Dex")} #{creature.id}
                     </div>
                     <div className="rounded-full border border-amber-200/80 bg-amber-100/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-amber-700">
                       {creature.rarity}
@@ -374,7 +470,9 @@ export default function DexClientClient({
                     <div className="relative z-10 h-[300px] w-[600px] drop-shadow-[0_20px_35px_rgba(15,23,42,0.25)]">
                       <Image
                         src={creature.image}
-                        alt={`${creature.name} 精灵`}
+                        alt={formatMessage(t("dex.petImageAlt", "{pet} 精灵"), {
+                          pet: creature.name,
+                        })}
                         fill
                         className="object-contain scale-160"
                         sizes="600px"
@@ -385,27 +483,29 @@ export default function DexClientClient({
 
                   <div className="flex flex-col gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/50">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-1">克制</span>
+                      <span className="px-1">
+                        {t("dex.strongAgainst", "克制")}
+                      </span>
                       {attributeSummary.strong.length === 0 ? (
                         <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
-                          暂无
+                          {t("dex.none", "暂无")}
                         </span>
                       ) : (
                         attributeSummary.strong.map((key) => (
                           <span
                             key={`strong-${key}`}
                             className="flex h-7 w-7 items-center justify-center"
-                            title={attributes[key]?.nameCn ?? key}
+                            title={labelForAttribute(attributes[key], key)}
                           >
                             {attributes[key]?.logoUrl ? (
                               <img
                                 src={attributes[key]?.logoUrl}
-                                alt={attributes[key]?.nameCn ?? key}
+                                alt={labelForAttribute(attributes[key], key)}
                                 className="h-4 w-4"
                               />
                             ) : (
                               <span className="text-[10px] text-emerald-700">
-                                {attributes[key]?.nameCn ?? key}
+                                {labelForAttribute(attributes[key], key)}
                               </span>
                             )}
                           </span>
@@ -413,27 +513,29 @@ export default function DexClientClient({
                       )}
                     </div>
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-1">被克</span>
+                      <span className="px-1">
+                        {t("dex.weakAgainst", "被克")}
+                      </span>
                       {attributeSummary.weak.length === 0 ? (
                         <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
-                          暂无
+                          {t("dex.none", "暂无")}
                         </span>
                       ) : (
                         attributeSummary.weak.map((key) => (
                           <span
                             key={`weak-${key}`}
                             className="flex h-7 w-7 items-center justify-center"
-                            title={attributes[key]?.nameCn ?? key}
+                            title={labelForAttribute(attributes[key], key)}
                           >
                             {attributes[key]?.logoUrl ? (
                               <img
                                 src={attributes[key]?.logoUrl}
-                                alt={attributes[key]?.nameCn ?? key}
+                                alt={labelForAttribute(attributes[key], key)}
                                 className="h-4 w-4"
                               />
                             ) : (
                               <span className="text-[10px] text-rose-700">
-                                {attributes[key]?.nameCn ?? key}
+                                {labelForAttribute(attributes[key], key)}
                               </span>
                             )}
                           </span>
@@ -452,14 +554,19 @@ export default function DexClientClient({
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="space-y-1">
                 <div className="text-xs font-semibold uppercase tracking-[0.3em] text-black/45">
-                  精灵图鉴
+                  {t("dex.collectionTitle", "精灵图鉴")}
                 </div>
                 <p className="text-sm text-black/70">
-                  选择精灵查看对应属性与档案摘要。
+                  {t(
+                    "dex.collectionSubtitle",
+                    "选择精灵查看对应属性与档案摘要。",
+                  )}
                 </p>
               </div>
               <div className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-black/50">
-                {filteredPets.length} 只已收录
+                {formatMessage(t("dex.collectionCount", "{count} 只已收录"), {
+                  count: filteredPets.length,
+                })}
               </div>
             </div>
             <div className="mt-4 h-px w-full bg-black/5" />
@@ -481,7 +588,7 @@ export default function DexClientClient({
             <div className="mt-5 grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
               {filteredPets.length === 0 ? (
                 <div className="col-span-full rounded-2xl border border-black/10 bg-white/70 px-4 py-6 text-center text-sm text-black/60">
-                  暂无符合该属性的精灵
+                  {t("dex.emptyState", "暂无符合该属性的精灵")}
                 </div>
               ) : (
                 filteredPets.map((pet) => {
@@ -491,6 +598,7 @@ export default function DexClientClient({
                       (attributeKey) => attributes[attributeKey],
                     ) ?? [];
                   const isActive = pet.key === activeKeyState;
+                  const petName = labelForPetName(pet);
                   return (
                     <button
                       key={pet.key}
@@ -506,7 +614,7 @@ export default function DexClientClient({
                       <div className="relative h-16 w-16">
                         <Image
                           src={`/pets/${pet.image}`}
-                          alt={pet.name.zh}
+                          alt={petName}
                           fill
                           className="object-contain"
                           sizes="64px"
@@ -514,11 +622,16 @@ export default function DexClientClient({
                       </div>
                       <div>
                         <div className="text-xs font-semibold uppercase tracking-[0.2em] text-black/45">
-                          Dex #{petId}
+                          {t("dex.dexLabel", "Dex")} #{petId}
                         </div>
                         <div className="text-sm font-semibold text-black">
-                          {pet.name.zh}
+                          {petName}
                         </div>
+                        {labelForPetSubtitle(pet) ? (
+                          <div className="text-xs text-black/45">
+                            {labelForPetSubtitle(pet)}
+                          </div>
+                        ) : null}
                       </div>
                       <div className="flex items-center justify-center gap-2">
                         {petAttributes.map((attribute) =>
@@ -526,7 +639,12 @@ export default function DexClientClient({
                             <img
                               key={attribute.nameEn}
                               src={attribute.logoUrl}
-                              alt={attribute.nameCn}
+                              alt={labelForAttribute(
+                                attribute,
+                                attribute?.nameEn ??
+                                  attribute?.nameCn ??
+                                  "attribute",
+                              )}
                               className="h-4 w-4"
                             />
                           ) : null,
