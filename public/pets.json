@@ -1,0 +1,57 @@
+{
+  "spark": {
+    "name": {
+      "zh": "火花",
+      "en": "Spark"
+    },
+    "image": "005.png",
+    "attributes": ["fire"],
+    "introduction": {
+      "zh": "长大可以喷出火焰，现在已经可以熟练使用火花",
+      "en": "When fully grown, it can spew flames; now it can already skillfully wield sparks."
+    },
+    "evolution": {
+      "level": 16,
+      "next": "flame",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "维苏威火山口打野怪几率刷新、弹弹机",
+      "en": "Mount Vesuvius Crater Monster Spawn Rate Refresh, Bouncy Machine"
+    }
+  },
+  "flame": {
+    "name": {
+      "zh": "焰火",
+      "en": "Flame"
+    },
+    "image": "006.png",
+    "attributes": ["fire"],
+    "introduction": {
+      "zh": "长出蓝色的小翅膀 双拳拥有强力的火焰",
+      "en": "Blue wings sprout from his back Fists blaze with powerful flames"
+    },
+    "evolution": {
+      "level": 36,
+      "next": "fireGod",
+      "prev": "spark"
+    },
+    "distribution": null
+  },
+  "fireGod": {
+    "name": {
+      "zh": "火神",
+      "en": "FireGod"
+    },
+    "image": "007.png",
+    "attributes": ["fire", "wing"],
+    "introduction": {
+      "zh": "炙热的火焰包围全身熊熊燃烧，能够喷射大量火焰燃烧一切",
+      "en": "Blazing flames engulf the entire body, raging fiercely, capable of spewing vast quantities of fire to consume everything in its path."
+    },
+    "evolution": {
+      "prev": "flame"
+    },
+    "distribution": null
+  }
+}
