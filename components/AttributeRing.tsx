@@ -38,17 +38,19 @@ export default function AttributeRing({ attributes }: AttributeRingProps) {
   const ringCount = attributes.length || 1;
   const radius = 330;
   const centerRadius = 56;
-  const arrowHeadSize = 8;
-  const lineGap = 120;
+  const arrowHeadSize = 20;
+  const lineGap = 100;
   const lineOffset = centerRadius + lineGap + arrowHeadSize;
-  const lineLength = radius - lineOffset + 32;
+  const lineLength = radius - lineOffset - 10;
   const angleByKey = new Map(
     attributes.map((item, index) => [item.key, (360 / ringCount) * index]),
   );
 
   const effectiveAttribute = activeAttribute ?? lockedAttribute;
-  const offenseMultipliers = effectiveAttribute?.battleMultiplier?.offense ?? {};
-  const defenseMultipliers = effectiveAttribute?.battleMultiplier?.defense ?? {};
+  const offenseMultipliers =
+    effectiveAttribute?.battleMultiplier?.offense ?? {};
+  const defenseMultipliers =
+    effectiveAttribute?.battleMultiplier?.defense ?? {};
 
   const offenseStrong = offenseMultipliers["2.0"] ?? [];
   const offenseWeak = offenseMultipliers["0.5"] ?? [];
@@ -81,7 +83,7 @@ export default function AttributeRing({ attributes }: AttributeRingProps) {
 
   return (
     <div
-      className={`relative h-[660px] w-[660px] sm:h-[780px] sm:w-[780px] lg:h-[900px] lg:w-[900px] ${
+      className={`animate-ring-reveal relative h-[660px] w-[660px] sm:h-[780px] sm:w-[780px] lg:h-[900px] lg:w-[900px] ${
         isPaused ? "attribute-ring-paused" : ""
       }`}
     >
@@ -172,7 +174,7 @@ export default function AttributeRing({ attributes }: AttributeRingProps) {
                   <HoverCardTrigger asChild>
                     <button
                       type="button"
-                      className="flex h-12 w-12 cursor-pointer items-center justify-center transition-transform duration-300 hover:scale-125 sm:h-14 sm:w-14"
+                      className="flex h-12 w-12 cursor-pointer items-center justify-center transition-transform duration-300 hover:scale-128 sm:h-14 sm:w-14"
                       aria-label={`${item.nameCn}属性`}
                       aria-pressed={lockedAttribute?.key === item.key}
                       onClick={() => {
@@ -200,7 +202,8 @@ export default function AttributeRing({ attributes }: AttributeRingProps) {
                       <img
                         src={item.logoUrl}
                         alt={`${item.nameCn}属性`}
-                        className="h-12 w-12 sm:h-14 sm:w-14"
+                        className="animate-ring-logo h-12 w-12 drop-shadow-[0_8px_18px_rgba(15,23,42,0.16)] sm:h-14 sm:w-14"
+                        style={{ animationDelay: `${index * 60}ms` }}
                         loading="lazy"
                       />
                     </button>
@@ -278,7 +281,7 @@ function RingArrow({
 }: RingArrowProps) {
   return (
     <div
-      className="absolute left-1/2 top-1/2"
+      className="absolute left-1/2 top-1/2 shadow-[0_25px_55px_-45px_rgba(15,23,42,0.5)]"
       style={{ transform: `translate(-50%, -50%) rotate(${angle}deg)` }}
     >
       <div
