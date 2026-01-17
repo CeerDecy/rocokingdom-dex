@@ -18,6 +18,10 @@
   },
   "fire": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-3.png",
+    "description": {
+      "zh":"火系暴躁烧草虫，冰系机械看他愁\n遇水遇地变狗熊，还有一位天敌龙",
+      "en":"Fire burns Grass and Bug with furious might, Leaves Ice and Steel machines in frozen fright. \nBut against Water or Ground, it fears the fight, And Dragon stands as its eternal plight."
+    },
     "nameCn": "火",
     "nameEn": "Fire",
     "battleMultiplier": {
@@ -33,6 +37,14 @@
   },
   "ice": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-7.png",
+    "description": {
+      "zh":"冰系冻住龙和翼 此外还能克草地\n机械抗冻不怕冰 火是寒冰的天敌",
+      "en":"Ice freezes Dragon, Flying in its chilling flow,And also reigns o'er Grass and Ground below. \nBut Steel resists the frost, it does not fear,And Fire stands as Ice's foe most clear."
+    },
+    "description": {
+      "zh":"水系灭火冲机土 草冰龙系笑它苦\n草电出手克水系 火系机械没关系",
+      "en":"Water quenches Fire, strikes Steel, and soaks Earth through,But Grass, Ice, Dragon make its efforts rue. \nGrass, Electric move — and Water knows dismay,While Fire, Steel machines just walk away."
+    },
     "nameCn": "冰",
     "nameEn": "Ice",
     "battleMultiplier": {
@@ -48,6 +60,10 @@
   },
   "mechanical": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-12.png",
+    "description": {
+      "zh":"一发钢钻打罗隐 两发齿轮秒雪灵 \n就算化蝶也惧他 机械克制冰萌地 \n面对电系被抵抗 水火则是它天敌",
+      "en":"One Steel Drill drops Luo Yin, Two Gears wipe out Snow Spirit. \nEven in Butterfly form, it still trembles—Mechanical rules Ice, Cute, and Ground.\nElectric shrugs it off with ease, Water and Fire stand as its bane."
+    },
     "nameCn": "机械",
     "nameEn": "Mechanical",
     "battleMultiplier": {
@@ -74,6 +90,10 @@
   },
   "normal": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-16.png",
+    "description": {
+      "zh":"普系憨憨三劲敌 幽系地面机械骑\n武系出手应闪避 幽系战场没问题",
+      "en":"Normal seems plain, yet foes abound—Ghost, Ground, and Mechanical bring it down.\nWhen Fighting moves, best step aside, But in Ghostly wars, it fights just fine."
+    },
     "nameCn": "普通",
     "nameEn": "Normal",
     "battleMultiplier": {
@@ -89,6 +109,10 @@
   },
   "fighting": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-8.png",
+    "description": {
+      "zh":"武破普地冰恶械 毒阻虫栏翼萌碍\n翼萌幻袭武系痛 地虫恶魔武能苟",
+      "en":"Fighting shatters Normal, Ground, Ice, Demon, Machine, But Poison stands firm—Bug, Wing, Cute intervene.\nWing, Cute, and Fantasy hit Fighting with pain,While Ground, Bug, and Demon let it endure the strain."
+    },
     "nameCn": "武",
     "nameEn": "Fighting",
     "battleMultiplier": {
@@ -104,6 +128,10 @@
   },
   "poison": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-5.png",
+    "description": {
+      "zh":"毒系出手草萌慌 地毒幽械减伤强\n地恶幻系敲毒脑 草虫武毒萌扛伤",
+      "en":"Poison strikes at Grass and Fairy with dread,While Ground, Poison, Ghost, Steel take less harm ahead. \nYet Ground, Dark, Fairy break its toxic might,And Grass, Bug, Fighting, Poison, Fairy stand and fight."
+    },
     "nameCn": "毒",
     "nameEn": "Poison",
     "battleMultiplier": {
@@ -119,6 +147,10 @@
   },
   "wing": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-17.png",
+    "description": {
+      "zh":"翼系如风电光闪 草虫武系一扫光\n龙电机械地难伤 冰电来袭速躲藏",
+      "en":"Grass, Dark, and Fairy fear its piercing eye, While Bug's quick strikes break guards that cannot lie.\nRetreat when Fire or Flying blocks the way,But charge through Grass and Fighting's wide array."
+    },
     "nameCn": "翼",
     "nameEn": "Wing",
     "battleMultiplier": {
@@ -134,6 +166,10 @@
   },
   "cute": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-9.png",
+    "description": {
+      "zh":"萌打龙武恶魔慌 火毒机械难破防\n毒恶机械没它强 武系虫系能抵抗",
+      "en":"Cute strikes Dragon, Fighting, and Demon with ease, While Fire, Poison, and Mechanical are hard to break.\nPoison, Demon, and Mechanical are no match for it, Yet Fighting and Bug can resist its attacks."
+    },
     "nameCn": "萌",
     "nameEn": "Cute",
     "battleMultiplier": {
@@ -149,6 +185,10 @@
   },
   "bug": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-15.png",
+    "description": {
+      "zh":"草恶幻系难遁形 虫刺连击破防强\n火翼当前应避战 草武阵里任横行",
+      "en":"Grass, Dark, and Fairy fear its piercing eye,While Bug's quick strikes break guards that cannot lie. \nRetreat when Fire or Flying blocks the way,But charge through Grass and Fighting's wide array."
+    },
     "nameCn": "虫",
     "nameEn": "Bug",
     "battleMultiplier": {
@@ -172,6 +212,10 @@
   },
   "ground": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-18.png",
+    "description": {
+      "zh":"地系震火冰电毒 草武反手地成奴\n草水冰武机克制 普火翼电毒认输",
+      "en":"Ground quakes Fire, Ice, Electric, Poison with might,But Grass, Fighting strike back — Ground kneels in plight. \nGrass, Water, Ice, Fighting, Steel seal its fate,While Normal, Fire, Flying, Electric, Poison meet defeat straight."
+    },
     "nameCn": "地面",
     "nameEn": "Ground",
     "battleMultiplier": {
@@ -187,6 +231,10 @@
   },
   "ghost": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-13.png",
+    "description": {
+      "zh":"幽系破幽和光幻 普系恶系能抵抗\n光幽恶前速撤退 普毒虫武不必慌",
+      "en":"Ghost cuts through Ghost, Light, and dreamlike Fantasy, Yet Normal and Demon stand firm against its strikes.\nWhen facing Light, Ghost, or Demon—fall back fast, But against Normal, Poison, Bug, and Fighting, stay calm."
+    },
     "nameCn": "幽灵",
     "nameEn": "Ghost",
     "battleMultiplier": {
@@ -202,6 +250,10 @@
   },
   "dragon": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-11.png",
+    "description": {
+      "zh":"龙炮对轰真常见 但对机械很乏力\n冰龙萌系克制龙 草火水电翼不怕",
+      "en":"Dragons’ clashes roar, a common, fiery sight,Yet against Steel they face a weary plight. \nIce and Fairy make the mighty Dragon yield,While Grass, Fire, Water, Electric, Flying stay unsealed."
+    },
     "nameCn": "龙",
     "nameEn": "Dragon",
     "battleMultiplier": {
@@ -217,6 +269,10 @@
   },
   "demon": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-14.png",
+    "description": {
+      "zh":"萌系胆小怕恶魔 幽系同样被压制\n光系武系很正义 谁惧你的暗突袭",
+      "en":"Cute trembles before the Demon’s might, Ghost too falls under its shadow. \nBut Light and Fighting rise in justice—Who fears your strike from the dark?"
+    },
     "nameCn": "恶魔",
     "nameEn": "Demon",
     "battleMultiplier": {
@@ -232,6 +288,10 @@
   },
   "light": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-10.png",
+    "description": {
+      "zh":"圣光净幽恶，冰草见它乐\n幽草打的痛，恶幻能抵抗",
+      "en":"Holy smites Ghost and Dark with cleansing light,But Ice and Grass face it with sheer delight. \nGhost and Grass wounds strike it deep and sore,While Dark and Fairy can withstand its core."
+    },
     "nameCn": "光",
     "nameEn": "Light",
     "battleMultiplier": {
@@ -247,6 +307,10 @@
   },
   "electric": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-4.png",
+    "description": {
+      "zh":"电系遇水威力强 翼系更是难抵敌\n草系地系不怕电 龙系更加无压力",
+      "en":"Electric shocks Water with doubled might,And Flying types will tremble in its light. \nBut Grass and Ground ignore the surging flow,And Dragons take no pressure from the blow."
+    },
     "nameCn": "电",
     "nameEn": "Electric",
     "battleMultiplier": {
@@ -263,6 +327,10 @@
   "grass": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-1.png",
     "nameCn": "草",
+    "description": {
+      "zh":"草系专治水光地 见火毒虫只能避 飞机龙也搞不定 \n 火冰毒虫翼来袭 草系遇见快闪避 水地电光不怕伤",
+      "en":"Grass Type’s super effective: Water, Light, and Earth. But flees from Fire, Poison, Bug — knows their worth. Even Flying, Dragon? That’s a hopeless fight. \nWhen Fire, Ice, Poison, Bug, or Wings take flight, Grass should dodge the clash — escape is right. Yet Water, Earth, Electric, Light bring no true fright."
+    },
     "nameEn": "Grass",
     "battleMultiplier": {
       "offense": {
@@ -277,6 +345,10 @@
   },
   "fantasy": {
     "logoUrl": "https://game.gtimg.cn/images/rocom/web202504/index/part2/icon-type-6.png",
+    "description": {
+      "zh":"幻系最是摸不透 毒系武系均难敌\n光系照彻迷梦幻 机械戳穿假把戏",
+      "en":"Fantasy is elusive, hard to see through, Poison and Fighting fall short against it. \nLight reveals the dreams it weaves, While Mechanical breaks its clever deceits."
+    },
     "nameCn": "幻",
     "nameEn": "Fantasy",
     "battleMultiplier": {

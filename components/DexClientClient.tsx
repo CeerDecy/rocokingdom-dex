@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 import DexCornerCards from "@/components/DexCornerCards";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
@@ -204,10 +203,6 @@ export default function DexClientClient({
       }),
     [attributes, activeFilter, basePath],
   );
-  const filterSuffix = activeFilter
-    ? `?attr=${encodeURIComponent(activeFilter)}`
-    : "";
-
   const handlePetSwitch = (nextKey: string) => {
     if (nextKey === activeKeyState) return;
     switchTimeouts.current.forEach((timer) => clearTimeout(timer));
@@ -293,9 +288,10 @@ export default function DexClientClient({
               {creature.evolutionPrev || creature.evolutionNext ? (
                 <div className="absolute right-0 top-1/2 z-0 flex -translate-y-1/2 translate-x-[calc(100%+16px)] flex-col items-center gap-6">
                   {creature.evolutionPrev ? (
-                    <Link
-                      href={`/dex/${creature.evolutionPrevKey}${filterSuffix}`}
-                      className={`group relative h-84 w-84 cursor-pointer transition duration-300 hover:opacity-100 sm:h-84 sm:w-84 ${
+                    <button
+                      type="button"
+                      onClick={() => handlePetSwitch(creature.evolutionPrevKey)}
+                      className={`group relative h-84 w-84 cursor-pointer transition duration-300 motion-reduce:transition-none hover:opacity-100 sm:h-84 sm:w-84 ${
                         isSwitching
                           ? "opacity-0 translate-y-2"
                           : "opacity-50 translate-y-0"
@@ -309,12 +305,13 @@ export default function DexClientClient({
                         className="object-contain drop-shadow-[0_12px_22px_rgba(15,23,42,0.2)] transition duration-300 group-hover:scale-110"
                         sizes="144px"
                       />
-                    </Link>
+                    </button>
                   ) : null}
                   {creature.evolutionNext ? (
-                    <Link
-                      href={`/dex/${creature.evolutionNextKey}${filterSuffix}`}
-                      className={`group relative h-84 w-84 cursor-pointer transition duration-300 hover:opacity-100 sm:h-84 sm:w-84 ${
+                    <button
+                      type="button"
+                      onClick={() => handlePetSwitch(creature.evolutionNextKey)}
+                      className={`group relative h-84 w-84 cursor-pointer transition duration-300 motion-reduce:transition-none hover:opacity-100 sm:h-84 sm:w-84 ${
                         isSwitching
                           ? "opacity-0 translate-y-2"
                           : "opacity-50 translate-y-0"
@@ -328,7 +325,7 @@ export default function DexClientClient({
                         className="object-contain drop-shadow-[0_12px_22px_rgba(15,23,42,0.2)] transition duration-300 group-hover:scale-110"
                         sizes="144px"
                       />
-                    </Link>
+                    </button>
                   ) : null}
                 </div>
               ) : null}
