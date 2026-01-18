@@ -67,20 +67,20 @@ export async function generateMetadata({
 }: DexPageProps): Promise<Metadata> {
   const baseMetadata: Metadata = {
     title: "洛克王国图鉴档案",
-    description: "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+    description: "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
     alternates: {
       canonical: "/dex",
     },
     openGraph: {
       title: "洛克王国图鉴档案",
-      description: "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+      description: "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
       url: "/dex",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: "洛克王国图鉴档案",
-      description: "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+      description: "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
     },
   };
   const attributes = await getAttributes();
@@ -90,7 +90,7 @@ export async function generateMetadata({
 
   const attributeName = attributes[activeFilter]?.nameCn ?? activeFilter;
   const title = `${attributeName}属性 · 洛克王国图鉴档案`;
-  const description = `查看${attributeName}属性精灵，筛选洛可王国图鉴中的生态、进化与技能。`;
+  const description = `查看${attributeName}属性精灵，筛选洛克王国图鉴中的生态、进化与技能。`;
   const canonical = `/dex?attr=${encodeURIComponent(activeFilter)}`;
 
   return {

@@ -7,6 +7,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { useLanguage } from "@/components/i18n/language-context";
+import { getClientMessage } from "@/lib/i18n-client";
 
 export type AttributeItem = {
   key: string;
@@ -34,7 +35,7 @@ export default function AttributeRing({
 }: AttributeRingProps) {
   const { locale, currentMessages } = useLanguage();
   const t = (key: string, fallback: string) =>
-    (currentMessages?.[key] as string) ?? fallback;
+    getClientMessage(currentMessages, key, fallback);
   const initialAttribute = useMemo(() => {
     if (!initialSelectedKey) return null;
     return attributes.find((item) => item.key === initialSelectedKey) ?? null;

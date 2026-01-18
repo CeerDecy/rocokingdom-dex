@@ -76,7 +76,7 @@ export async function generateMetadata({
     description: getMessage(
       messages,
       "dex.metaDescription",
-      "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+      "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
     ),
     alternates: {
       canonical: `/${locale}/dex`,
@@ -86,7 +86,7 @@ export async function generateMetadata({
       description: getMessage(
         messages,
         "dex.metaDescription",
-        "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+        "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
       ),
       url: `/${locale}/dex`,
       type: "website",
@@ -97,7 +97,7 @@ export async function generateMetadata({
       description: getMessage(
         messages,
         "dex.metaDescription",
-        "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
+        "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
       ),
     },
   };
@@ -122,7 +122,7 @@ export async function generateMetadata({
   const description = getMessage(
     messages,
     "dex.metaFilterDescription",
-    "查看{attribute}属性精灵，筛选洛可王国图鉴中的生态、进化与技能。",
+    "查看{attribute}属性精灵，筛选洛克王国图鉴中的生态、进化与技能。",
   ).replace("{attribute}", attributeName);
   const canonical = `/${locale}/dex?attr=${encodeURIComponent(activeFilter)}`;
 

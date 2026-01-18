@@ -1,43 +1,134 @@
 {
-  "header.navDex": "图鉴",
-  "header.navAttribute": "属性克制",
-  "attribute.pageTitle": "洛克王国：世界 属性克制关系",
-  "attribute.pageSubtitle": "点击或悬停属性，查看克制关系与说明。支持进攻/防守视角切换。",
-  "attribute.modeOffense": "进攻方",
-  "attribute.modeDefense": "防守方",
-  "attribute.panelTitle": "属性档案",
-  "attribute.selectPrompt": "请选择属性",
-  "attribute.fallbackLabel": "Attribute",
-  "attribute.noDescription": "暂未添加说明。",
-  "attribute.helperText": "悬停或点击环形上的任意属性图标，即可查看说明与克制关系。",
-  "dex.metaTitle": "洛克王国图鉴档案",
-  "dex.metaDescription": "浏览洛可王国精灵图鉴，快速查看属性、生态与进化信息。",
-  "dex.metaFilterTitle": "{attribute}属性 · 洛克王国图鉴档案",
-  "dex.metaFilterDescription": "查看{attribute}属性精灵，筛选洛可王国图鉴中的生态、进化与技能。",
-  "dex.metaNotFoundTitle": "精灵未找到",
-  "dex.metaDetailFallback": "查看该精灵的属性、生态分布与进化路径。",
-  "dex.metaSiteName": "洛克王国图鉴",
-  "dex.heroBadge": "图鉴档案",
-  "dex.fallbackName": "未知精灵",
-  "dex.evolvable": "可进化",
-  "dex.finalStage": "终阶",
-  "dex.unknownHabitat": "分布未知",
-  "dex.evolutionLevel": "Lv.{level} 进化",
-  "dex.evolutionEnd": "进化终点",
-  "dex.noSummary": "暂无精灵档案说明。",
-  "dex.viewEvolutionPrev": "查看{pet}",
-  "dex.evolutionPrevFallback": "进化前精灵",
-  "dex.evolutionPrevAlt": "{pet} 进化前",
-  "dex.viewEvolutionNext": "查看{pet}",
-  "dex.evolutionNextFallback": "进化后精灵",
-  "dex.evolutionNextAlt": "{pet} 进化后",
-  "dex.dexLabel": "图鉴",
-  "dex.petImageAlt": "{pet} 精灵",
-  "dex.strongAgainst": "克制",
-  "dex.weakAgainst": "被克",
-  "dex.none": "暂无",
-  "dex.collectionTitle": "精灵图鉴",
-  "dex.collectionSubtitle": "选择精灵查看对应属性与档案摘要。",
-  "dex.collectionCount": "已收录 {count} 只",
-  "dex.emptyState": "暂无符合该属性的精灵"
+  "header": {
+    "navDex": "图鉴",
+    "navAttribute": "属性克制"
+  },
+  "attribute": {
+    "pageTitle": "洛克王国：世界 属性克制关系",
+    "pageSubtitle": "点击或悬停属性，查看克制关系与说明。支持进攻/防守视角切换。",
+    "modeOffense": "进攻方",
+    "modeDefense": "防守方",
+    "panelTitle": "属性档案",
+    "selectPrompt": "请选择属性",
+    "fallbackLabel": "Attribute",
+    "noDescription": "暂未添加说明。",
+    "helperText": "悬停或点击环形上的任意属性图标，即可查看说明与克制关系。"
+  },
+  "dex": {
+    "metaTitle": "洛克王国图鉴档案",
+    "metaDescription": "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
+    "metaFilterTitle": "{attribute}属性 · 洛克王国图鉴档案",
+    "metaFilterDescription": "查看{attribute}属性精灵，筛选洛克王国图鉴中的生态、进化与技能。",
+    "metaNotFoundTitle": "精灵未找到",
+    "metaDetailFallback": "查看该精灵的属性、生态分布与进化路径。",
+    "metaSiteName": "洛克王国图鉴",
+    "heroBadge": "图鉴档案",
+    "fallbackName": "未知精灵",
+    "evolvable": "可进化",
+    "finalStage": "终阶",
+    "unknownHabitat": "分布未知",
+    "evolutionLevel": "Lv.{level} 进化",
+    "evolutionEnd": "进化终点",
+    "noSummary": "暂无精灵档案说明。",
+    "viewEvolutionPrev": "查看{pet}",
+    "evolutionPrevFallback": "进化前精灵",
+    "evolutionPrevAlt": "{pet} 进化前",
+    "viewEvolutionNext": "查看{pet}",
+    "evolutionNextFallback": "进化后精灵",
+    "evolutionNextAlt": "{pet} 进化后",
+    "dexLabel": "图鉴",
+    "petImageAlt": "{pet} 精灵",
+    "strongAgainst": "克制",
+    "weakAgainst": "被克",
+    "none": "暂无",
+    "collectionTitle": "精灵图鉴",
+    "collectionSubtitle": "选择精灵查看对应属性与档案摘要。",
+    "collectionCount": "已收录 {count} 只",
+    "emptyState": "暂无符合该属性的精灵"
+  },
+  "home": {
+    "badge": "洛克王国百科",
+    "titleLine1": "洛克王国：世界",
+    "titleLine2": "精灵知识中枢",
+    "description": "在这里快速了解精灵生态与战斗规则。本站提供「精灵图鉴」与「属性介绍」两大功能，帮你查资料、理清属性关系，随时建立自己的训练手册。",
+    "primaryCta": "进入精灵图鉴",
+    "secondaryCta": "查看属性介绍",
+    "publicTestNote": "为洛克王国：世界公测随时做好准备",
+    "featureCards": {
+      "moduleLabel": "模块",
+      "dex": {
+        "title": "精灵图鉴",
+        "desc": "收录族群生态、进化路线与技能档案，快速查找并收藏。",
+        "action": "进入图鉴",
+        "point1": "生态分布速查",
+        "point2": "进化链一览",
+        "point3": "技能与天赋整理"
+      },
+      "attribute": {
+        "title": "属性介绍",
+        "desc": "解析元素克制关系、属性相性与战斗搭配建议。",
+        "action": "查看属性",
+        "point1": "进攻/防守双视角",
+        "point2": "克制关系一键查看",
+        "point3": "战斗搭配建议"
+      }
+    },
+    "highlightStats": {
+      "entries": {
+        "label": "图鉴条目",
+        "value": "320+"
+      },
+      "attributes": {
+        "label": "属性组合",
+        "value": "16 种"
+      },
+      "guides": {
+        "label": "战斗指引",
+        "value": "120+ 方案"
+      }
+    },
+    "guide": {
+      "kicker": "New Journey",
+      "title": "入门导航",
+      "desc": "一目了然地了解本站两大模块，从基础信息到战斗策略一站获取。",
+      "badge": "Guide"
+    },
+    "steps": {
+      "title": "三步开启你的图鉴计划",
+      "subtitle": "用轻量流程快速掌握核心信息，把探索效率交给我们。",
+      "kicker": "Field Notes",
+      "note": "无论是准备挑战还是查找冷门精灵，都能在这里找到准确资料。"
+    },
+    "quickSteps": {
+      "browse": {
+        "title": "快速浏览",
+        "desc": "从图鉴筛选精灵，查看栖息地与技能亮点。"
+      },
+      "understand": {
+        "title": "理解属性",
+        "desc": "掌握克制与弱点，为阵容搭配提供依据。"
+      },
+      "journey": {
+        "title": "踏上旅程",
+        "desc": "收藏喜欢的精灵，建立你的训练者手册。"
+      }
+    }
+  },
+  "footer": {
+    "brandName": "Rocokindom Dex",
+    "noticePrefix": "本站点所有素材资源都来自",
+    "noticeLinkText": "@洛克王国:世界 官方",
+    "noticeAndWeb": "和网络，",
+    "noticeSuffix": "本站作为第三方只做信息的收集以帮助用户更好体验游戏！",
+    "noticeContact": "如有侵权请联系我们。",
+    "productTitle": "产品",
+    "productDex": "图鉴",
+    "productAttributes": "属性介绍",
+    "productHome": "首页",
+    "communityTitle": "社区",
+    "communityFeedback": "反馈",
+    "copyright": "© 2025 Rocokindom Dex. Developed by @CeerDecy",
+    "githubLabel": "GitHub",
+    "messageLabel": "邮件"
+  }
 }

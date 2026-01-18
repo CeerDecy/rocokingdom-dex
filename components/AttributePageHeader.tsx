@@ -1,11 +1,12 @@
 "use client";
 
 import { useLanguage } from "@/components/i18n/language-context";
+import { getClientMessage } from "@/lib/i18n-client";
 
 export default function AttributePageHeader() {
   const { currentMessages } = useLanguage();
   const t = (key: string, fallback: string) =>
-    (currentMessages?.[key] as string) ?? fallback;
+    getClientMessage(currentMessages, key, fallback);
 
   return (
     <div className="space-y-3 text-center">

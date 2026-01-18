@@ -10,6 +10,9 @@ const resolveLocale = (request: NextRequest) => {
   }
 
   const acceptLanguage = request.headers.get("accept-language") ?? "";
+  if (!acceptLanguage.trim()) {
+    return "zh";
+  }
   if (acceptLanguage.toLowerCase().startsWith("zh")) {
     return "zh";
   }

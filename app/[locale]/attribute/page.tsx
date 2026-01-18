@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 
 import AttributePageHeader from "@/components/AttributePageHeader";
 import AttributeRing, { type AttributeItem } from "@/components/AttributeRing";
+import { getMessage, loadMessages } from "@/lib/i18n-messages";
 
 type AttributePageProps = {
   params: Promise<{
@@ -50,18 +51,48 @@ export async function generateMetadata({
   params,
 }: AttributePageProps): Promise<Metadata> {
   const { locale } = await params;
-  if (locale === "en") {
-    return {
-      title: "Rocokindom World: Attribute Matchups",
-      description:
-        "View attribute matchups in Rocokindom World and switch between offense and defense perspectives.",
-    };
-  }
-
+  const messages = await loadMessages(locale);
   return {
-    title: "洛克王国：世界 属性克制关系",
-    description:
+    title: getMessage(
+      messages,
+      "attribute.pageTitle",
+      "洛克王国：世界 属性克制关系",
+    ),
+    description: getMessage(
+      messages,
+      "attribute.pageSubtitle",
       "查看洛克王国属性克制关系，可在进攻与防守视角间切换并了解克制与弱势。",
+    ),
+    alternates: {
+      canonical: `/${locale}/attribute`,
+    },
+    openGraph: {
+      title: getMessage(
+        messages,
+        "attribute.pageTitle",
+        "洛克王国：世界 属性克制关系",
+      ),
+      description: getMessage(
+        messages,
+        "attribute.pageSubtitle",
+        "查看洛克王国属性克制关系，可在进攻与防守视角间切换并了解克制与弱势。",
+      ),
+      url: `/${locale}/attribute`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: getMessage(
+        messages,
+        "attribute.pageTitle",
+        "洛克王国：世界 属性克制关系",
+      ),
+      description: getMessage(
+        messages,
+        "attribute.pageSubtitle",
+        "查看洛克王国属性克制关系，可在进攻与防守视角间切换并了解克制与弱势。",
+      ),
+    },
   };
 }
 

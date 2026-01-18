@@ -1,6 +1,6 @@
 import { locales, type Locale } from "@/lib/i18n-config";
 
-type MessageMap = Record<string, string>;
+type MessageMap = Record<string, unknown>;
 
 export async function loadMessages(locale: string): Promise<MessageMap> {
   const resolvedLocale = locales.includes(locale as Locale) ? locale : "en";
@@ -18,4 +18,15 @@ export const getMessage = (
   messages: MessageMap | null | undefined,
   key: string,
   fallback: string,
-) => (messages?.[key] as string) ?? fallback;
+) => {
+  const value = key
+    .split(".")
+    .reduce<unknown>(
+      (acc, part) =>
+        acc && typeof acc === "object"
+          ? (acc as Record<string, unknown>)[part]
+          : undefined,
+      messages ?? undefined,
+    );
+  return typeof value === "string" ? value : fallback;
+};

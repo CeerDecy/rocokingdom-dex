@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     default: "Rocokindom Dex",
     template: "%s | Rocokindom Dex",
   },
-  description: "探索洛可王国精灵图鉴，记录生态、进化与技能。",
+  description: "探索洛克王国精灵图鉴，记录生态、进化与技能。",
   openGraph: {
     title: "Rocokindom Dex",
-    description: "探索洛可王国精灵图鉴，记录生态、进化与技能。",
+    description: "探索洛克王国精灵图鉴，记录生态、进化与技能。",
     url: "/",
     siteName: "Rocokindom Dex",
     type: "website",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Rocokindom Dex",
-    description: "探索洛可王国精灵图鉴，记录生态、进化与技能。",
+    description: "探索洛克王国精灵图鉴，记录生态、进化与技能。",
   },
 };
 

@@ -1,43 +1,134 @@
 {
-  "header.navDex": "Dex",
-  "header.navAttribute": "Attributes",
-  "attribute.pageTitle": "Rocokindom World: Attribute Matchups",
-  "attribute.pageSubtitle": "Hover or click an attribute to view matchups and notes. Toggle offense/defense perspectives.",
-  "attribute.modeOffense": "Offense",
-  "attribute.modeDefense": "Defense",
-  "attribute.panelTitle": "Attribute Profile",
-  "attribute.selectPrompt": "Select an attribute",
-  "attribute.fallbackLabel": "Attribute",
-  "attribute.noDescription": "No description yet.",
-  "attribute.helperText": "Hover or click any attribute icon on the ring to view matchups and notes.",
-  "dex.metaTitle": "Rocokindom Dex Archive",
-  "dex.metaDescription": "Explore Rocokindom spirits with fast access to attributes, habitats, and evolutions.",
-  "dex.metaFilterTitle": "{attribute} Attribute · Rocokindom Dex Archive",
-  "dex.metaFilterDescription": "Browse {attribute} spirits and filter by habitat, evolution, and skills in the dex.",
-  "dex.metaNotFoundTitle": "Spirit not found",
-  "dex.metaDetailFallback": "Review this spirit's attributes, habitat, and evolution path.",
-  "dex.metaSiteName": "Rocokindom Dex",
-  "dex.heroBadge": "Dex Archive",
-  "dex.fallbackName": "Unknown",
-  "dex.evolvable": "Evolvable",
-  "dex.finalStage": "Final Stage",
-  "dex.unknownHabitat": "Habitat unknown",
-  "dex.evolutionLevel": "Lv.{level} Evolves",
-  "dex.evolutionEnd": "Evolution end",
-  "dex.noSummary": "No profile summary yet.",
-  "dex.viewEvolutionPrev": "View {pet}",
-  "dex.evolutionPrevFallback": "Previous evolution",
-  "dex.evolutionPrevAlt": "{pet} previous evolution",
-  "dex.viewEvolutionNext": "View {pet}",
-  "dex.evolutionNextFallback": "Next evolution",
-  "dex.evolutionNextAlt": "{pet} next evolution",
-  "dex.dexLabel": "Dex",
-  "dex.petImageAlt": "{pet} spirit",
-  "dex.strongAgainst": "Strong Against",
-  "dex.weakAgainst": "Weak Against",
-  "dex.none": "None",
-  "dex.collectionTitle": "Dex Collection",
-  "dex.collectionSubtitle": "Select a spirit to review its attributes and profile summary.",
-  "dex.collectionCount": "{count} recorded",
-  "dex.emptyState": "No spirits match this attribute."
+  "header": {
+    "navDex": "Dex",
+    "navAttribute": "Attributes"
+  },
+  "attribute": {
+    "pageTitle": "Rocokindom World: Attribute Matchups",
+    "pageSubtitle": "Hover or click an attribute to view matchups and notes. Toggle offense/defense perspectives.",
+    "modeOffense": "Offense",
+    "modeDefense": "Defense",
+    "panelTitle": "Attribute Profile",
+    "selectPrompt": "Select an attribute",
+    "fallbackLabel": "Attribute",
+    "noDescription": "No description yet.",
+    "helperText": "Hover or click any attribute icon on the ring to view matchups and notes."
+  },
+  "dex": {
+    "metaTitle": "Rocokindom Dex Archive",
+    "metaDescription": "Explore Rocokindom spirits with fast access to attributes, habitats, and evolutions.",
+    "metaFilterTitle": "{attribute} Attribute · Rocokindom Dex Archive",
+    "metaFilterDescription": "Browse {attribute} spirits and filter by habitat, evolution, and skills in the dex.",
+    "metaNotFoundTitle": "Spirit not found",
+    "metaDetailFallback": "Review this spirit's attributes, habitat, and evolution path.",
+    "metaSiteName": "Rocokindom Dex",
+    "heroBadge": "Dex Archive",
+    "fallbackName": "Unknown",
+    "evolvable": "Evolvable",
+    "finalStage": "Final Stage",
+    "unknownHabitat": "Habitat unknown",
+    "evolutionLevel": "Lv.{level} Evolves",
+    "evolutionEnd": "Evolution end",
+    "noSummary": "No profile summary yet.",
+    "viewEvolutionPrev": "View {pet}",
+    "evolutionPrevFallback": "Previous evolution",
+    "evolutionPrevAlt": "{pet} previous evolution",
+    "viewEvolutionNext": "View {pet}",
+    "evolutionNextFallback": "Next evolution",
+    "evolutionNextAlt": "{pet} next evolution",
+    "dexLabel": "Dex",
+    "petImageAlt": "{pet} spirit",
+    "strongAgainst": "Strong Against",
+    "weakAgainst": "Weak Against",
+    "none": "None",
+    "collectionTitle": "Dex Collection",
+    "collectionSubtitle": "Select a spirit to review its attributes and profile summary.",
+    "collectionCount": "{count} recorded",
+    "emptyState": "No spirits match this attribute."
+  },
+  "home": {
+    "badge": "Rocokindom Encyclopedia",
+    "titleLine1": "Rocokindom World:",
+    "titleLine2": "Spirit Knowledge Hub",
+    "description": "Get a fast overview of spirit ecology and battle rules. This site offers a full Dex and Attribute guide so you can research, compare matchups, and build your own trainer handbook.",
+    "primaryCta": "Open the Dex",
+    "secondaryCta": "View Attributes",
+    "publicTestNote": "Be ready for the Rocokindom World public test at any time.",
+    "featureCards": {
+      "moduleLabel": "Module",
+      "dex": {
+        "title": "Spirit Dex",
+        "desc": "Browse habitats, evolution paths, and skill logs. Search and bookmark quickly.",
+        "action": "Enter Dex",
+        "point1": "Habitat snapshots",
+        "point2": "Evolution chain",
+        "point3": "Skills and traits"
+      },
+      "attribute": {
+        "title": "Attribute Guide",
+        "desc": "Explore elemental matchups, synergies, and combat tips.",
+        "action": "View Attributes",
+        "point1": "Offense/defense views",
+        "point2": "Matchups at a glance",
+        "point3": "Team building tips"
+      }
+    },
+    "highlightStats": {
+      "entries": {
+        "label": "Dex Entries",
+        "value": "320+"
+      },
+      "attributes": {
+        "label": "Attribute Combos",
+        "value": "16 types"
+      },
+      "guides": {
+        "label": "Battle Guides",
+        "value": "120+ paths"
+      }
+    },
+    "guide": {
+      "kicker": "New Journey",
+      "title": "Quick Start Guide",
+      "desc": "Understand the two core modules at a glance, from basic data to battle strategy.",
+      "badge": "Guide"
+    },
+    "steps": {
+      "title": "Three steps to plan your Dex",
+      "subtitle": "Use a lightweight flow to grasp the essentials and explore efficiently.",
+      "kicker": "Field Notes",
+      "note": "Whether preparing for battles or hunting rare spirits, the right info is here."
+    },
+    "quickSteps": {
+      "browse": {
+        "title": "Browse fast",
+        "desc": "Filter the Dex to find habitats and skill highlights."
+      },
+      "understand": {
+        "title": "Understand attributes",
+        "desc": "Master strengths and weaknesses for better team composition."
+      },
+      "journey": {
+        "title": "Start your journey",
+        "desc": "Collect favorites and build your trainer handbook."
+      }
+    }
+  },
+  "footer": {
+    "brandName": "Rocokindom Dex",
+    "noticePrefix": "All assets are sourced from",
+    "noticeLinkText": "Rocokindom World Official",
+    "noticeAndWeb": "and the web.",
+    "noticeSuffix": "This third-party site curates information to improve gameplay.",
+    "noticeContact": "Contact us if there is any infringement.",
+    "productTitle": "Product",
+    "productDex": "Dex",
+    "productAttributes": "Attributes",
+    "productHome": "Home",
+    "communityTitle": "Community",
+    "communityFeedback": "Feedback",
+    "copyright": "© 2025 Rocokindom Dex. Developed by @CeerDecy",
+    "githubLabel": "GitHub",
+    "messageLabel": "Email"
+  }
 }

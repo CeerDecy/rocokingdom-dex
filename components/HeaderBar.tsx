@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useLanguage } from "@/components/i18n/language-context";
+import { getClientMessage } from "@/lib/i18n-client";
 import { localeNames, locales } from "@/lib/i18n-config";
 
 export default function HeaderBar() {
@@ -11,7 +12,7 @@ export default function HeaderBar() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const t = (key: string, fallback: string) =>
-    (currentMessages?.[key] as string) ?? fallback;
+    getClientMessage(currentMessages, key, fallback);
   const localePrefix = `/${locale}`;
   const searchSuffix = searchParams?.toString()
     ? `?${searchParams.toString()}`

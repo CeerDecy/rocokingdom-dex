@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import HeaderBar from "@/components/HeaderBar";
+import FooterBar from "@/components/FooterBar";
 import {
   LanguageProvider,
   type Locale,
@@ -25,8 +26,11 @@ export default async function LocaleLayout({
 
   return (
     <LanguageProvider initialLocale={locale as Locale}>
-      <HeaderBar />
-      {children}
+      <div className="flex min-h-screen flex-col">
+        <HeaderBar />
+        <div className="flex-1">{children}</div>
+        <FooterBar />
+      </div>
     </LanguageProvider>
   );
 }
