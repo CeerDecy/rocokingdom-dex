@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -44,6 +45,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-7F8ZWNEZEK"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'G-7F8ZWNEZEK');
+                `}
+        </Script>
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${bebasNeue.variable} antialiased`}
       >
