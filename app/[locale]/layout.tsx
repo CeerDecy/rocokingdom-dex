@@ -1,12 +1,10 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 
 import HeaderBar from "@/components/HeaderBar";
 import FooterBar from "@/components/FooterBar";
-import {
-  LanguageProvider,
-  type Locale,
-} from "@/components/i18n/language-context";
-import { locales } from "@/lib/i18n-config";
+import { LanguageProvider } from "@/components/i18n/language-context";
+import { locales, type Locale } from "@/lib/i18n-config";
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -27,7 +25,9 @@ export default async function LocaleLayout({
   return (
     <LanguageProvider initialLocale={locale as Locale}>
       <div className="flex min-h-screen flex-col">
-        <HeaderBar />
+        <Suspense fallback={<div className="h-14 w-full" />}>
+          <HeaderBar />
+        </Suspense>
         <div className="flex-1">{children}</div>
         <FooterBar />
       </div>

@@ -6,6 +6,8 @@ import type { Metadata } from "next";
 import AttributePageHeader from "@/components/AttributePageHeader";
 import AttributeRing, { type AttributeItem } from "@/components/AttributeRing";
 
+type AttributePayload = Omit<AttributeItem, "key">;
+
 async function getAttributes() {
   const filePath = path.join(
     process.cwd(),
@@ -37,7 +39,7 @@ async function getAttributes() {
     })();
     return inString ? match : "";
   });
-  return JSON.parse(sanitized) as Record<string, AttributeItem>;
+  return JSON.parse(sanitized) as Record<string, AttributePayload>;
 }
 
 export const metadata: Metadata = {
