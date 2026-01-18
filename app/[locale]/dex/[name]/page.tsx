@@ -7,6 +7,7 @@ import { notFound, redirect } from "next/navigation";
 import DexClient from "@/components/DexClient";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
 import { getMessage, loadMessages } from "@/lib/i18n-messages";
+import { generateSEOData, getSEOConfig } from "@/lib/seo";
 
 type DexPageProps = {
   params: Promise<{
@@ -19,7 +20,7 @@ type DexPageProps = {
 };
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://rocokingdom.net";
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://rocokingdomdex.com";
 
 async function getPets() {
   const filePath = path.join(process.cwd(), "public", "pets.json");
@@ -137,18 +138,23 @@ export async function generateMetadata({
           "查看该精灵的属性、生态分布与进化路径。",
         ));
   const imagePath = pet.image ? `/pets/${pet.image}` : "/pets/001.png";
-  const canonical = `/${resolvedParams.locale}/dex/${key}`;
+  const seo = generateSEOData(
+    locale,
+    `/dex/${key}`,
+    getSEOConfig(),
+  );
 
   return {
     title,
     description,
     alternates: {
-      canonical,
+      canonical: seo.canonical,
+      languages: seo.alternates.languages,
     },
     openGraph: {
       title,
       description,
-      url: canonical,
+      url: seo.canonical,
       type: "article",
       images: [
         {

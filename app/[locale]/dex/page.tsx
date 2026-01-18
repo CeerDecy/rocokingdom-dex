@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import DexClient from "@/components/DexClient";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
 import { getMessage, loadMessages } from "@/lib/i18n-messages";
+import { generateSEOData, getSEOConfig } from "@/lib/seo";
 
 type DexPageProps = {
   params: Promise<{
@@ -71,6 +72,8 @@ export async function generateMetadata({
 }: DexPageProps): Promise<Metadata> {
   const { locale } = await params;
   const messages = await loadMessages(locale);
+  const seoConfig = getSEOConfig();
+  const baseSeo = generateSEOData(locale, "/dex", seoConfig);
   const baseMetadata: Metadata = {
     title: getMessage(messages, "dex.metaTitle", "洛克王国图鉴档案"),
     description: getMessage(
@@ -79,7 +82,8 @@ export async function generateMetadata({
       "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
     ),
     alternates: {
-      canonical: `/${locale}/dex`,
+      canonical: baseSeo.canonical,
+      languages: baseSeo.alternates.languages,
     },
     openGraph: {
       title: getMessage(messages, "dex.metaTitle", "洛克王国图鉴档案"),
@@ -88,7 +92,7 @@ export async function generateMetadata({
         "dex.metaDescription",
         "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
       ),
-      url: `/${locale}/dex`,
+      url: baseSeo.canonical,
       type: "website",
     },
     twitter: {
@@ -124,18 +128,23 @@ export async function generateMetadata({
     "dex.metaFilterDescription",
     "查看{attribute}属性精灵，筛选洛克王国图鉴中的生态、进化与技能。",
   ).replace("{attribute}", attributeName);
-  const canonical = `/${locale}/dex?attr=${encodeURIComponent(activeFilter)}`;
+  const seo = generateSEOData(
+    locale,
+    `/dex?attr=${encodeURIComponent(activeFilter)}`,
+    seoConfig,
+  );
 
   return {
     title,
     description,
     alternates: {
-      canonical,
+      canonical: seo.canonical,
+      languages: seo.alternates.languages,
     },
     openGraph: {
       title,
       description,
-      url: canonical,
+      url: seo.canonical,
       type: "website",
     },
     twitter: {

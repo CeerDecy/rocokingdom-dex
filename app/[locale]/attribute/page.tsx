@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import AttributePageHeader from "@/components/AttributePageHeader";
 import AttributeRing, { type AttributeItem } from "@/components/AttributeRing";
 import { getMessage, loadMessages } from "@/lib/i18n-messages";
+import { generateSEOData, getSEOConfig } from "@/lib/seo";
 
 type AttributePageProps = {
   params: Promise<{
@@ -52,6 +53,7 @@ export async function generateMetadata({
 }: AttributePageProps): Promise<Metadata> {
   const { locale } = await params;
   const messages = await loadMessages(locale);
+  const seo = generateSEOData(locale, "/attribute", getSEOConfig());
   return {
     title: getMessage(
       messages,
@@ -64,7 +66,8 @@ export async function generateMetadata({
       "查看洛克王国属性克制关系，可在进攻与防守视角间切换并了解克制与弱势。",
     ),
     alternates: {
-      canonical: `/${locale}/attribute`,
+      canonical: seo.canonical,
+      languages: seo.alternates.languages,
     },
     openGraph: {
       title: getMessage(
@@ -77,7 +80,7 @@ export async function generateMetadata({
         "attribute.pageSubtitle",
         "查看洛克王国属性克制关系，可在进攻与防守视角间切换并了解克制与弱势。",
       ),
-      url: `/${locale}/attribute`,
+      url: seo.canonical,
       type: "website",
     },
     twitter: {

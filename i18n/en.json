@@ -44,7 +44,9 @@
     "collectionTitle": "Dex Collection",
     "collectionSubtitle": "Select a spirit to review its attributes and profile summary.",
     "collectionCount": "{count} recorded",
-    "emptyState": "No spirits match this attribute."
+    "emptyState": "No spirits match this attribute.",
+    "comingSoonLabel": "Coming Soon",
+    "comingSoonItem": "We’re gathering spirit profiles. Coming soon."
   },
   "home": {
     "badge": "Rocokindom Encyclopedia",

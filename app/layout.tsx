@@ -14,7 +14,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://rocokingdom.net";
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://rocokingdomdex.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

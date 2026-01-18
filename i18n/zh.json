@@ -44,7 +44,9 @@
     "collectionTitle": "精灵图鉴",
     "collectionSubtitle": "选择精灵查看对应属性与档案摘要。",
     "collectionCount": "已收录 {count} 只",
-    "emptyState": "暂无符合该属性的精灵"
+    "emptyState": "暂无符合该属性的精灵",
+    "comingSoonLabel": "正在筹备",
+    "comingSoonItem": "精灵数据正在收集中 敬请期待"
   },
   "home": {
     "badge": "洛克王国百科",

@@ -7,6 +7,7 @@ import DexCornerCards from "@/components/DexCornerCards";
 import { useLanguage } from "@/components/i18n/language-context";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { getClientMessage } from "@/lib/i18n-client";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
 
 type PetEntry = PetData & { key: string };
@@ -177,7 +178,7 @@ export default function DexClientClient({
 }: DexClientProps) {
   const { locale, currentMessages } = useLanguage();
   const t = (key: string, fallback: string) =>
-    (currentMessages?.[key] as string) ?? fallback;
+    getClientMessage(currentMessages, key, fallback);
   const fallbackPet: PetEntry = {
     key: "unknown",
     name: { zh: t("dex.fallbackName", "未知精灵"), en: "Unknown" },
@@ -591,68 +592,78 @@ export default function DexClientClient({
                   {t("dex.emptyState", "暂无符合该属性的精灵")}
                 </div>
               ) : (
-                filteredPets.map((pet) => {
-                  const petId = pet.image?.split(".")[0] ?? pet.key;
-                  const petAttributes =
-                    pet.attributes?.map(
-                      (attributeKey) => attributes[attributeKey],
-                    ) ?? [];
-                  const isActive = pet.key === activeKeyState;
-                  const petName = labelForPetName(pet);
-                  return (
-                    <button
-                      key={pet.key}
-                      type="button"
-                      onClick={() => handlePetSwitch(pet.key)}
-                      className={`flex flex-col items-center gap-3 rounded-2xl border px-3 py-4 text-center transition-colors ${
-                        isActive
-                          ? "border-black/30 bg-white shadow-[0_18px_40px_-32px_rgba(16,24,40,0.4)]"
-                          : "border-black/10 bg-white/70 hover:border-black/20"
-                      }`}
-                      aria-pressed={isActive}
-                    >
-                      <div className="relative h-16 w-16">
-                        <Image
-                          src={`/pets/${pet.image}`}
-                          alt={petName}
-                          fill
-                          className="object-contain"
-                          sizes="64px"
-                        />
-                      </div>
-                      <div>
-                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-black/45">
-                          {t("dex.dexLabel", "Dex")} #{petId}
+                <>
+                  {filteredPets.map((pet) => {
+                    const petId = pet.image?.split(".")[0] ?? pet.key;
+                    const petAttributes =
+                      pet.attributes?.map(
+                        (attributeKey) => attributes[attributeKey],
+                      ) ?? [];
+                    const isActive = pet.key === activeKeyState;
+                    const petName = labelForPetName(pet);
+                    return (
+                      <button
+                        key={pet.key}
+                        type="button"
+                        onClick={() => handlePetSwitch(pet.key)}
+                        className={`flex flex-col items-center gap-3 rounded-2xl border px-3 py-4 text-center transition-colors ${
+                          isActive
+                            ? "border-black/30 bg-white shadow-[0_18px_40px_-32px_rgba(16,24,40,0.4)]"
+                            : "border-black/10 bg-white/70 hover:border-black/20"
+                        }`}
+                        aria-pressed={isActive}
+                      >
+                        <div className="relative h-16 w-16">
+                          <Image
+                            src={`/pets/${pet.image}`}
+                            alt={petName}
+                            fill
+                            className="object-contain"
+                            sizes="64px"
+                          />
                         </div>
-                        <div className="text-sm font-semibold text-black">
-                          {petName}
-                        </div>
-                        {labelForPetSubtitle(pet) ? (
-                          <div className="text-xs text-black/45">
-                            {labelForPetSubtitle(pet)}
+                        <div>
+                          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-black/45">
+                            {t("dex.dexLabel", "Dex")} #{petId}
                           </div>
-                        ) : null}
-                      </div>
-                      <div className="flex items-center justify-center gap-2">
-                        {petAttributes.map((attribute) =>
-                          attribute?.logoUrl ? (
-                            <img
-                              key={attribute.nameEn}
-                              src={attribute.logoUrl}
-                              alt={labelForAttribute(
-                                attribute,
-                                attribute?.nameEn ??
-                                  attribute?.nameCn ??
-                                  "attribute",
-                              )}
-                              className="h-4 w-4"
-                            />
-                          ) : null,
-                        )}
-                      </div>
-                    </button>
-                  );
-                })
+                          <div className="text-sm font-semibold text-black">
+                            {petName}
+                          </div>
+                          {labelForPetSubtitle(pet) ? (
+                            <div className="text-xs text-black/45">
+                              {labelForPetSubtitle(pet)}
+                            </div>
+                          ) : null}
+                        </div>
+                        <div className="flex items-center justify-center gap-2">
+                          {petAttributes.map((attribute) =>
+                            attribute?.logoUrl ? (
+                              <img
+                                key={attribute.nameEn}
+                                src={attribute.logoUrl}
+                                alt={labelForAttribute(
+                                  attribute,
+                                  attribute?.nameEn ??
+                                    attribute?.nameCn ??
+                                    "attribute",
+                                )}
+                                className="h-4 w-4"
+                              />
+                            ) : null,
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                  <div className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-black/15 bg-white/60 px-4 py-6 text-center">
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-black/35">
+                      {t("dex.comingSoonLabel", "Coming Soon")}
+                    </div>
+                    <div className="text-sm font-semibold text-black/70">
+                      {t("dex.comingSoonItem", "精灵数据正在收集中 敬请期待")}
+                    </div>
+                  </div>
+                </>
               )}
             </div>
           </div>

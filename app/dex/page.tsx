@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import DexClient from "@/components/DexClient";
 import { LanguageProvider } from "@/components/i18n/language-context";
 import type { AttributeData, PetData } from "@/lib/dexTypes";
+import { generateSEOData, getSEOConfig } from "@/lib/seo";
 
 async function getPets() {
   const filePath = path.join(process.cwd(), "public", "pets.json");
@@ -65,16 +66,20 @@ const resolveFilter = (
 export async function generateMetadata({
   searchParams,
 }: DexPageProps): Promise<Metadata> {
+  const seoConfig = getSEOConfig();
+  const currentLang = seoConfig.defaultLocale;
+  const baseSeo = generateSEOData(currentLang, "/dex", seoConfig);
   const baseMetadata: Metadata = {
     title: "洛克王国图鉴档案",
     description: "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
     alternates: {
-      canonical: "/dex",
+      canonical: baseSeo.canonical,
+      languages: baseSeo.alternates.languages,
     },
     openGraph: {
       title: "洛克王国图鉴档案",
       description: "浏览洛克王国精灵图鉴，快速查看属性、生态与进化信息。",
-      url: "/dex",
+      url: baseSeo.canonical,
       type: "website",
     },
     twitter: {
@@ -91,18 +96,23 @@ export async function generateMetadata({
   const attributeName = attributes[activeFilter]?.nameCn ?? activeFilter;
   const title = `${attributeName}属性 · 洛克王国图鉴档案`;
   const description = `查看${attributeName}属性精灵，筛选洛克王国图鉴中的生态、进化与技能。`;
-  const canonical = `/dex?attr=${encodeURIComponent(activeFilter)}`;
+  const seo = generateSEOData(
+    currentLang,
+    `/dex?attr=${encodeURIComponent(activeFilter)}`,
+    seoConfig,
+  );
 
   return {
     title,
     description,
     alternates: {
-      canonical,
+      canonical: seo.canonical,
+      languages: seo.alternates.languages,
     },
     openGraph: {
       title,
       description,
-      url: canonical,
+      url: seo.canonical,
       type: "website",
     },
     twitter: {
