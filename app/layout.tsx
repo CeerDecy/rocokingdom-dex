@@ -18,6 +18,7 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://rocokingdomdex.com";
 
 export const metadata: Metadata = {
+  icons: "/favicon.ico",
   metadataBase: new URL(siteUrl),
   title: {
     default: "Rocokindom Dex",
@@ -55,7 +56,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-          
+
             gtag('config', 'G-7F8ZWNEZEK');
                 `}
         </Script>
