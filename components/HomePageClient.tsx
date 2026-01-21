@@ -89,7 +89,7 @@ export default function HomePageClient() {
         <section className="flex flex-col">
           <div className="flex flex-col gap-6">
             <span className="w-fit rounded-full border border-black/10 bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-black/60">
-              {t("home.badge", "Rocokindom Field Notes")}
+              {t("home.badge", "Roco Kingdom Field Notes")}
             </span>
             <h1 className="font-display text-5xl tracking-[0.08em] text-black sm:text-6xl">
               {t("home.titleLine1", "洛克王国：世界")}

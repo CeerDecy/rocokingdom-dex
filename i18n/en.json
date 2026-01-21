@@ -4,7 +4,7 @@
     "navAttribute": "Attributes"
   },
   "attribute": {
-    "pageTitle": "Rocokindom World: Attribute Matchups",
+    "pageTitle": "Roco Kingdom World: Attribute Matchups",
     "pageSubtitle": "Hover or click an attribute to view matchups and notes. Toggle offense/defense perspectives.",
     "modeOffense": "Offense",
     "modeDefense": "Defense",
@@ -15,13 +15,13 @@
     "helperText": "Hover or click any attribute icon on the ring to view matchups and notes."
   },
   "dex": {
-    "metaTitle": "Rocokindom Dex Archive",
-    "metaDescription": "Explore Rocokindom spirits with fast access to attributes, habitats, and evolutions.",
-    "metaFilterTitle": "{attribute} Attribute · Rocokindom Dex Archive",
+    "metaTitle": "Roco Kingdom Dex Archive",
+    "metaDescription": "Explore Roco Kingdom spirits with fast access to attributes, habitats, and evolutions.",
+    "metaFilterTitle": "{attribute} Attribute · Roco Kingdom Dex Archive",
     "metaFilterDescription": "Browse {attribute} spirits and filter by habitat, evolution, and skills in the dex.",
     "metaNotFoundTitle": "Spirit not found",
     "metaDetailFallback": "Review this spirit's attributes, habitat, and evolution path.",
-    "metaSiteName": "Rocokindom Dex",
+    "metaSiteName": "Roco Kingdom Dex",
     "heroBadge": "Dex Archive",
     "fallbackName": "Unknown",
     "evolvable": "Evolvable",
@@ -49,13 +49,13 @@
     "comingSoonItem": "We’re gathering spirit profiles. Coming soon."
   },
   "home": {
-    "badge": "Rocokindom Encyclopedia",
-    "titleLine1": "Rocokindom World:",
+    "badge": "Roco Kingdom Encyclopedia",
+    "titleLine1": "Roco Kingdom World:",
     "titleLine2": "Spirit Knowledge Hub",
     "description": "Get a fast overview of spirit ecology and battle rules. This site offers a full Dex and Attribute guide so you can research, compare matchups, and build your own trainer handbook.",
     "primaryCta": "Open the Dex",
     "secondaryCta": "View Attributes",
-    "publicTestNote": "Be ready for the Rocokindom World public test at any time.",
+    "publicTestNote": "Be ready for the Roco Kingdom World public test at any time.",
     "featureCards": {
       "moduleLabel": "Module",
       "dex": {
@@ -117,9 +117,9 @@
     }
   },
   "footer": {
-    "brandName": "Rocokindom Dex",
+    "brandName": "Roco Kingdom Dex",
     "noticePrefix": "All assets are sourced from",
-    "noticeLinkText": "Rocokindom World Official",
+    "noticeLinkText": "Roco Kingdom World Official",
     "noticeAndWeb": "and the web.",
     "noticeSuffix": "This third-party site curates information to improve gameplay.",
     "noticeContact": "Contact us if there is any infringement.",
@@ -129,7 +129,7 @@
     "productHome": "Home",
     "communityTitle": "Community",
     "communityFeedback": "Feedback",
-    "copyright": "© 2025 Rocokindom Dex. Developed by @CeerDecy",
+    "copyright": "© 2025 Roco Kingdom Dex. Developed by @CeerDecy",
     "githubLabel": "GitHub",
     "messageLabel": "Email"
   }

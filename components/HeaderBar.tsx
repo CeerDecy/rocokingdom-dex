@@ -37,7 +37,7 @@ export default function HeaderBar() {
             <div className="flex h-5 w-5 items-center justify-center rounded-full bg-black">
               <div className="h-2 w-2 rounded-full bg-[#f8e16c]" />
             </div>
-            Rocokindom Dex
+            Roco Kingdom Dex
           </Link>
           <div className="flex items-center gap-6 text-sm text-black/70">
             <Link

@@ -20,7 +20,7 @@ export default function FooterBar() {
             className="mb-4 flex items-center gap-2 text-lg font-semibold tracking-tight text-slate-900"
           >
             <span className="h-3.5 w-3.5 rounded-full bg-slate-900" />
-            {t("footer.brandName", "Rocokindom Dex")}
+            {t("footer.brandName", "Roco Kingdom Dex")}
           </a>
           <p className="text-sm text-slate-600">
             {t("footer.noticePrefix", "本站点所有素材资源都来自")}
@@ -85,7 +85,7 @@ export default function FooterBar() {
         <p>
           {t(
             "footer.copyright",
-            "© 2025 Rocokindom Dex. Developed by @CeerDecy",
+            "© 2025 Roco Kingdom Dex. Developed by @CeerDecy",
           )}
         </p>
         <div className="flex gap-4">

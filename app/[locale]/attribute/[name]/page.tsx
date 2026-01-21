@@ -65,9 +65,9 @@ export async function generateMetadata({
   if (!selected) {
     if (locale === "en") {
       return {
-        title: "Rocokindom World: Attribute Matchups",
+        title: "Roco Kingdom World: Attribute Matchups",
         description:
-          "View attribute matchups in Rocokindom World and switch between offense and defense perspectives.",
+          "View attribute matchups in Roco Kingdom World and switch between offense and defense perspectives.",
       };
     }
 
@@ -81,9 +81,9 @@ export async function generateMetadata({
   if (locale === "en") {
     const description =
       selected.description?.en ??
-      "View attribute matchups in Rocokindom World.";
+      "View attribute matchups in Roco Kingdom World.";
     return {
-      title: `Rocokindom World: ${selected.nameEn} Matchups`,
+      title: `Roco Kingdom World: ${selected.nameEn} Matchups`,
       description,
     };
   }

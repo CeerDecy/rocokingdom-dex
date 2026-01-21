@@ -226,7 +226,7 @@ export default async function DexDetailPage({
     ).toString(),
     isPartOf: {
       "@type": "WebSite",
-      name: getMessage(messages, "dex.metaSiteName", "Rocokindom Dex"),
+      name: getMessage(messages, "dex.metaSiteName", "Roco Kingdom Dex"),
       url: siteUrl,
     },
   };

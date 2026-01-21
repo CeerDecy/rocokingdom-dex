@@ -21,20 +21,20 @@ export const metadata: Metadata = {
   icons: "/favicon.ico",
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Rocokindom Dex",
-    template: "%s | Rocokindom Dex",
+    default: "Roco Kingdom Dex",
+    template: "%s | Roco Kingdom Dex",
   },
   description: "探索洛克王国精灵图鉴，记录生态、进化与技能。",
   openGraph: {
-    title: "Rocokindom Dex",
+    title: "Roco Kingdom Dex",
     description: "探索洛克王国精灵图鉴，记录生态、进化与技能。",
     url: "/",
-    siteName: "Rocokindom Dex",
+    siteName: "Roco Kingdom Dex",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rocokindom Dex",
+    title: "Roco Kingdom Dex",
     description: "探索洛克王国精灵图鉴，记录生态、进化与技能。",
   },
 };

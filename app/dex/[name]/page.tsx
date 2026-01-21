@@ -184,7 +184,7 @@ export default async function DexDetailPage({
     url: new URL(`/dex/${activePet?.key ?? ""}`, siteUrl).toString(),
     isPartOf: {
       "@type": "WebSite",
-      name: "Rocokindom Dex",
+      name: "Roco Kingdom Dex",
       url: siteUrl,
     },
   };
