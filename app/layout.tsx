@@ -15,7 +15,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://rocokingdomdex.com";
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.rocokingdomdex.com";
 
 export const metadata: Metadata = {
   icons: "/favicon.ico",

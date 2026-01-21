@@ -19,7 +19,7 @@ type DexPageProps = {
 };
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://rocokingdomdex.com";
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.rocokingdomdex.com";
 
 async function getPets() {
   const filePath = path.join(process.cwd(), "public", "pets.json");

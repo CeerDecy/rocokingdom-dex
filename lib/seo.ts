@@ -59,7 +59,7 @@ export function getSEOConfig(): SEOConfig {
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL?.trim() ||
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-    "https://rocokingdomdex.com";
+    "https://www.rocokingdomdex.com";
 
   return {
     baseUrl,
