@@ -320,7 +320,7 @@ export default function DexClientClient({
         typeof rawValue === "number" && !Number.isNaN(rawValue) ? rawValue : 0;
       const cappedValue = Math.min(value, QUALIFICATION_MAX);
       const percentage =
-        QUALIFICATION_MAX === 0 ? 0 : (cappedValue / QUALIFICATION_MAX) * 100;
+        QUALIFICATION_MAX > 0 ? (cappedValue / QUALIFICATION_MAX) * 100 : 0;
       return {
         ...item,
         label: t(item.labelKey, item.fallback),
