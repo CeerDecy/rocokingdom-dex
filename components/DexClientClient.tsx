@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
-import DexCornerCards from "@/components/DexCornerCards";
 import { useLanguage } from "@/components/i18n/language-context";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getClientMessage } from "@/lib/i18n-client";
@@ -426,126 +426,139 @@ export default function DexClientClient({
                   ) : null}
                 </div>
               ) : null}
-              <DexCornerCards
-                className="relative z-10 mx-auto w-full max-w-[480px]"
-                cardClassName="rounded-[36px] border border-white/60 bg-gradient-to-br from-white via-white to-[#eef2ff] p-10 shadow-[0_25px_55px_-45px_rgba(15,23,42,0.5)]"
+              <CardContainer
+                className="inter-var w-full"
+                containerClassName="py-0"
               >
-                <div className="pointer-events-none absolute inset-0 rounded-[36px] bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.85),rgba(255,255,255,0)_55%)] opacity-80" />
-                <div
-                  className={`relative z-10 flex flex-col gap-6 transition-all duration-300 ${
-                    isSwitching
-                      ? "translate-y-2 opacity-0"
-                      : "translate-y-0 opacity-100"
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-black/50">
-                      {t("dex.dexLabel", "Dex")} #{creature.id}
-                    </div>
-                    <div className="rounded-full border border-amber-200/80 bg-amber-100/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-amber-700">
-                      {creature.rarity}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {creature.attributes.map((attribute) => (
-                      <span
-                        key={attribute.key}
-                        className="flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/60"
-                      >
-                        {attribute.logoUrl ? (
-                          <img
-                            src={attribute.logoUrl}
-                            alt={attribute.name}
-                            className="h-3.5 w-3.5"
-                          />
-                        ) : null}
-                        <span>{attribute.name}</span>
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="relative flex min-h-[320px] items-center justify-center rounded-[28px]">
-                    <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
-                    <div className="absolute left-1/2 top-1/2 h-[680px] w-[680px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
-                    <div className="relative z-10 h-[300px] w-[600px] drop-shadow-[0_20px_35px_rgba(15,23,42,0.25)]">
-                      <Image
-                        src={creature.image}
-                        alt={formatMessage(t("dex.petImageAlt", "{pet} 精灵"), {
-                          pet: creature.name,
-                        })}
-                        fill
-                        className="object-contain scale-160"
-                        sizes="600px"
-                        priority
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/50">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-1">
-                        {t("dex.strongAgainst", "克制")}
-                      </span>
-                      {attributeSummary.strong.length === 0 ? (
-                        <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
-                          {t("dex.none", "暂无")}
+                <CardBody className="shadow-[0_24px_60px_-36px_rgba(15,23,42,0.45)] border border-withe relative group/card w-full h-auto rounded-[36px] p-12  bg-gradient-to-br from-white via-white to-[#eef2ff] ">
+                  <div className="pointer-events-none absolute inset-0 rounded-xl bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.85),rgba(255,255,255,0)_55%)] opacity-80" />
+                  <div
+                    className={`relative z-10 flex flex-col gap-6 transition-all duration-300 ${
+                      isSwitching
+                        ? "translate-y-2 opacity-0"
+                        : "translate-y-0 opacity-100"
+                    }`}
+                  >
+                    <CardItem
+                      translateZ={20}
+                      className="flex items-center justify-between w-full"
+                    >
+                      <div className="rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-black/50">
+                        {t("dex.dexLabel", "Dex")} #{creature.id}
+                      </div>
+                      <div className="rounded-full border border-amber-200/80 bg-amber-100/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-amber-700">
+                        {creature.rarity}
+                      </div>
+                    </CardItem>
+                    <CardItem translateZ={20} className="flex flex-wrap gap-2">
+                      {creature.attributes.map((attribute) => (
+                        <span
+                          key={attribute.key}
+                          className="flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/60"
+                        >
+                          {attribute.logoUrl ? (
+                            <img
+                              src={attribute.logoUrl}
+                              alt={attribute.name}
+                              className="h-3.5 w-3.5"
+                            />
+                          ) : null}
+                          <span>{attribute.name}</span>
                         </span>
-                      ) : (
-                        attributeSummary.strong.map((key) => (
-                          <span
-                            key={`strong-${key}`}
-                            className="flex h-7 w-7 items-center justify-center"
-                            title={labelForAttribute(attributes[key], key)}
-                          >
-                            {attributes[key]?.logoUrl ? (
-                              <img
-                                src={attributes[key]?.logoUrl}
-                                alt={labelForAttribute(attributes[key], key)}
-                                className="h-4 w-4"
-                              />
-                            ) : (
-                              <span className="text-[10px] text-emerald-700">
-                                {labelForAttribute(attributes[key], key)}
-                              </span>
-                            )}
-                          </span>
-                        ))
-                      )}
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-1">
-                        {t("dex.weakAgainst", "被克")}
-                      </span>
-                      {attributeSummary.weak.length === 0 ? (
-                        <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
-                          {t("dex.none", "暂无")}
+                      ))}
+                    </CardItem>
+
+                    <CardItem
+                      translateZ={100}
+                      className="relative flex min-h-[320px] w-full items-center justify-center rounded-[28px]"
+                    >
+                      <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+                      <div className="absolute left-1/2 top-1/2 h-[680px] w-[680px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+                      <div className="relative z-10 h-[300px] w-full max-w-[520px]">
+                        <Image
+                          src={creature.image}
+                          alt={formatMessage(
+                            t("dex.petImageAlt", "{pet} 精灵"),
+                            {
+                              pet: creature.name,
+                            },
+                          )}
+                          fill
+                          className="object-contain scale-160 transition duration-300 "
+                          sizes="600px"
+                          priority
+                        />
+                      </div>
+                    </CardItem>
+
+                    <CardItem
+                      translateZ={30}
+                      className="flex flex-col gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/50"
+                    >
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="px-1">
+                          {t("dex.strongAgainst", "克制")}
                         </span>
-                      ) : (
-                        attributeSummary.weak.map((key) => (
-                          <span
-                            key={`weak-${key}`}
-                            className="flex h-7 w-7 items-center justify-center"
-                            title={labelForAttribute(attributes[key], key)}
-                          >
-                            {attributes[key]?.logoUrl ? (
-                              <img
-                                src={attributes[key]?.logoUrl}
-                                alt={labelForAttribute(attributes[key], key)}
-                                className="h-4 w-4"
-                              />
-                            ) : (
-                              <span className="text-[10px] text-rose-700">
-                                {labelForAttribute(attributes[key], key)}
-                              </span>
-                            )}
+                        {attributeSummary.strong.length === 0 ? (
+                          <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
+                            {t("dex.none", "暂无")}
                           </span>
-                        ))
-                      )}
-                    </div>
+                        ) : (
+                          attributeSummary.strong.map((key) => (
+                            <span
+                              key={`strong-${key}`}
+                              className="flex h-7 w-7 items-center justify-center"
+                              title={labelForAttribute(attributes[key], key)}
+                            >
+                              {attributes[key]?.logoUrl ? (
+                                <img
+                                  src={attributes[key]?.logoUrl}
+                                  alt={labelForAttribute(attributes[key], key)}
+                                  className="h-4 w-4"
+                                />
+                              ) : (
+                                <span className="text-[10px] text-emerald-700">
+                                  {labelForAttribute(attributes[key], key)}
+                                </span>
+                              )}
+                            </span>
+                          ))
+                        )}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="px-1">
+                          {t("dex.weakAgainst", "被克")}
+                        </span>
+                        {attributeSummary.weak.length === 0 ? (
+                          <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
+                            {t("dex.none", "暂无")}
+                          </span>
+                        ) : (
+                          attributeSummary.weak.map((key) => (
+                            <span
+                              key={`weak-${key}`}
+                              className="flex h-7 w-7 items-center justify-center"
+                              title={labelForAttribute(attributes[key], key)}
+                            >
+                              {attributes[key]?.logoUrl ? (
+                                <img
+                                  src={attributes[key]?.logoUrl}
+                                  alt={labelForAttribute(attributes[key], key)}
+                                  className="h-4 w-4"
+                                />
+                              ) : (
+                                <span className="text-[10px] text-rose-700">
+                                  {labelForAttribute(attributes[key], key)}
+                                </span>
+                              )}
+                            </span>
+                          ))
+                        )}
+                      </div>
+                    </CardItem>
                   </div>
-                </div>
-              </DexCornerCards>
+                </CardBody>
+              </CardContainer>
             </div>
           </div>
         </div>
