@@ -1,126 +1,85 @@
 {
-  "dimor": {
+  "dimo": {
     "name": {
       "zh": "迪莫",
-      "en": "Dimor"
+      "en": "Dimo"
     },
     "image": "001.png",
     "attributes": ["light"],
     "introduction": {
       "zh": "在特殊魔力的影响下，会改变自身的身体构造。“这是关于勇气的故事，他很脆弱却也不曾退缩,这是关于梦想的故事，梦很简单却也执着。这就是我，迪莫”。",
-      "en": "Under the influence of special magic, its own physical structure can change. \nThis is a story about courage — though fragile, it never retreats. \nThis is a story about dreams — simple in nature, yet held with unwavering resolve. \nThis is who I am: Dimor."
+      "en": "Under the influence of special magic, its own physical structure can change. \nThis is a story about courage — though fragile, it never retreats. \nThis is a story about dreams — simple in nature, yet held with unwavering resolve. \nThis is who I am: Dimo."
     },
     "evolution": null,
-    "distribution": null
-  },
-  "spark": {
-    "name": {
-      "zh": "火花",
-      "en": "Spark"
-    },
-    "image": "005.png",
-    "attributes": ["fire"],
-    "introduction": {
-      "zh": "长大可以喷出火焰，现在已经可以熟练使用火花",
-      "en": "When fully grown, it can spew flames; now it can already skillfully wield sparks."
-    },
-    "evolution": {
-      "level": 16,
-      "next": "flame",
-      "prev": null
-    },
-    "distribution": {
-      "zh": "维苏威火山口打野怪几率刷新、弹弹机",
-      "en": "Mount Vesuvius Crater Monster Spawn Rate Refresh, Bouncy Machine"
+    "distribution": null,
+    "id": "001",
+    "qualifications": {
+      "health": 96,
+      "physical_attack": 39,
+      "magic_attack": 39,
+      "physical_defense": 58,
+      "magic_defense": 58,
+      "speed": 120,
+      "base_stats": 410
     }
   },
-  "flame": {
+  "miaoMiao": {
     "name": {
-      "zh": "焰火",
-      "en": "Flame"
+      "zh": "喵喵",
+      "en": "MiaoMiao"
     },
-    "image": "006.png",
-    "attributes": ["fire"],
+    "image": "002.png",
+    "attributes": ["grass"],
     "introduction": {
-      "zh": "长出蓝色的小翅膀 双拳拥有强力的火焰",
-      "en": "Blue wings sprout from his back Fists blaze with powerful flames"
-    },
-    "evolution": {
-      "level": 36,
-      "next": "fireGod",
-      "prev": "spark"
-    },
-    "distribution": null
-  },
-  "fireGod": {
-    "name": {
-      "zh": "火神",
-      "en": "FireGod"
-    },
-    "image": "007.png",
-    "attributes": ["fire", "wing"],
-    "introduction": {
-      "zh": "炙热的火焰包围全身熊熊燃烧，能够喷射大量火焰燃烧一切",
-      "en": "Blazing flames engulf the entire body, raging fiercely, capable of spewing vast quantities of fire to consume everything in its path."
-    },
-    "evolution": {
-      "prev": "flame"
-    },
-    "distribution": null
-  },
-  "waterSpirit": {
-    "name": {
-      "zh": "水灵",
-      "en": "Water Spirit"
-    },
-    "image": "010.png",
-    "attributes": ["water"],
-    "introduction": {
-      "zh": "随时带着刚刚长大的孩子，擅长吸收水分，形成强大的冲击力",
-      "en": "It guards its newly grown young while using absorbed water to unleash powerful impacts."
-    },
-    "evolution": {
-      "prev": "boBoLa"
-    },
-    "distribution": null
-  },
-  "boBoLa": {
-    "name": {
-      "zh": "波波拉",
-      "en": "BoBOLa"
-    },
-    "image": "009.png",
-    "attributes": ["water"],
-    "introduction": {
-      "zh": "头上的触角可以感受，水中细微的变化，体型变大了长满了小触角",
-      "en": "Its head antennae detect faint water movements. Having grown in size, its body is now covered with small tentacles."
-    },
-    "evolution": {
-      "level": 36,
-      "next": "waterSpirit",
-      "prev": "shuiLanLan"
-    },
-    "distribution": null
-  },
-  "shuiLanLan": {
-    "name": {
-      "zh": "水蓝蓝",
-      "en": "ShuiLanLan"
-    },
-    "image": "008.png",
-    "attributes": ["water"],
-    "introduction": {
-      "zh": "喜欢漂浮在水中，没事吐个泡泡，头顶有个漂亮的蝴蝶结",
-      "en": "It likes to float in the water, idly blowing bubbles, with a pretty bow tied on its head."
+      "zh": "喜欢阳光,喜欢新鲜的空气,会摇晃尾巴,受到惊吓会快速逃跑。虽然很胆小,但是也有时候非常调皮。",
+      "en": "Loves sunshine and fresh air, wags its tail, and bolts away when startled. Though timid, it can be quite mischievous at times."
     },
     "evolution": {
       "level": 16,
-      "next": "boBoLa",
+      "next": "miaoWu",
       "prev": null
     },
     "distribution": {
-      "zh": "杰诺斯浅海、弹弹机几率获得",
-      "en": "Can be obtained from the Bounce Machine in Genos Shallows with a certain probability."
+      "zh": "轻风山、弹弹机、宠物园",
+      "en": "Breeze Hill、Bounce Machine、Pet Garden"
+    },
+    "id": "002",
+    "qualifications": {
+      "health": 65,
+      "physical_attack": 53,
+      "magic_attack": 53,
+      "physical_defense": 59,
+      "magic_defense": 62,
+      "speed": 54,
+      "base_stats": 346
+    }
+  },
+  "miaoWu": {
+    "name": {
+      "zh": "喵呜",
+      "en": "MiaoWu"
+    },
+    "image": "003.png",
+    "attributes": ["grass"],
+    "introduction": {
+      "zh": "爱在泉水边嬉戏,是瞄瞄的进化型,芭蕉叶状的尾巴变成了两条。胆量变大了，会经常吐舌头挑衅对手。",
+      "en": "It loves to play by the spring, and is the evolved form of MiaoMiao. Its banana-leaf-like tail has become two. Bolder now, it often sticks out its tongue to taunt opponents."
+    },
+    "evolution": {
+      "level": 32,
+      "next": "magicalCat",
+      "prev": "miaoMiao"
+    },
+    "distribution": null,
+    "id": "003",
+    "qualifications": {
+      "health": 87,
+      "physical_attack": 71,
+      "magic_attack": 71,
+      "physical_defense": 79,
+      "magic_defense": 83,
+      "speed": 72,
+      "base_stats": 463
     }
   },
   "magicalCat": {
@@ -131,51 +90,192 @@
     "image": "004.png",
     "attributes": ["grass"],
     "introduction": {
-      "zh": "长了三条锋利的尾巴,胖胖的身体，经常会有身体冲撞碾压对手",
-      "en": "It grows three sharp tails. With its chubby body, it often charges and crushes its opponents."
+      "zh": "普遍性情温和,体型巨大,据说深吸一口气能呼出将洛克都吹走的狂风。三条尾巴非常锋利,用巨大的身体可以冲撞碾压对手。但通常情况下举止动作十分轻柔。",
+      "en": "It is generally gentle in temperament and enormous in size. Rumor has it that a deep breath can blow a gale strong enough to sweep away the kingdom. Its three tails are very sharp, and its massive body can charge and crush opponents. But in most cases, its movements are remarkably gentle."
     },
     "evolution": {
       "prev": "miaoWu"
     },
-    "distribution": null
+    "distribution": null,
+    "id": "004",
+    "qualifications": {
+      "health": 109,
+      "physical_attack": 88,
+      "magic_attack": 88,
+      "physical_defense": 98,
+      "magic_defense": 104,
+      "speed": 90,
+      "base_stats": 577
+    }
   },
-  "miaoWu": {
+  "spark": {
     "name": {
-      "zh": "喵呜",
-      "en": "MiaoWu"
+      "zh": "火花",
+      "en": "Spark"
     },
-    "image": "003.png",
-    "attributes": ["grass"],
+    "image": "005.png",
+    "attributes": ["fire"],
     "introduction": {
-      "zh": "长出两条锋利的尾巴 经常吐出舌头挑衅对方瘦弱的身体撞击强而有力",
-      "en": "This pet grows two sharp tails and often sticks out its tongue to provoke its foes. Despite its skinny build, its tackles are surprisingly powerful."
-    },
-    "evolution": {
-      "level": 32,
-      "next": "magicalCat",
-      "prev": "miaoMiao"
-    },
-    "distribution": null
-  },
-  "miaoMiao": {
-    "name": {
-      "zh": "喵喵",
-      "en": "MiaoMiao"
-    },
-    "image": "002.png",
-    "attributes": ["grass"],
-    "introduction": {
-      "zh": "不停摇晃的尾巴容易受到惊吓平时很乖巧",
-      "en": "With a constantly wagging tail, it is easily startled but usually well-behaved."
+      "zh": "像一团迸发的小火花，坦诚炙热，生性勇敢无畏。能熟练运用火元素，偶尔有点冒失，是值得信赖的伙伴。",
+      "en": "Like a burst of tiny sparks, it is sincere and fiery, brave and fearless by nature. It wields fire elements with skill, though it can be a bit reckless at times, and is a trustworthy companion."
     },
     "evolution": {
       "level": 16,
-      "next": "miaoWu",
+      "next": "flame",
       "prev": null
     },
     "distribution": {
-      "zh": "轻风山、弹弹机、宠物园",
-      "en": "Breeze Hill、Bounce Machine、Pet Garden"
+      "zh": "维苏威火山口打野怪几率刷新、弹弹机",
+      "en": "Mount Vesuvius Crater Monster Spawn Rate Refresh, Bouncy Machine"
+    },
+    "id": "005",
+    "qualifications": {
+      "health": 61,
+      "physical_attack": 99,
+      "magic_attack": 53,
+      "physical_defense": 60,
+      "magic_defense": 46,
+      "speed": 63,
+      "base_stats": 382
+    }
+  },
+  "flame": {
+    "name": {
+      "zh": "焰火",
+      "en": "Flame"
+    },
+    "image": "006.png",
+    "attributes": ["fire"],
+    "introduction": {
+      "zh": "长出了一对大翅膀，但似乎并不是用来飞行的。能用双手释放出更加强力的火焰，但不太熟练。",
+      "en": "It has grown a pair of large wings, though they do not seem to be for flying. It can release stronger flames with both hands, but is not very skilled yet."
+    },
+    "evolution": {
+      "level": 36,
+      "next": "fireGod",
+      "prev": "spark"
+    },
+    "distribution": null,
+    "id": "006",
+    "qualifications": {
+      "health": 82,
+      "physical_attack": 131,
+      "magic_attack": 71,
+      "physical_defense": 80,
+      "magic_defense": 62,
+      "speed": 84,
+      "base_stats": 510
+    }
+  },
+  "fireGod": {
+    "name": {
+      "zh": "火神",
+      "en": "FireGod"
+    },
+    "image": "007.png",
+    "attributes": ["fire", "wing"],
+    "introduction": {
+      "zh": "强大的火焰之灵，只是靠近它就能够感受到温度的急剧变化。如果没有脖子上的项圈，它的火焰可能会暴走。 “在磨练中成长，在烈火中重生,用意志在战斗，用生命在燃烧,永远的火神”。",
+      "en": "A powerful spirit of flame; even approaching it, you can feel a sharp change in temperature. Without the collar around its neck, its flames might run wild. \"It grows through trial, is reborn in blazing fire, fights with will, and burns with life forever the Fire God.\""
+    },
+    "evolution": {
+      "prev": "flame"
+    },
+    "distribution": null,
+    "id": "007",
+    "qualifications": {
+      "health": 102,
+      "physical_attack": 164,
+      "magic_attack": 88,
+      "physical_defense": 100,
+      "magic_defense": 77,
+      "speed": 105,
+      "base_stats": 636
+    }
+  },
+  "shuiLanLan": {
+    "name": {
+      "zh": "水蓝蓝",
+      "en": "ShuiLanLan"
+    },
+    "image": "008.png",
+    "attributes": ["water"],
+    "introduction": {
+      "zh": "漂浮在水面上的精灵，没事吐个泡泡，头顶有一个红色的蝴蝶结。不在水中的时候,身体上也覆盖了一层液体薄膜。",
+      "en": "A spirit that floats on the water's surface, it idly blows bubbles and wears a red bow on its head. When out of the water, its body is still covered by a thin liquid film."
+    },
+    "evolution": {
+      "level": 16,
+      "next": "boBoLa",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "杰诺斯浅海、弹弹机几率获得",
+      "en": "Can be obtained from the Bounce Machine in Genos Shallows with a certain probability."
+    },
+    "id": "008",
+    "qualifications": {
+      "health": 51,
+      "physical_attack": 43,
+      "magic_attack": 84,
+      "physical_defense": 58,
+      "magic_defense": 74,
+      "speed": 51,
+      "base_stats": 361
+    }
+  },
+  "boBoLa": {
+    "name": {
+      "zh": "波波拉",
+      "en": "BoBOLa"
+    },
+    "image": "009.png",
+    "attributes": ["water"],
+    "introduction": {
+      "zh": "在水中自如地游动，头上的触角可以感受水中的变化，总是带着一颗球一样的东西。身旁环绕着特殊的水元素，水元素凝结体中蕴含魔法能量的波动。",
+      "en": "It swims freely in the water, and the antennae on its head sense changes in the currents. It always carries something like a ball. Special water elements surround it, and the condensed water holds ripples of magical energy."
+    },
+    "evolution": {
+      "level": 36,
+      "next": "waterSpirit",
+      "prev": "shuiLanLan"
+    },
+    "distribution": null,
+    "id": "009",
+    "qualifications": {
+      "health": 68,
+      "physical_attack": 57,
+      "magic_attack": 111,
+      "physical_defense": 77,
+      "magic_defense": 99,
+      "speed": 68,
+      "base_stats": 480
+    }
+  },
+  "waterSpirit": {
+    "name": {
+      "zh": "水灵",
+      "en": "Water Spirit"
+    },
+    "image": "010.png",
+    "attributes": ["water"],
+    "introduction": {
+      "zh": "将刚刚孕育的胚胎顶在头上，胚胎由特殊水元素包裹着。能将身边的水元素汇集在一起喷射出去，产生强大的冲击力。 “无论是云中落下的一滴水，还是湖面中微风吹起的一道涟漪，都有她的身影”。",
+      "en": "It carries newly formed embryos on its head, wrapped in special water elements. It can gather surrounding water elements and blast them outward, creating powerful impacts. \"Whether it is a drop falling from the clouds or a ripple raised by a breeze on the lake, you can find her presence.\""
+    },
+    "evolution": {
+      "prev": "boBoLa"
+    },
+    "distribution": null,
+    "id": "010",
+    "qualifications": {
+      "health": 85,
+      "physical_attack": 71,
+      "magic_attack": 139,
+      "physical_defense": 96,
+      "magic_defense": 124,
+      "speed": 85,
+      "base_stats": 600
     }
   }
 }

@@ -2,13 +2,19 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import { Shield, ShieldOff, Sword, Swords } from "lucide-react";
 
 import { useLanguage } from "@/components/i18n/language-context";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getClientMessage } from "@/lib/i18n-client";
-import type { AttributeData, PetData } from "@/lib/dexTypes";
+import type {
+  AttributeData,
+  PetData,
+  PetQualifications,
+  QualificationKey,
+} from "@/lib/dexTypes";
 
 type PetEntry = PetData & { key: string };
 
@@ -45,6 +51,59 @@ type CreatureSummary = {
   skills: string[];
 };
 
+const QUALIFICATION_MAX = 200;
+
+const QUALIFICATION_ITEMS: Array<{
+  key: QualificationKey;
+  labelKey: string;
+  fallback: string;
+  icon: string;
+  accent: string;
+}> = [
+  {
+    key: "health",
+    labelKey: "dex.qualificationHealth",
+    fallback: "生命值",
+    icon: "/qualifications/health.png",
+    accent: "from-rose-400 to-rose-500",
+  },
+  {
+    key: "physical_attack",
+    labelKey: "dex.qualificationPhysicalAttack",
+    fallback: "物理攻击",
+    icon: "/qualifications/physical_attack.png",
+    accent: "from-amber-400 to-amber-500",
+  },
+  {
+    key: "magic_attack",
+    labelKey: "dex.qualificationMagicAttack",
+    fallback: "魔法攻击",
+    icon: "/qualifications/magic_attack.png",
+    accent: "from-indigo-400 to-indigo-500",
+  },
+  {
+    key: "physical_defense",
+    labelKey: "dex.qualificationPhysicalDefense",
+    fallback: "物理防御",
+    icon: "/qualifications/physical_defense.png",
+    accent: "from-emerald-400 to-emerald-500",
+  },
+  {
+    key: "magic_defense",
+    labelKey: "dex.qualificationMagicDefense",
+    fallback: "魔法防御",
+    icon: "/qualifications/magic_defense.png",
+    accent: "from-sky-400 to-sky-500",
+  },
+  {
+    key: "speed",
+    labelKey: "dex.qualificationSpeed",
+    fallback: "速度",
+    icon: "/qualifications/speed.png",
+    accent: "from-fuchsia-400 to-fuchsia-500",
+  },
+];
+
 const buildHref = (path: string, attr?: string | null) =>
   attr ? `${path}?attr=${encodeURIComponent(attr)}` : path;
 
@@ -53,30 +112,34 @@ const getAttributeSummary = (
   attributes: Record<string, AttributeData>,
 ) => {
   return (pet.attributes ?? []).reduce<{
-    weak: string[];
     strong: string[];
+    resisted: string[];
+    resist: string[];
+    weak: string[];
   }>(
     (acc, key) => {
       const attribute = attributes[key];
       const offense = attribute?.battleMultiplier?.offense ?? {};
       const defense = attribute?.battleMultiplier?.defense ?? {};
-      const weakTargets = [
-        ...(offense["0.5"] ?? []),
-        ...(defense["2.0"] ?? []),
-      ];
-      const strongTargets = [
-        ...(offense["2.0"] ?? []),
-        ...(defense["0.5"] ?? []),
-      ];
-      weakTargets.forEach((target) => {
-        if (!acc.weak.includes(target)) acc.weak.push(target);
-      });
-      strongTargets.forEach((target) => {
+      const offenseStrongTargets = offense["2.0"] ?? [];
+      const offenseResistedTargets = offense["0.5"] ?? [];
+      const defenseResistTargets = defense["0.5"] ?? [];
+      const defenseWeakTargets = defense["2.0"] ?? [];
+      offenseStrongTargets.forEach((target) => {
         if (!acc.strong.includes(target)) acc.strong.push(target);
+      });
+      offenseResistedTargets.forEach((target) => {
+        if (!acc.resisted.includes(target)) acc.resisted.push(target);
+      });
+      defenseResistTargets.forEach((target) => {
+        if (!acc.resist.includes(target)) acc.resist.push(target);
+      });
+      defenseWeakTargets.forEach((target) => {
+        if (!acc.weak.includes(target)) acc.weak.push(target);
       });
       return acc;
     },
-    { weak: [], strong: [] },
+    { strong: [], resisted: [], resist: [], weak: [] },
   );
 };
 
@@ -249,6 +312,24 @@ export default function DexClientClient({
     () => getAttributeSummary(activePet, attributes),
     [activePet, attributes],
   );
+  const qualificationItems = useMemo(() => {
+    const qualifications: PetQualifications = activePet.qualifications ?? {};
+    return QUALIFICATION_ITEMS.map((item) => {
+      const rawValue = qualifications[item.key];
+      const value =
+        typeof rawValue === "number" && !Number.isNaN(rawValue) ? rawValue : 0;
+      const cappedValue = Math.min(value, QUALIFICATION_MAX);
+      const percentage =
+        QUALIFICATION_MAX === 0 ? 0 : (cappedValue / QUALIFICATION_MAX) * 100;
+      return {
+        ...item,
+        label: t(item.labelKey, item.fallback),
+        value,
+        cappedValue,
+        percentage,
+      };
+    });
+  }, [activePet.qualifications, t]);
   const filterItems = useMemo(
     () =>
       Object.entries(attributes).map(([key, attribute]) => {
@@ -271,6 +352,13 @@ export default function DexClientClient({
         };
       }),
     [activeFilter, attributes, basePath, locale],
+  );
+  const baseStatsValue = activePet.qualifications?.base_stats;
+  const baseStatsLabel = formatMessage(
+    t("dex.baseStats", "种族值 {value}"),
+    {
+      value: baseStatsValue ?? "--",
+    },
   );
   const handlePetSwitch = (nextKey: string) => {
     if (nextKey === activeKeyState) return;
@@ -349,6 +437,148 @@ export default function DexClientClient({
                   ))}
                 </div>
               ) : null}
+              <div className="grid grid-cols-2 gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/50">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span
+                    className="flex items-center gap-2 px-1"
+                    aria-label={t("dex.strongAgainst", "克制")}
+                    title={t("dex.strongAgainst", "克制")}
+                  >
+                    <Sword className="h-3.5 w-3.5" />
+                    <span>{t("dex.strongAgainst", "克制")}</span>
+                  </span>
+                  {attributeSummary.strong.length === 0 ? (
+                    <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
+                      {t("dex.none", "暂无")}
+                    </span>
+                  ) : (
+                    attributeSummary.strong.map((key) => (
+                      <span
+                        key={`strong-${key}`}
+                        className="flex h-7 w-7 items-center justify-center"
+                        title={labelForAttribute(attributes[key], key)}
+                      >
+                        {attributes[key]?.logoUrl ? (
+                          <img
+                            src={attributes[key]?.logoUrl}
+                            alt={labelForAttribute(attributes[key], key)}
+                            className="h-4 w-4"
+                          />
+                        ) : (
+                          <span className="text-[10px] text-emerald-700">
+                            {labelForAttribute(attributes[key], key)}
+                          </span>
+                        )}
+                      </span>
+                    ))
+                  )}
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span
+                    className="flex items-center gap-2 px-1"
+                    aria-label={t("dex.resistAgainst", "抵抗")}
+                    title={t("dex.resistAgainst", "抵抗")}
+                  >
+                    <Shield className="h-3.5 w-3.5" />
+                    <span>{t("dex.resistAgainst", "抵抗")}</span>
+                  </span>
+                  {attributeSummary.resist.length === 0 ? (
+                    <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
+                      {t("dex.none", "暂无")}
+                    </span>
+                  ) : (
+                    attributeSummary.resist.map((key) => (
+                      <span
+                        key={`resist-${key}`}
+                        className="flex h-7 w-7 items-center justify-center"
+                        title={labelForAttribute(attributes[key], key)}
+                      >
+                        {attributes[key]?.logoUrl ? (
+                          <img
+                            src={attributes[key]?.logoUrl}
+                            alt={labelForAttribute(attributes[key], key)}
+                            className="h-4 w-4"
+                          />
+                        ) : (
+                          <span className="text-[10px] text-sky-700">
+                            {labelForAttribute(attributes[key], key)}
+                          </span>
+                        )}
+                      </span>
+                    ))
+                  )}
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span
+                    className="flex items-center gap-2 px-1"
+                    aria-label={t("dex.weakAgainst", "被克制")}
+                    title={t("dex.weakAgainst", "被克制")}
+                  >
+                    <Swords className="h-3.5 w-3.5" />
+                    <span>{t("dex.weakAgainst", "被克制")}</span>
+                  </span>
+                  {attributeSummary.weak.length === 0 ? (
+                    <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
+                      {t("dex.none", "暂无")}
+                    </span>
+                  ) : (
+                    attributeSummary.weak.map((key) => (
+                      <span
+                        key={`weak-${key}`}
+                        className="flex h-7 w-7 items-center justify-center"
+                        title={labelForAttribute(attributes[key], key)}
+                      >
+                        {attributes[key]?.logoUrl ? (
+                          <img
+                            src={attributes[key]?.logoUrl}
+                            alt={labelForAttribute(attributes[key], key)}
+                            className="h-4 w-4"
+                          />
+                        ) : (
+                          <span className="text-[10px] text-rose-700">
+                            {labelForAttribute(attributes[key], key)}
+                          </span>
+                        )}
+                      </span>
+                    ))
+                  )}
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span
+                    className="flex items-center gap-2 px-1"
+                    aria-label={t("dex.resistedBy", "被抵抗")}
+                    title={t("dex.resistedBy", "被抵抗")}
+                  >
+                    <ShieldOff className="h-3.5 w-3.5" />
+                    <span>{t("dex.resistedBy", "被抵抗")}</span>
+                  </span>
+                  {attributeSummary.resisted.length === 0 ? (
+                    <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
+                      {t("dex.none", "暂无")}
+                    </span>
+                  ) : (
+                    attributeSummary.resisted.map((key) => (
+                      <span
+                        key={`resisted-${key}`}
+                        className="flex h-7 w-7 items-center justify-center"
+                        title={labelForAttribute(attributes[key], key)}
+                      >
+                        {attributes[key]?.logoUrl ? (
+                          <img
+                            src={attributes[key]?.logoUrl}
+                            alt={labelForAttribute(attributes[key], key)}
+                            className="h-4 w-4"
+                          />
+                        ) : (
+                          <span className="text-[10px] text-amber-700">
+                            {labelForAttribute(attributes[key], key)}
+                          </span>
+                        )}
+                      </span>
+                    ))
+                  )}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -447,7 +677,7 @@ export default function DexClientClient({
                         {t("dex.dexLabel", "Dex")} #{creature.id}
                       </div>
                       <div className="rounded-full border border-amber-200/80 bg-amber-100/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-amber-700">
-                        {creature.rarity}
+                        {baseStatsLabel}
                       </div>
                     </CardItem>
                     <CardItem translateZ={20} className="flex flex-wrap gap-2">
@@ -491,69 +721,39 @@ export default function DexClientClient({
                       </div>
                     </CardItem>
 
-                    <CardItem
-                      translateZ={30}
-                      className="flex flex-col gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/50"
-                    >
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="px-1">
-                          {t("dex.strongAgainst", "克制")}
-                        </span>
-                        {attributeSummary.strong.length === 0 ? (
-                          <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
-                            {t("dex.none", "暂无")}
-                          </span>
-                        ) : (
-                          attributeSummary.strong.map((key) => (
-                            <span
-                              key={`strong-${key}`}
-                              className="flex h-7 w-7 items-center justify-center"
-                              title={labelForAttribute(attributes[key], key)}
+                    <CardItem translateZ={30} className="w-full">
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {qualificationItems.map((item) => (
+                          <div
+                            key={item.key}
+                            className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-black/60"
+                          >
+                            <div className="flex min-w-[64px] items-center gap-2">
+                              <img
+                                src={item.icon}
+                                alt={item.label}
+                                className="h-4 w-4 rounded-full border border-black/20 bg-black p-0.5"
+                              />
+                              <span className="truncate">{item.label}</span>
+                            </div>
+                            <div
+                              className="h-2 flex-1 rounded-full bg-black/5"
+                              role="progressbar"
+                              aria-valuemin={0}
+                              aria-valuemax={QUALIFICATION_MAX}
+                              aria-valuenow={item.cappedValue}
+                              aria-label={item.label}
                             >
-                              {attributes[key]?.logoUrl ? (
-                                <img
-                                  src={attributes[key]?.logoUrl}
-                                  alt={labelForAttribute(attributes[key], key)}
-                                  className="h-4 w-4"
-                                />
-                              ) : (
-                                <span className="text-[10px] text-emerald-700">
-                                  {labelForAttribute(attributes[key], key)}
-                                </span>
-                              )}
+                              <div
+                                className={`h-full rounded-full bg-gradient-to-r ${item.accent}`}
+                                style={{ width: `${item.percentage}%` }}
+                              />
+                            </div>
+                            <span className="min-w-[24px] text-right text-black/45">
+                              {item.cappedValue}
                             </span>
-                          ))
-                        )}
-                      </div>
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="px-1">
-                          {t("dex.weakAgainst", "被克")}
-                        </span>
-                        {attributeSummary.weak.length === 0 ? (
-                          <span className="rounded-full border border-black/10 bg-white/80 px-3 py-1">
-                            {t("dex.none", "暂无")}
-                          </span>
-                        ) : (
-                          attributeSummary.weak.map((key) => (
-                            <span
-                              key={`weak-${key}`}
-                              className="flex h-7 w-7 items-center justify-center"
-                              title={labelForAttribute(attributes[key], key)}
-                            >
-                              {attributes[key]?.logoUrl ? (
-                                <img
-                                  src={attributes[key]?.logoUrl}
-                                  alt={labelForAttribute(attributes[key], key)}
-                                  className="h-4 w-4"
-                                />
-                              ) : (
-                                <span className="text-[10px] text-rose-700">
-                                  {labelForAttribute(attributes[key], key)}
-                                </span>
-                              )}
-                            </span>
-                          ))
-                        )}
+                          </div>
+                        ))}
                       </div>
                     </CardItem>
                   </div>

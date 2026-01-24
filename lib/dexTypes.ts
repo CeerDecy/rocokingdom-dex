@@ -14,6 +14,18 @@ export type AttributeData = {
   };
 };
 
+export type QualificationKey =
+  | "health"
+  | "physical_attack"
+  | "magic_attack"
+  | "physical_defense"
+  | "magic_defense"
+  | "speed";
+
+export type PetQualifications = Partial<Record<QualificationKey, number>> & {
+  base_stats?: number;
+};
+
 export type PetData = {
   name: {
     zh: string;
@@ -34,4 +46,5 @@ export type PetData = {
     zh?: string;
     en?: string;
   } | null;
+  qualifications?: PetQualifications;
 };
