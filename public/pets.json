@@ -277,5 +277,271 @@
       "speed": 85,
       "base_stats": 600
     }
+  },
+  "yaJiJi": {
+    "name": {
+      "zh": "鸭吉吉",
+      "en": "Ya Jiji"
+    },
+    "image": "011-1.png",
+    "attributes": ["normal"],
+    "introduction": {
+      "zh": "拥有极其柔软的被毛，似乎很讨厌肢体接触，抗拒被抚摸。非常聪慧的物种，对环境中与众不同的东西十分敏感,尤其对于闪光的物体和新奇的事物格外感兴趣。",
+      "en": "It has an exceptionally soft coat and appears to dislike physical contact, resisting being touched or petted. An extremely intelligent species, it is highly sensitive to anything unusual in its environment, showing particular fascination with shiny objects and novel phenomena."
+    },
+    "evolution": null,
+    "distribution": null,
+    "id": "011",
+    "qualifications": {
+      "health": 131,
+      "physical_attack": 90,
+      "magic_attack": 50,
+      "physical_defense": 60,
+      "magic_defense": 49,
+      "speed": 105,
+      "base_stats": 485
+    }
+  },
+  "plateShell": {
+    "name": {
+      "zh": "板板壳",
+      "en": "Plate shell"
+    },
+    "image": "012.png",
+    "attributes": ["water"],
+    "introduction": {
+      "zh": "看似懒懒的，但感到危险时，柔软的身体会迅速缩回壳里。柔韧的尾巴看起来像海草，偶尔会被饥饿的水生精灵咬一口。",
+      "en": "It may look lazy and unhurried, but when danger approaches, its soft body swiftly retreats into its shell. Its flexible tail resembles seaweed, and now and then it gets nipped by hungry aquatic sprites."
+    },
+    "evolution": {
+      "level": null,
+      "next": "kaKaShell",
+      "prev": null
+    },
+    "distribution": null,
+    "id": "012",
+    "qualifications": {
+      "health": 75,
+      "physical_attack": 52,
+      "magic_attack": 64,
+      "physical_defense": 57,
+      "magic_defense": 61,
+      "speed": 45,
+      "base_stats": 354
+    }
+  },
+  "kaKaShell": {
+    "name": {
+      "zh": "咔咔壳",
+      "en": "KaKa Shell"
+    },
+    "image": "013.png",
+    "attributes": ["water"],
+    "introduction": {
+      "zh": "看似懒懒的，但感到危险时，柔软的身体会迅速缩回壳里。柔韧的尾巴看起来像海草，偶尔会被饥饿的水生精灵咬一口。硬壳精灵。很少再缩进壳里，即使遇到危险也会勇敢面对。甲壳内一部分是空气，一部分是水，通过喷嘴来调节重量从而在水中下潜和上浮。",
+      "en": "It may look lazy and unhurried, but when danger approaches, its soft body swiftly retreats into its shell. Its flexible tail resembles seaweed, and now and then it gets nipped by hungry aquatic sprites. A hard-shelled spirit. It rarely retreats into its shell anymore, choosing to face danger bravely. Inside its shell, part is filled with air and part with water, allowing it to adjust its weight through a nozzle to dive and surface in water."
+    },
+    "evolution": {
+      "prev": "plateShell",
+      "next": "waterBubbleShell"
+    },
+    "distribution": null,
+    "id": "013",
+    "qualifications": {
+      "health": 100,
+      "physical_attack": 70,
+      "magic_attack": 85,
+      "physical_defense": 76,
+      "magic_defense": 81,
+      "speed": 60,
+      "base_stats": 472
+    }
+  },
+  "waterBubbleShell": {
+    "name": {
+      "zh": "水泡壳",
+      "en": "Bubble Shell"
+    },
+    "image": "014.png",
+    "attributes": ["water"],
+    "distribution": {
+      "zh": null,
+      "en": null
+    },
+    "evolution": {
+      "prev": "kaKaShell"
+    },
+    "introduction": {
+      "zh": "硬壳精灵。进化之后体重增长到原来的三倍多，前肢的力量也变得十分发达。前面有坚硬的尖角，背后有甲壳和水炮的泵口，是像堡垒一样可靠的存在。",
+      "en": "A hard-shelled spirit. After evolving, its weight increases to more than three times its original, and the strength of its forelimbs becomes highly developed. It has a solid horn at the front, and a shell with a water-cannon pump at the back, making it a presence as reliable as a fortress."
+    },
+    "id": "014",
+    "qualifications": {
+      "health": 125,
+      "physical_attack": 87,
+      "magic_attack": 107,
+      "physical_defense": 95,
+      "magic_defense": 102,
+      "speed": 75,
+      "base_stats": 591
+    }
+  },
+  "snowFluffBird": {
+    "name": {
+      "zh": "雪绒鸟",
+      "en": "Snowfluff Bird"
+    },
+    "image": "015.png",
+    "attributes": ["wing"],
+    "introduction": {
+      "zh": "新生的小家伙，有着雪花一般绵软而细密的绒毛。因为翅膀太小了，需要用尽全力才可能飞起一点点高度。不为人知的小爱好是喜欢用幼嫩的喙啄刚落地的新雪，不知道是食用还是玩耍。",
+      "en": "A newly born little creature covered in soft, dense down like snowflakes. Its wings are still too small, so it must use all its strength just to lift itself slightly off the ground. An unknown little habit of its is pecking at freshly fallen snow with its tender beak—whether for eating or simply for play, no one really knows."
+    },
+    "evolution": {
+      "next": "dongYuSparrow"
+    },
+    "distribution": null,
+    "id": "015",
+    "qualifications": {
+      "health": 76,
+      "physical_attack": 69,
+      "magic_attack": 32,
+      "physical_defense": 50,
+      "magic_defense": 39,
+      "speed": 69,
+      "base_stats": 335
+    }
+  },
+  "dongYuSparrow": {
+    "name": {
+      "zh": "冬羽雀",
+      "en": "Winterfeather Sparrow"
+    },
+    "image": "016.png",
+    "attributes": ["wing"],
+    "introduction": {
+      "zh": "体型又小又圆,眼睛周围生长着一层柔软绒毛。成长过程中会在冬天褪一次毛，它褪下的羽毛是一种非常珍贵的魔法道具。",
+      "en": "Small and round in shape, with a layer of soft down growing around its eyes. During its growth, it molts once each winter, and the feathers it sheds are extremely valuable magical materials."
+    },
+    "evolution": {
+      "next": "lanBird",
+      "prev": "snowFluffBird"
+    },
+    "distribution": null,
+    "id": "016",
+    "qualifications": {
+      "health": 101,
+      "physical_attack": 88,
+      "magic_attack": 47,
+      "physical_defense": 69,
+      "magic_defense": 56,
+      "speed": 92,
+      "base_stats": 453
+    }
+  },
+  "lanBird": {
+    "name": {
+      "zh": "岚鸟",
+      "en": "Lan Bird"
+    },
+    "image": "017.png",
+    "attributes": ["wing"],
+    "introduction": {
+      "zh": "眼神锐利，有着绅士般冷静而又端庄的非凡气质，让它在贵族当中颇有人气。拥有卓越的视力，即使在百米高空中飞行时也能看清地面上的动静。",
+      "en": "With sharp eyes and an extraordinary aura that is calm, dignified, and gentlemanly, it is highly favored among nobles. Possessing exceptional eyesight, it can clearly observe movements on the ground even while flying at heights of over a hundred meters."
+    },
+    "evolution": {
+      "prev": "dongYuSparrow"
+    },
+    "distribution": null,
+    "id": "017",
+    "qualifications": {
+      "health": 126,
+      "physical_attack": 110,
+      "magic_attack": 58,
+      "physical_defense": 86,
+      "magic_defense": 70,
+      "speed": 115,
+      "base_stats": 565
+    }
+  },
+  "roundEyeSpider": {
+    "name": {
+      "zh": "圆眼蜘蛛",
+      "en": "Round-Eyed Spider"
+    },
+    "image": "018.png",
+    "attributes": ["bug"],
+    "introduction": {
+      "zh": "幼体的圆眼蜘蛛并不太能织网捕食，多以青草，树果为食。复眼获取信息范围极大，速度极快，即便是独眼的圆眼蜘蛛获取信息速度远超过洛克族100倍。",
+      "en": "Juvenile Round-Eyed Spiders are not yet skilled at weaving webs to hunt, and mainly feed on grass and tree fruits. Their compound eyes grant an extremely wide range of perception and astonishing speed of information gathering. Even a one-eyed Round-Eyed Spider can process information over a hundred times faster than the Rock tribe."
+    },
+    "evolution": {
+      "next": "hornedSpider"
+    },
+    "distribution": null,
+    "id": "018",
+    "qualifications": {
+      "health": 67,
+      "physical_attack": 45,
+      "magic_attack": 45,
+      "physical_defense": 59,
+      "magic_defense": 59,
+      "speed": 66,
+      "base_stats": 341
+    }
+  },
+  "hornedSpider": {
+    "name": {
+      "zh": "尖角蜘蛛",
+      "en": "Horned Spider"
+    },
+    "image": "019.png",
+    "attributes": ["bug", "poison"],
+    "introduction": {
+      "zh": "各关节覆盖着绒毛，绒毛可以疏水和保暖。在寒冷下雨的时候，也可以自由行走。世界的动态在它们眼里显得很慢，所以大部份尖角蜘蛛都是急性子。",
+      "en": "Its joints are covered with fine fuzz that repels water and provides warmth, allowing it to move freely even in cold and rainy conditions. The world appears to move very slowly in its eyes, which is why most Horned Spiders are short-tempered and impatient."
+    },
+    "evolution": {
+      "prev": "roundEyeSpider",
+      "next": "yuXiangHornSpider"
+    },
+    "distribution": null,
+    "id": "019",
+    "qualifications": {
+      "health": 89,
+      "physical_attack": 60,
+      "magic_attack": 60,
+      "physical_defense": 79,
+      "magic_defense": 79,
+      "speed": 88,
+      "base_stats": 455
+    }
+  },
+  "yuXiangHornSpider": {
+    "name": {
+      "zh": "芋香巨角蛛",
+      "en": "Taro-Scented Horn Spider"
+    },
+    "image": "020.png",
+    "attributes": ["bug", "poison"],
+    "introduction": {
+      "zh": "颜色鲜艳美丽，尾部丝囊中的液体有剧毒，织出的蜘蛛网散发异香。蜘蛛精灵。依靠体毒和利刺能轻易捕获猎物，从不群居，个体之间都保持一定距离，互不侵犯。",
+      "en": "Vivid and beautifully colored, the liquid stored in the silk sac at the end of its body is highly toxic, and the webs it weaves emit a strange, alluring fragrance. A spider-type spirit. It relies on its bodily toxins and sharp spines to easily capture prey. It never lives in groups; individuals always keep a certain distance from one another and do not encroach on each other’s territory."
+    },
+    "evolution": {
+      "prev": "hornedSpider"
+    },
+    "distribution": null,
+    "id": "020",
+    "qualifications": {
+      "health": 111,
+      "physical_attack": 75,
+      "magic_attack": 75,
+      "physical_defense": 98,
+      "magic_defense": 98,
+      "speed": 110,
+      "base_stats": 567
+    }
   }
 }
