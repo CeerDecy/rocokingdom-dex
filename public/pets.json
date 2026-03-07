@@ -289,7 +289,11 @@
       "zh": "拥有极其柔软的被毛，似乎很讨厌肢体接触，抗拒被抚摸。非常聪慧的物种，对环境中与众不同的东西十分敏感,尤其对于闪光的物体和新奇的事物格外感兴趣。",
       "en": "It has an exceptionally soft coat and appears to dislike physical contact, resisting being touched or petted. An extremely intelligent species, it is highly sensitive to anything unusual in its environment, showing particular fascination with shiny objects and novel phenomena."
     },
-    "evolution": null,
+    "evolution": {
+      "level": 20,
+      "next": "huanLingGu",
+      "prev": null
+    },
     "distribution": null,
     "id": "011",
     "qualifications": {
@@ -542,6 +546,674 @@
       "magic_defense": 98,
       "speed": 110,
       "base_stats": 567
+    }
+  },
+  "xiaoLingGu": {
+    "name": {
+      "zh": "小灵菇",
+      "en": "Xiao Ling Gu"
+    },
+    "image": "021.png",
+    "attributes": ["ghost"],
+    "introduction": {
+      "zh": "可能在任何潮湿的阴冷角落出现,看到蓝色荧光不要贸然接近。吸食其他生物的情绪作为养分，吃饱后伞盖会散发出满足般的蓝色荧光。",
+      "en": "It can appear in any damp, chilly corner; if you see blue fluorescence, do not approach rashly. It feeds on other creatures' emotions, and after it is full, its cap emits a satisfied blue glow."
+    },
+    "evolution": {
+      "level": 20,
+      "next": "huanLingGu",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "蘑菇精灵",
+      "en": "Mushroom Sprite"
+    },
+    "id": "021",
+    "qualifications": {
+      "health": 66,
+      "physical_attack": 50,
+      "magic_attack": 50,
+      "physical_defense": 59,
+      "magic_defense": 73,
+      "speed": 45,
+      "base_stats": 343
+    }
+  },
+  "huanLingGu": {
+    "name": {
+      "zh": "幻灵菇",
+      "en": "Huan Ling Gu"
+    },
+    "image": "022.png",
+    "attributes": ["ghost", "grass"],
+    "introduction": {
+      "zh": "头顶的触角比隐藏在伞盖下的面目更能够表达出心情,悄无声息地飘来飘去，通常出现在后半夜。在森林深处大量聚集，散发着淡淡荧光，会吸收周围植物和小型动物的情绪。",
+      "en": "The antennae on its head express its feelings better than the face hidden beneath its cap. It drifts about silently, usually appearing in the late night. It gathers in large numbers deep in forests, emitting a faint glow and absorbing the emotions of nearby plants and small animals."
+    },
+    "evolution": {
+      "level": 32,
+      "next": "huanYingLingGu",
+      "prev": "xiaoLingGu"
+    },
+    "distribution": {
+      "zh": "蘑菇精灵",
+      "en": "Mushroom Sprite"
+    },
+    "id": "022",
+    "qualifications": {
+      "health": 88,
+      "physical_attack": 67,
+      "magic_attack": 67,
+      "physical_defense": 79,
+      "magic_defense": 97,
+      "speed": 60,
+      "base_stats": 458
+    }
+  },
+  "huanYingLingGu": {
+    "name": {
+      "zh": "幻影灵菇",
+      "en": "Huan Ying Ling Gu"
+    },
+    "image": "023.png",
+    "attributes": ["ghost", "grass"],
+    "introduction": {
+      "zh": "仅仅看到它触角上闪烁的荧光就会头痛难耐，对其研究很难有进展。没有生命迹象但是可以自如活动,无法判定是植物还是生物，唯独颈间圆环中似乎蕴含强大生命力。",
+      "en": "Just seeing the glimmer on its antennae can cause severe headaches, making research on it hard to advance. It shows no signs of life yet moves freely, and it is impossible to determine whether it is a plant or a creature. Only the ring around its neck seems to contain powerful vitality."
+    },
+    "evolution": {
+      "prev": "xiaoLingGu"
+    },
+    "distribution": {
+      "zh": "蘑菇精灵",
+      "en": "Mushroom Sprite"
+    },
+    "id": "023",
+    "qualifications": {
+      "health": 109,
+      "physical_attack": 83,
+      "magic_attack": 83,
+      "physical_defense": 98,
+      "magic_defense": 122,
+      "speed": 75,
+      "base_stats": 570
+    }
+  },
+  "zhiYuTu": {
+    "name": {
+      "zh": "治愈兔",
+      "en": "Zhi Yu Tu"
+    },
+    "image": "024.png",
+    "attributes": ["fire", "cute"],
+    "introduction": {
+      "zh": "平时生活在灌木丛中，看到洛克的话会因为好奇而主动靠近。据说如果感冒了的小洛克摸摸它的小脚，就会很快康复哦。",
+      "en": "It usually lives in shrubs and will approach out of curiosity when it sees a Rock. It is said that if a little Rock with a cold touches its small feet, they will recover quickly."
+    },
+    "evolution": {
+      "level": 20,
+      "next": "hongSiRong",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "火元素精灵",
+      "en": "Fire Element Sprite"
+    },
+    "id": "024",
+    "qualifications": {
+      "health": 58,
+      "physical_attack": 37,
+      "magic_attack": 51,
+      "physical_defense": 37,
+      "magic_defense": 42,
+      "speed": 52,
+      "base_stats": 277
+    }
+  },
+  "hongSiRong": {
+    "name": {
+      "zh": "红丝绒",
+      "en": "Hong Si Rong"
+    },
+    "image": "025.png",
+    "attributes": ["fire", "cute"],
+    "introduction": {
+      "zh": "在夜里会发出微光，为迷路的洛克照亮道路。耳朵和身上的绒毛会发热,在冬天可以抱着它取暖。",
+      "en": "It gives off a faint glow at night to light the way for lost Rocks. The ears and fur on its body warm up, so it can be hugged for warmth in winter."
+    },
+    "evolution": {
+      "level": 40,
+      "next": "hongRongShiZi",
+      "prev": "zhiYuTu"
+    },
+    "distribution": {
+      "zh": "白衣精灵",
+      "en": "White Robe Sprite"
+    },
+    "id": "025",
+    "qualifications": {
+      "health": 73,
+      "physical_attack": 62,
+      "magic_attack": 97,
+      "physical_defense": 62,
+      "magic_defense": 73,
+      "speed": 72,
+      "base_stats": 439
+    }
+  },
+  "hongRongShiZi": {
+    "name": {
+      "zh": "红绒十字",
+      "en": "Hong Rong Shi Zi"
+    },
+    "image": "026.png",
+    "attributes": ["fire", "cute"],
+    "introduction": {
+      "zh": "会用吟唱来治愈伤病的精灵，据说在某些地区，它所吟唱的小调被改编成了祝福的颂曲。大耳朵摸起来比棉绒还要柔软,但竟然无一例外没有听觉,对外界的触碰丝毫不设防备,或许这是红绒十字成为濒危种族的原因。",
+      "en": "It heals wounds through chants, and in some regions, the tunes it sings have been adapted into hymns of blessing. Its large ears feel softer than cotton fluff, yet they are uniformly without hearing. It is completely unguarded against external touch, which may be why Hong Rong Shi Zi has become an endangered species."
+    },
+    "evolution": {
+      "prev": "hongSiRong"
+    },
+    "distribution": {
+      "zh": "治愈精灵",
+      "en": "Healing Sprite"
+    },
+    "id": "026",
+    "qualifications": {
+      "health": 92,
+      "physical_attack": 78,
+      "magic_attack": 122,
+      "physical_defense": 77,
+      "magic_defense": 98,
+      "speed": 90,
+      "base_stats": 557
+    }
+  },
+  "kuangJingChong": {
+    "name": {
+      "zh": "矿晶虫",
+      "en": "Kuang Jing Chong"
+    },
+    "image": "027.png",
+    "attributes": ["light", "ground"],
+    "introduction": {
+      "zh": "喜欢攀附于潮湿的岩层，以土壤中的矿粒为食，常被用作衡量矿产资源丰富度的标志。身上的晶体可以将细小的光线通过折射放大数倍，四只矿晶虫便能照亮一整个矿洞，是备受矿工喜爱的精灵。",
+      "en": "It likes to cling to damp rock layers and feeds on mineral grains in soil, often used as a sign of how rich mineral resources are. The crystals on its body can refract tiny light and magnify it several times; four of them can light up an entire mine, making it a favorite among miners."
+    },
+    "evolution": {
+      "level": 40,
+      "next": "jingShiWo",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "矿虫精灵",
+      "en": "Mining Bug Sprite"
+    },
+    "id": "027",
+    "qualifications": {
+      "health": 74,
+      "physical_attack": 52,
+      "magic_attack": 66,
+      "physical_defense": 68,
+      "magic_defense": 57,
+      "speed": 47,
+      "base_stats": 364
+    }
+  },
+  "jingShiWo": {
+    "name": {
+      "zh": "晶石蜗",
+      "en": "Jing Shi Wo"
+    },
+    "image": "028.png",
+    "attributes": ["light", "ground"],
+    "introduction": {
+      "zh": "在资源丰富的矿洞中能遇见的罕见蜗类,周身的矿石与斑纹会因摄入矿物类型的不同,而呈现出不同的色彩。进食时,会直接将成块的矿石吞下，借由特殊的消化结构吸收矿物中的碳元素,并将之转化为身体的一部分。",
+      "en": "A rare snail found in mineral-rich mines. Its surrounding minerals and patterns show different colors depending on the type of minerals it consumes. When feeding, it swallows chunks of ore directly, absorbing carbon elements through a special digestive structure and converting them into part of its body."
+    },
+    "evolution": {
+      "prev": "kuangJingChong"
+    },
+    "distribution": {
+      "zh": "矿虫精灵",
+      "en": "Mining Bug Sprite"
+    },
+    "id": "028",
+    "qualifications": {
+      "health": 96,
+      "physical_attack": 88,
+      "magic_attack": 94,
+      "physical_defense": 120,
+      "magic_defense": 112,
+      "speed": 65,
+      "base_stats": 575
+    }
+  },
+  "xiaoShuTa": {
+    "name": {
+      "zh": "小鼠獭",
+      "en": "Xiao Shu Ta"
+    },
+    "image": "029.png",
+    "attributes": ["normal", "water"],
+    "introduction": {
+      "zh": "总是在啃着什么，包括自己的手和尾巴。扒开小鼠獭的嘴巴仔细观察也找不到牙，牙床嫩嫩的,还没有牙的痕迹。",
+      "en": "It is always gnawing on something, including its own hands and tail. Even if you pry open its mouth and look closely, you will not find teeth; its gums are tender and show no traces of teeth."
+    },
+    "evolution": {
+      "level": 30,
+      "next": "yanWeiTa",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "啃啃精灵",
+      "en": "Gnawing Sprite"
+    },
+    "id": "029",
+    "qualifications": {
+      "health": 61,
+      "physical_attack": 51,
+      "magic_attack": 51,
+      "physical_defense": 67,
+      "magic_defense": 67,
+      "speed": 48,
+      "base_stats": 345
+    }
+  },
+  "yanWeiTa": {
+    "name": {
+      "zh": "燕尾獭",
+      "en": "Yan Wei Ta"
+    },
+    "image": "030.png",
+    "attributes": ["normal", "water"],
+    "introduction": {
+      "zh": "牙齿锋利,非常喜欢啃一些坚硬的木头。手掌心非常坚硬粗糙，常看到它们用手在脸上搓来搓去，并不是在洗脸，而是在用掌心磨牙齿。",
+      "en": "Its teeth are sharp and it loves gnawing on hard wood. Its palms are very hard and rough; you often see it rubbing its hands on its face, not to wash but to grind its teeth with its palms."
+    },
+    "evolution": {
+      "level": 48,
+      "next": "juanHuJuTa",
+      "prev": "xiaoShuTa"
+    },
+    "distribution": {
+      "zh": "雕塑家精灵",
+      "en": "Sculptor Sprite"
+    },
+    "id": "030",
+    "qualifications": {
+      "health": 81,
+      "physical_attack": 68,
+      "magic_attack": 68,
+      "physical_defense": 89,
+      "magic_defense": 89,
+      "speed": 64,
+      "base_stats": 459
+    }
+  },
+  "juanHuJuTa": {
+    "name": {
+      "zh": "卷胡巨獭",
+      "en": "Juan Hu Ju Ta"
+    },
+    "image": "031.png",
+    "attributes": ["normal", "water"],
+    "introduction": {
+      "zh": "对外表有蛮高的追求，除了磨牙的习惯之外，偶尔看到有獭在给胡须上油。蓬松的胡须和锋利的牙齿代表其在族群中的地位。很多獭会去购买假胡子戴着出门，普遍不是很喜欢有洛克突然拜访。",
+      "en": "It places a high value on appearance; besides its tooth-grinding habit, you may occasionally see it oiling its whiskers. Fluffy whiskers and sharp teeth represent its status within the group. Many otters buy fake beards to wear outside, and they generally do not like sudden visits from Rocks."
+    },
+    "evolution": {
+      "prev": "yanWeiTa"
+    },
+    "distribution": {
+      "zh": "爱面子精灵",
+      "en": "Proud Sprite"
+    },
+    "id": "031",
+    "qualifications": {
+      "health": 101,
+      "physical_attack": 85,
+      "magic_attack": 85,
+      "physical_defense": 111,
+      "magic_defense": 111,
+      "speed": 80,
+      "base_stats": 573
+    }
+  },
+  "huZhuQuan": {
+    "name": {
+      "zh": "护主犬",
+      "en": "Hu Zhu Quan"
+    },
+    "image": "032.png",
+    "attributes": ["fire"],
+    "introduction": {
+      "zh": "时刻保持着警觉,任何危险都不会逃过他的眼睛。虽然身形小巧，但面对无论多么凶猛庞大的敌人都会勇敢地燃起斗志。",
+      "en": "Always alert, no danger escapes its eyes. Though small in size, it will bravely ignite its fighting spirit against even the fiercest and largest foes."
+    },
+    "evolution": {
+      "level": 26,
+      "next": "yinSuQuan",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "狗狗精灵",
+      "en": "Dog Sprite"
+    },
+    "id": "032",
+    "qualifications": {
+      "health": 69,
+      "physical_attack": 77,
+      "magic_attack": 73,
+      "physical_defense": 87,
+      "magic_defense": 71,
+      "speed": 96,
+      "base_stats": 473
+    }
+  },
+  "yinSuQuan": {
+    "name": {
+      "zh": "音速犬",
+      "en": "Yin Su Quan"
+    },
+    "image": "033.png",
+    "attributes": ["fire"],
+    "introduction": {
+      "zh": "昂起斗志时,冠毛和尾巴会像熊熊燃烧的火焰一样摇曳。身上的围巾蕴含魔法能量，似乎有增强火元素的效果。",
+      "en": "When it raises its fighting spirit, its crest and tail sway like blazing flames. The scarf on its body contains magical energy and seems to enhance fire elements."
+    },
+    "evolution": {
+      "prev": "huZhuQuan"
+    },
+    "distribution": {
+      "zh": "守护精灵",
+      "en": "Guardian Sprite"
+    },
+    "id": "033",
+    "qualifications": {
+      "health": 86,
+      "physical_attack": 96,
+      "magic_attack": 91,
+      "physical_defense": 108,
+      "magic_defense": 88,
+      "speed": 120,
+      "base_stats": 589
+    }
+  },
+  "diuDiu": {
+    "name": {
+      "zh": "丢丢",
+      "en": "Diu Diu"
+    },
+    "image": "034.png",
+    "attributes": ["grass"],
+    "introduction": {
+      "zh": "有看到什么都会去舔一下试试看的习惯,经常忘记把舌头收回去。双眼对强光非常敏感,白天会老老实实躲在室内或者阴凉的地方。",
+      "en": "It has a habit of licking anything it sees to try it, and often forgets to pull its tongue back in. Its eyes are very sensitive to strong light, so during the day it stays indoors or in shady places."
+    },
+    "evolution": {
+      "level": 16,
+      "next": "kaKaChong",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "舔舔精灵",
+      "en": "Lick Sprite"
+    },
+    "id": "034",
+    "qualifications": {
+      "health": 48,
+      "physical_attack": 58,
+      "magic_attack": 27,
+      "physical_defense": 45,
+      "magic_defense": 33,
+      "speed": 54,
+      "base_stats": 265
+    }
+  },
+  "kaKaChong": {
+    "name": {
+      "zh": "卡卡虫",
+      "en": "Ka Ka Chong"
+    },
+    "image": "035.png",
+    "attributes": ["grass"],
+    "introduction": {
+      "zh": "用四只吸盘在任何地形快速地移动，静止不动地时候很难分辨。尾巴牢牢抓着植物的茎，没事就会拿下来舔，它的唾液似乎会让果实越变越硬。",
+      "en": "It moves quickly across any terrain using four suction cups, and is hard to distinguish when still. Its tail grips plant stems tightly; it often takes it down to lick, and its saliva seems to make fruits harder and harder."
+    },
+    "evolution": {
+      "level": 36,
+      "next": "kaWaZhong",
+      "prev": "diuDiu"
+    },
+    "distribution": {
+      "zh": "舔舔精灵",
+      "en": "Lick Sprite"
+    },
+    "id": "035",
+    "qualifications": {
+      "health": 64,
+      "physical_attack": 88,
+      "magic_attack": 47,
+      "physical_defense": 68,
+      "magic_defense": 55,
+      "speed": 104,
+      "base_stats": 426
+    }
+  },
+  "kaWaZhong": {
+    "name": {
+      "zh": "卡瓦重",
+      "en": "Ka Wa Zhong"
+    },
+    "image": "036.png",
+    "attributes": ["grass"],
+    "introduction": {
+      "zh": "手里拿的是生长着果实的枝条，既是武器也是乐器,需要时还能解解嘴馋。战斗像舞蹈一样,用细长灵活的舌头和尾巴表演，让人眼花缭乱。",
+      "en": "It holds a branch bearing fruit, which is both a weapon and an instrument, and can satisfy hunger in a pinch. Its battles are like dances, performing with a long, flexible tongue and tail that dazzles the eye."
+    },
+    "evolution": {
+      "prev": "kaKaChong"
+    },
+    "distribution": {
+      "zh": "蜥蜴精灵",
+      "en": "Lizard Sprite"
+    },
+    "id": "036",
+    "qualifications": {
+      "health": 81,
+      "physical_attack": 110,
+      "magic_attack": 59,
+      "physical_defense": 85,
+      "magic_defense": 68,
+      "speed": 130,
+      "base_stats": 533
+    }
+  },
+  "lvErSongShu": {
+    "name": {
+      "zh": "绿耳松鼠",
+      "en": "Lv Er Song Shu"
+    },
+    "image": "037.png",
+    "attributes": ["normal"],
+    "introduction": {
+      "zh": "靠尾巴上的突起缓缓地向前移动，如果摔倒了，要花一阵子才能重新靠尾巴站立，有研究猜测它们足部几乎退化,并不能靠双脚走路。",
+      "en": "It moves forward slowly using the protrusions on its tail. If it falls, it takes a while to stand up again using its tail. Research suggests its feet have almost degenerated and it cannot walk on two legs."
+    },
+    "evolution": {
+      "level": 23,
+      "next": "baoZhenSongShu",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "小松鼠精灵",
+      "en": "Little Squirrel Sprite"
+    },
+    "id": "037",
+    "qualifications": {
+      "health": 76,
+      "physical_attack": 48,
+      "magic_attack": 47,
+      "physical_defense": 67,
+      "magic_defense": 60,
+      "speed": 48,
+      "base_stats": 346
+    }
+  },
+  "baoZhenSongShu": {
+    "name": {
+      "zh": "抱枕松鼠",
+      "en": "Bao Zhen Song Shu"
+    },
+    "image": "038.png",
+    "attributes": ["normal"],
+    "introduction": {
+      "zh": "骑着自己的尾巴，似乎并没有足部。 偶尔把头埋进身体，看上去像一颗巨大的果实。",
+      "en": "It rides on its own tail and seems to have no feet. It occasionally buries its head into its body, looking like a giant fruit."
+    },
+    "evolution": {
+      "level": 46,
+      "next": "bengChuangSongShu",
+      "prev": "lvErSongShu"
+    },
+    "distribution": {
+      "zh": "拟态精灵",
+      "en": "Mimicry Sprite"
+    },
+    "id": "038",
+    "qualifications": {
+      "health": 102,
+      "physical_attack": 64,
+      "magic_attack": 62,
+      "physical_defense": 89,
+      "magic_defense": 80,
+      "speed": 64,
+      "base_stats": 461
+    }
+  },
+  "bengChuangSongShu": {
+    "name": {
+      "zh": "蹦床松鼠",
+      "en": "Beng Chuang Song Shu"
+    },
+    "image": "039.png",
+    "attributes": ["normal"],
+    "introduction": {
+      "zh": "尾巴的力量非常强,巨大的尾部并不是蓬松的,内部有着强健的肌肉，实心并且富有弹性。可以用尾巴把自己弹射到三层楼那么高的地方。",
+      "en": "Its tail is extremely powerful. The huge tail is not fluffy; it contains strong muscles, is solid, and highly elastic. It can use its tail to launch itself as high as a three-story building."
+    },
+    "evolution": {
+      "prev": "baoZhenSongShu"
+    },
+    "distribution": {
+      "zh": "圆滚滚精灵",
+      "en": "Round Sprite"
+    },
+    "id": "039",
+    "qualifications": {
+      "health": 127,
+      "physical_attack": 79,
+      "magic_attack": 78,
+      "physical_defense": 112,
+      "magic_defense": 100,
+      "speed": 80,
+      "base_stats": 576
+    }
+  },
+  "xiaoLingMian": {
+    "name": {
+      "zh": "小灵面",
+      "en": "Xiao Ling Mian"
+    },
+    "image": "040.png",
+    "attributes": ["ghost"],
+    "introduction": {
+      "zh": "面具似乎可以摘下，进食的时候会避开所有生物。一层闪着荧光的神秘物质覆盖着身体,内部可能是液体。",
+      "en": "Its mask seems removable, and it avoids all creatures when feeding. A layer of glowing mysterious substance covers its body, and the inside may be liquid."
+    },
+    "evolution": {
+      "level": 20,
+      "next": "anYingLingMian",
+      "when": "day",
+      "prev": null
+    },
+    "distribution": {
+      "zh": "轻飘飘精灵",
+      "en": "Floaty Sprite"
+    },
+    "id": "040",
+    "qualifications": {
+      "health": 68,
+      "physical_attack": 54,
+      "magic_attack": 66,
+      "physical_defense": 59,
+      "magic_defense": 63,
+      "speed": 69,
+      "base_stats": 379
+    }
+  },
+  "anYingLingMian": {
+    "name": {
+      "zh": "暗影灵面",
+      "en": "An Ying Ling Mian"
+    },
+    "image": "041.png",
+    "attributes": ["ghost"],
+    "introduction": {
+      "zh": "被两团冷火环绕着,从头到脚都充满了谜团。进食之后重量也毫不增加,被它面具下的嘴吞下的食物仿佛消失了一样。",
+      "en": "It is surrounded by two cold flames and is full of mystery from head to toe. Its weight does not increase after eating; the food swallowed by the mouth under its mask seems to vanish."
+    },
+    "evolution": {
+      "level": 32,
+      "next": "youMingYan",
+      "when": "day",
+      "prev": "xiaoLingMian"
+    },
+    "distribution": {
+      "zh": "假面精灵",
+      "en": "Masked Sprite"
+    },
+    "id": "041",
+    "qualifications": {
+      "health": 91,
+      "physical_attack": 72,
+      "magic_attack": 88,
+      "physical_defense": 79,
+      "magic_defense": 84,
+      "speed": 92,
+      "base_stats": 506
+    }
+  },
+  "youMingYan": {
+    "name": {
+      "zh": "幽冥眼",
+      "en": "You Ming Yan"
+    },
+    "image": "042.png",
+    "attributes": ["ghost"],
+    "introduction": {
+      "zh": "传说幽冥眼一族在生命终结的时候能窥见生命与宇宙的奥秘。对灵魂与星辰抱有极其虔诚的信仰,面具上刻着的眼睛形状图腾似乎象征着种族的信仰。",
+      "en": "Legend says the You Ming Yan族 can glimpse the mysteries of life and the universe at the end of life. They hold a devout faith in souls and stars, and the eye-shaped totem carved on their masks seems to symbolize their belief."
+    },
+    "evolution": {
+      "prev": "anYingLingMian"
+    },
+    "distribution": {
+      "zh": "冥眼精灵",
+      "en": "Nether Eye Sprite"
+    },
+    "id": "042",
+    "qualifications": {
+      "health": 114,
+      "physical_attack": 90,
+      "magic_attack": 110,
+      "physical_defense": 98,
+      "magic_defense": 105,
+      "speed": 115,
+      "base_stats": 632
     }
   }
 }
