@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Roco Kingdom Encyclopedia
 
-## Getting Started
+[中文](./README.md) | [English](./README.en.md)
 
-First, run the development server:
+`Roco Kingdom Encyclopedia` 是一个围绕《洛克王国：世界》资料整理与查询体验构建的百科项目，面向玩家提供更直观的精灵信息浏览和属性关系查阅能力。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 项目简介
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+本项目当前主要聚焦两类核心内容：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 精灵图鉴
+- 属性克制关系
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+站点同时支持中文与英文访问，适合用于日常查资料、理解属性搭配，以及持续补充和整理社区内容。
 
-## Learn More
+## 主要功能
 
-To learn more about Next.js, take a look at the following resources:
+### 精灵图鉴
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 浏览已收录的精灵列表
+- 查看每只精灵的独立详情页
+- 按属性筛选精灵
+- 查看精灵的中英文名称、简介、分布信息和进化关系
+- 查看精灵的基础资质信息
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 属性克制
 
-## Deploy on Vercel
+- 查看完整的属性克制关系
+- 在进攻方与防守方视角之间切换
+- 查看单个属性的独立详情页
+- 通过可视化关系展示快速理解相性
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 双语内容
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 支持中文和英文两种语言
+- 根据访问环境自动进入对应语言页面
+- 适合面向不同语言用户进行资料展示
+
+### 资料整理与展示
+
+- 以统一结构整理精灵与属性数据
+- 为图鉴页、详情页和属性页提供稳定的信息展示
+- 方便后续继续补充更多精灵、属性说明和相关内容
+
+## 当前收录
+
+- `42` 个精灵条目
+- `18` 个属性条目
+
+## 适用场景
+
+- 查找某只精灵的基础资料
+- 快速了解属性相克关系
+- 为配队、战斗理解和内容整理提供参考
+- 作为《洛克王国：世界》社区共建资料站持续扩展
+
+## License
+
+本仓库采用 [Apache License 2.0](./LICENSE)。
