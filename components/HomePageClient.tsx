@@ -2,7 +2,14 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { BookOpen, Compass, Layers, Sparkles } from "lucide-react";
+import {
+  BookOpen,
+  Compass,
+  Github,
+  Layers,
+  MessageCircleMore,
+  Sparkles,
+} from "lucide-react";
 
 import { useLanguage } from "@/components/i18n/language-context";
 import { getClientMessage } from "@/lib/i18n-client";
@@ -79,6 +86,29 @@ export default function HomePageClient() {
     },
   ];
 
+  const communityChannels = [
+    {
+      key: "github",
+      title: t("home.community.githubTitle", "Github"),
+      desc: t(
+        "home.community.githubDesc",
+        "可以在 Github 提交问题、整理资料，或直接贡献内容。",
+      ),
+      icon: Github,
+      href: "https://github.com/CeerDecy/rocokingdom-dex",
+    },
+    {
+      key: "group",
+      title: t("home.community.groupTitle", "交流群"),
+      desc: t(
+        "home.community.groupDesc",
+        "也可以通过群进行交流和提交想法，当前仍在规划创建中。",
+      ),
+      icon: MessageCircleMore,
+      href: "https://www.bilibili.com/video/BV1spQ6BnEc2/",
+    },
+  ];
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-transparent text-slate-900">
       <div className="pointer-events-none absolute -left-24 top-20 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
@@ -130,6 +160,70 @@ export default function HomePageClient() {
                 {t("home.secondaryCta", "查看属性介绍")}
                 <Layers className="h-4 w-4" />
               </Link>
+            </div>
+            <div className="grid gap-5 border-t border-dashed border-black/15 pt-5 sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+              <div className="min-w-0">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-black/45">
+                  {t("home.community.kicker", "Community")}
+                </div>
+                <h3 className="mt-2 text-lg font-semibold text-black">
+                  {t("home.community.title", "本站由社区维护")}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-black/70">
+                  {t(
+                    "home.community.description",
+                    "任何人只要有想法，都可以通过 Github 提交问题、贡献内容，也可以通过群进行交流和提交想法。我们鼓励各位通过 Vibe Coding 的方式使用 AI 来进行代码贡献。",
+                  )}
+                </p>
+              </div>
+              <div className="min-w-0 border-l border-black/10 pl-5 sm:pl-6">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-black/40">
+                  {t("home.community.channelLabel", "参与渠道")}
+                </div>
+                <div className="mt-3 divide-y divide-black/10">
+                  {communityChannels.map((channel) => {
+                    const Icon = channel.icon;
+                    return (
+                      <div key={channel.key} className="py-4 first:pt-0 last:pb-0">
+                        {channel.href ? (
+                          <a
+                            href={channel.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group flex gap-4 transition-colors"
+                          >
+                            <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 bg-black/[0.03] text-black transition-colors group-hover:border-black/25 group-hover:bg-black group-hover:text-white">
+                              <Icon className="h-4 w-4" />
+                            </span>
+                            <div className="min-w-0">
+                              <div className="text-sm font-semibold text-black underline-offset-4 group-hover:underline">
+                                {channel.title}
+                              </div>
+                              <p className="mt-1 text-sm leading-6 text-black/70">
+                                {channel.desc}
+                              </p>
+                            </div>
+                          </a>
+                        ) : (
+                          <div className="flex gap-4">
+                            <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 bg-black/[0.03] text-black">
+                              <Icon className="h-4 w-4" />
+                            </span>
+                            <div className="min-w-0">
+                              <div className="text-sm font-semibold text-black">
+                                {channel.title}
+                              </div>
+                              <p className="mt-1 text-sm leading-6 text-black/70">
+                                {channel.desc}
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </section>

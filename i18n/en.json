@@ -67,6 +67,16 @@
     "primaryCta": "Open the Dex",
     "secondaryCta": "View Attributes",
     "publicTestNote": "Be ready for the Roco Kingdom World public test at any time.",
+    "community": {
+      "kicker": "Community Built",
+      "title": "This site is maintained by the community",
+      "description": "Anyone with ideas can submit issues on Github, contribute content, or join the group for discussion and suggestions. We encourage contributors to use AI in a vibe coding workflow when making code contributions.",
+      "channelLabel": "Channel",
+      "githubTitle": "Github",
+      "githubDesc": "Use Github to report issues, organize information, or contribute content directly.",
+      "groupTitle": "Community Group",
+      "groupDesc": "A group will also be used for discussion and ideas. It is still being planned."
+    },
     "featureCards": {
       "moduleLabel": "Module",
       "dex": {
@@ -140,8 +150,9 @@
     "productHome": "Home",
     "communityTitle": "Community",
     "communityFeedback": "Feedback",
-    "copyright": "© 2025 Roco Kingdom Dex. Developed by @CeerDecy",
+    "copyright": "© 2026 Roco Kingdom Dex. Developed by @CeerDecy",
     "githubLabel": "GitHub",
+    "discordLabel": "Discord",
     "messageLabel": "Email"
   }
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { DiscordLogoIcon } from "@phosphor-icons/react";
 import { Github, MessageCircle } from "lucide-react";
 
 import { useLanguage } from "@/components/i18n/language-context";
@@ -85,16 +86,25 @@ export default function FooterBar() {
         <p>
           {t(
             "footer.copyright",
-            "© 2025 Roco Kingdom Dex. Developed by @CeerDecy",
+            "© 2026 Roco Kingdom Dex. Developed by @CeerDecy",
           )}
         </p>
         <div className="flex gap-4">
           <a
-            href="https://github.com/ceerdecy"
+            href="https://github.com/CeerDecy/rocokingdom-dex"
             aria-label={t("footer.githubLabel", "GitHub")}
             className="text-slate-500 transition-colors hover:text-slate-900"
           >
             <Github size={18} strokeWidth={1.5} />
+          </a>
+          <a
+            href="https://discord.gg/dhhhyd7Y"
+            target="_blank"
+            rel="noreferrer"
+            aria-label={t("footer.discordLabel", "Discord")}
+            className="text-slate-500 transition-colors hover:text-slate-900"
+          >
+            <DiscordLogoIcon size={18} weight="regular" />
           </a>
           <a
             href="mailto:ceerdecy@gmail.com?subject=Feedback&body=Hello"

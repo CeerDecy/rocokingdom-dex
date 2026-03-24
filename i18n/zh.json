@@ -67,6 +67,16 @@
     "primaryCta": "进入精灵图鉴",
     "secondaryCta": "查看属性介绍",
     "publicTestNote": "为洛克王国：世界公测随时做好准备",
+    "community": {
+      "kicker": "社区共建",
+      "title": "本站由社区维护",
+      "description": "任何人只要有想法，都可以通过 Github 提交问题、贡献内容，也可以通过群进行交流和提交想法。我们鼓励各位通过 Vibe Coding 的方式使用 AI 来进行代码贡献。",
+      "channelLabel": "参与渠道",
+      "githubTitle": "Github",
+      "githubDesc": "可以在 Github 提交问题、整理资料，或直接贡献内容。",
+      "groupTitle": "交流群",
+      "groupDesc": "也可以通过群进行交流和提交想法，当前仍在规划创建中。"
+    },
     "featureCards": {
       "moduleLabel": "模块",
       "dex": {
@@ -140,8 +150,9 @@
     "productHome": "首页",
     "communityTitle": "社区",
     "communityFeedback": "反馈",
-    "copyright": "© 2025 Roco Kingdom Dex. Developed by @CeerDecy",
+    "copyright": "© 2026 Roco Kingdom Dex. Developed by @CeerDecy",
     "githubLabel": "GitHub",
+    "discordLabel": "Discord",
     "messageLabel": "邮件"
   }
 }
