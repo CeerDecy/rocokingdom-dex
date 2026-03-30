@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import {
   BookOpen,
@@ -105,7 +106,6 @@ export default function HomePageClient() {
         "也可以通过群进行交流和提交想法，当前仍在规划创建中。",
       ),
       icon: MessageCircleMore,
-      href: "https://www.bilibili.com/video/BV1spQ6BnEc2/",
     },
   ];
 
@@ -205,8 +205,8 @@ export default function HomePageClient() {
                             </div>
                           </a>
                         ) : (
-                          <div className="flex gap-4">
-                            <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 bg-black/[0.03] text-black">
+                          <div className="group/card relative flex gap-4 cursor-pointer">
+                            <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 bg-black/[0.03] text-black transition-colors group-hover/card:border-black/25 group-hover/card:bg-black group-hover/card:text-white">
                               <Icon className="h-4 w-4" />
                             </span>
                             <div className="min-w-0">
@@ -217,6 +217,17 @@ export default function HomePageClient() {
                                 {channel.desc}
                               </p>
                             </div>
+                            {channel.key === "group" && (
+                              <div className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-3 -translate-x-1/2 rounded-xl border border-black/10 bg-white p-2 shadow-xl opacity-0 transition-all duration-200 group-hover/card:pointer-events-auto group-hover/card:opacity-100">
+                                <Image
+                                  src="/qq.jpg"
+                                  alt="QQ Group QR Code"
+                                  width={200}
+                                  height={200}
+                                  className="rounded-lg"
+                                />
+                              </div>
+                            )}
                           </div>
                         )}
                       </div>
